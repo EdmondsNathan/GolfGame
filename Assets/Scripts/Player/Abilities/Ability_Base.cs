@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Ability_Base : MonoBehaviour
 {
-	[SerializeField] private List<GameState> _activeStates = new();
+	protected List<GameState> _activeStates;
 
 	protected bool _isActiveState = false;
 

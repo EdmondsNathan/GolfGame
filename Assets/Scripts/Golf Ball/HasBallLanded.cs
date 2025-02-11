@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class HasBallLanded : MonoBehaviour
 {
-	[SerializeField] private Rigidbody2D _golfBallRigidbody;
-
 	protected void Update()
 	{
 		if (GameManager.CurrentState != GameState.BallMoving)
@@ -11,7 +9,7 @@ public class HasBallLanded : MonoBehaviour
 			return;
 		}
 
-		if (_golfBallRigidbody.IsSleeping() == true)
+		if (GetGolfBall.GolfBallRigidbody.IsSleeping() == true)
 		{
 			GameManager.CurrentState = GameState.BallLanded;
 		}

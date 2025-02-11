@@ -1,22 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability_Brake : Ability_Base
+public class Ability_Reset : Ability_Base
 {
+	[SerializeField] private int _cooldown = 1;
+
+	private int _currentCooldown;
+
 	private bool _isAvailable = true;
 
 	protected void Awake()
 	{
 		_activeStates = new List<GameState> { GameState.BallMoving };
+
+		_currentCooldown = _cooldown;
 	}
 
 	public override void OnStateEnter(GameState oldState, GameState newState)
 	{
 		base.OnStateEnter(oldState, newState);
 
-		if (newState == GameState.StartTurn)
+		if (newState != GameState.EndTurn)
+		{
+			return;
+		}
+
+		if (_isAvailable == true)
+		{
+			return;
+		}
+
+		_currentCooldown--;
+
+		if (_currentCooldown == 0)
 		{
 			_isAvailable = true;
+
+			_currentCooldown = _cooldown;
 		}
 	}
 
@@ -39,9 +59,7 @@ public class Ability_Brake : Ability_Base
 			return;
 		}
 
-		GetGolfBall.GolfBallRigidbody.linearVelocity = Vector2.zero;
-
-		GetGolfBall.GolfBallRigidbody.angularVelocity = 0;
+		ResetBall.Instance.ResetTurn(false);
 
 		_isAvailable = false;
 	}
