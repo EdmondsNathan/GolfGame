@@ -37,11 +37,11 @@ public class ResetBall : MonoBehaviour
 
 	public void ResetTurn(bool increaseTurnCount = true)
 	{
-		GetGolfBall.GolfBallRigidbody.linearVelocity = Vector2.zero;
+		GetGolfBall.Rigidbody_GolfBall.linearVelocity = Vector2.zero;
 
-		GetGolfBall.GolfBallRigidbody.angularVelocity = 0;
+		GetGolfBall.Rigidbody_GolfBall.angularVelocity = 0;
 
-		GetGolfBall.GolfBallRigidbody.transform.position = _lastPosition;
+		GetGolfBall.Rigidbody_GolfBall.transform.position = _lastPosition;
 
 		GameManager.CurrentState = GameState.StartTurn;
 

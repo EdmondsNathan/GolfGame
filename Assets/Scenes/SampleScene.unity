@@ -147,7 +147,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4.5, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalScale: {x: 50, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1783717035}
@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -359,7 +360,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -384,12 +385,26 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -23, y: -3.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb63985946a61f4295207556b50fe41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chaseSpeed: 0.025
+  _maxDistance: 5
 --- !u!1 &524455582
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,8 +760,8 @@ Transform:
   m_GameObject: {fileID: 796042842}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_LocalPosition: {x: 25.5, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1783717035}
@@ -879,8 +894,8 @@ Transform:
   m_GameObject: {fileID: 1448018447}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_LocalPosition: {x: -25.5, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1783717035}
@@ -1002,7 +1017,7 @@ GameObject:
   - component: {fileID: 1571482559}
   - component: {fileID: 1571482560}
   - component: {fileID: 1571482562}
-  - component: {fileID: 1571482561}
+  - component: {fileID: 1571482563}
   m_Layer: 0
   m_Name: Golf Ball
   m_TagString: Untagged
@@ -1137,7 +1152,7 @@ Transform:
   m_GameObject: {fileID: 1571482553}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: -3.5, z: 0}
+  m_LocalPosition: {x: -23, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1155,7 +1170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4aee2b670edb43489569e5f930f9358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _golfBallRigidbody: {fileID: 1571482554}
   _chargeMultiplier: 50
 --- !u!114 &1571482559
 MonoBehaviour:
@@ -1169,7 +1183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a2a40f54844f241a1520cd9d3c4613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _golfBallRigidbody: {fileID: 1571482554}
 --- !u!114 &1571482560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1180,18 +1193,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 919c06de697e410458d44160ddefd0c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1571482561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571482553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408b3e49713770641ab8a2c52c7b8cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1571482562
@@ -1206,7 +1207,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52af6c5514b0994ab964ef0522d4b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _golfBallRigidbody: {fileID: 0}
+--- !u!114 &1571482563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571482553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfaac3a7581505441ae10ef4d8102cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1584101587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,7 +1360,7 @@ Transform:
   m_GameObject: {fileID: 1584101587}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -1.5, z: 0}
+  m_LocalPosition: {x: 22.5, y: -1.5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1416,8 +1428,8 @@ Transform:
   m_GameObject: {fileID: 2009622535}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 44.5, z: 0}
+  m_LocalScale: {x: 50, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1783717035}

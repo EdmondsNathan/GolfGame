@@ -4,8 +4,10 @@ public class SetGolfBallOnAwake : MonoBehaviour
 {
 	protected void Awake()
 	{
-		GetGolfBall.GolfBall = gameObject;
+		GetGolfBall.GameObject_GolfBall = gameObject;
 
-		GetGolfBall.GolfBallRigidbody = GetComponent<Rigidbody2D>();
+		GetGolfBall.Rigidbody_GolfBall = GetComponent<Rigidbody2D>();
+
+		GetGolfBall.Transform_GolfBall = transform;
 	}
 }

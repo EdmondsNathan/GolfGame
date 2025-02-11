@@ -39,9 +39,9 @@ public class Ability_Brake : Ability_Base
 			return;
 		}
 
-		GetGolfBall.GolfBallRigidbody.linearVelocity = Vector2.zero;
+		GetGolfBall.Rigidbody_GolfBall.linearVelocity = Vector2.zero;
 
-		GetGolfBall.GolfBallRigidbody.angularVelocity = 0;
+		GetGolfBall.Rigidbody_GolfBall.angularVelocity = 0;
 
 		_isAvailable = false;
 	}

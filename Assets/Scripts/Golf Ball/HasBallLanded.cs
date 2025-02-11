@@ -9,7 +9,7 @@ public class HasBallLanded : MonoBehaviour
 			return;
 		}
 
-		if (GetGolfBall.GolfBallRigidbody.IsSleeping() == true)
+		if (GetGolfBall.Rigidbody_GolfBall.IsSleeping() == true)
 		{
 			GameManager.CurrentState = GameState.BallLanded;
 		}

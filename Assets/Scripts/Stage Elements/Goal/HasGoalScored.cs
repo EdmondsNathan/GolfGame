@@ -17,7 +17,7 @@ public class HasGoalScored : MonoBehaviour
 
 	protected void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (collider.gameObject == GetGolfBall.GolfBall)
+		if (collider.gameObject == GetGolfBall.GameObject_GolfBall)
 		{
 			_isGolfBallInGoal = true;
 		}
@@ -25,7 +25,7 @@ public class HasGoalScored : MonoBehaviour
 
 	protected void OnTriggerExit2D(Collider2D collider)
 	{
-		if (collider.gameObject == GetGolfBall.GolfBall)
+		if (collider.gameObject == GetGolfBall.GameObject_GolfBall)
 		{
 			_isGolfBallInGoal = false;
 		}

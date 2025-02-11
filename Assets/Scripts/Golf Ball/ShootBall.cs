@@ -44,7 +44,7 @@ public class ShootBall : MonoBehaviour
 
 		_aimVector.y = Mathf.Sin(_aimRad);
 
-		GetGolfBall.GolfBallRigidbody.AddForce(_aimVector * _chargeAmount * _chargeMultiplier);
+		GetGolfBall.Rigidbody_GolfBall.AddForce(_aimVector * _chargeAmount * _chargeMultiplier);
 
 		StartCoroutine(EnterBallMovingState());
 	}
