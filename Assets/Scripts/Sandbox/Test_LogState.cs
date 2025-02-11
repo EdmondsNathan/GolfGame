@@ -10,9 +10,19 @@ public class Test_LogState : MonoBehaviour
 
 	protected void Update()
 	{
+		/* if (Input.GetKeyDown(KeyCode.O))
+		{
+			GameManager.CurrentState = GameState.StartTurn;
+		}
+
 		if (Input.GetKeyDown(KeyCode.P))
 		{
-			GameStateManager.CurrentState = GameState.AimShot;
+			GameManager.CurrentState = GameState.AimShot;
+		} */
+
+		if (Input.GetKeyDown(KeyCode.I))
+		{
+			Debug.Log(GameManager.CurrentState);
 		}
 	}
 

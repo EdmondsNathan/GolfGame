@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "AimPrecise",
+                    "type": "Value",
+                    "id": "a24a0dd9-66b3-418b-9a5f-426df41a249e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "ChargeShot",
                     "type": "Value",
                     "id": "bd583ed5-4254-4262-85a1-cf4cd8dd4b31",
@@ -205,6 +214,28 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "CancelCharge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "756ab6db-643b-4d44-a4bf-5f81603b50e8",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "AimPrecise",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6681b710-98b8-4722-ab62-373a791b1dbc",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "AimPrecise",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

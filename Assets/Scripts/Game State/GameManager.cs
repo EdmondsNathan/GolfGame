@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 public enum GameState
 {
@@ -8,10 +9,11 @@ public enum GameState
 	ShootBall,
 	BallMoving,
 	BallLanded,
-	EndTurn
+	EndTurn,
+	GoalScored
 }
 
-public static class GameStateManager
+public static class GameManager
 {
 	private static GameState _oldState;
 

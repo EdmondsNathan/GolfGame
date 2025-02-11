@@ -4,7 +4,21 @@ public abstract class ChargeShot_Base : MonoBehaviour
 {
 	[SerializeField] protected float _minCharge, _maxCharge;
 
-	protected float _currentCharge = 0;
+	private float _currentCharge = 0;
+
+	protected float CurrentCharge
+	{
+		get
+		{
+			return _currentCharge;
+		}
+		set
+		{
+			_currentCharge = value;
+
+			Messages_ChargeShot.OnChargeChanged?.Invoke(_currentCharge);
+		}
+	}
 
 	protected virtual void OnEnable()
 	{
@@ -18,7 +32,7 @@ public abstract class ChargeShot_Base : MonoBehaviour
 
 	protected void Update()
 	{
-		if (GameStateManager.CurrentState != GameState.ChargeShot)
+		if (GameManager.CurrentState != GameState.ChargeShot)
 		{
 			return;
 		}
@@ -31,10 +45,6 @@ public abstract class ChargeShot_Base : MonoBehaviour
 	public virtual void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.ChargeShot)
-		{
-			_currentCharge = 0f;
-		}
-		else if (newState == GameState.ShootBall)
 		{
 			_currentCharge = 0;
 		}

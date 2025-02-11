@@ -12,7 +12,7 @@ public class SetStateOnStart : MonoBehaviour
 	protected void Start()
 	{
 		//Makes sure that any previous state that might be from another scene doesn't send junk messages
-		GameStateManager.ChangeStateWithoutSendingMessages(_startingState);
+		GameManager.ChangeStateWithoutSendingMessages(_startingState);
 
 		if (_sendMessage == true)
 		{

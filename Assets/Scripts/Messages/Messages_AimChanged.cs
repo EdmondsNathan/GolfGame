@@ -3,5 +3,5 @@ using UnityEngine;
 
 public static class Messages_AimChanged
 {
-	public static Action<float> AimAngle;
+	public static Action<float> OnAimChanged;
 }

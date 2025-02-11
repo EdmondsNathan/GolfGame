@@ -13,9 +13,7 @@ public class ChargeShot_PingPong : ChargeShot_Base
 	{
 		_pingPongValue = Mathf.PingPong((Time.time - _startingTime) * _speed, _maxCharge - _minCharge);
 
-		_currentCharge = _minCharge + _pingPongValue;
-
-		Messages_ChargeShot.ChargeShot(_currentCharge);
+		CurrentCharge = _minCharge + _pingPongValue;
 	}
 
 	public override void OnStateEnter(GameState oldState, GameState newState)
