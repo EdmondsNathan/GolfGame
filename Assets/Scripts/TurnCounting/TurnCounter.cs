@@ -2,21 +2,12 @@ using UnityEngine;
 
 public class TurnCounter : MonoBehaviour
 {
-	private int _turnCount = 0;
+	private int _turnCount = 1;
 
-	/* private int TurnCount
+	protected void Start()
 	{
-		get
-		{
-			return _turnCount;
-		}
-		set
-		{
-			_turnCount = value;
-
-			Messages_TurnCountChanged.OnTurnCountChanged?.Invoke(_turnCount);
-		}
-	} */
+		Messages_TurnCountChanged.OnTurnCountChanged?.Invoke(_turnCount);
+	}
 
 	protected void OnEnable()
 	{
@@ -34,7 +25,7 @@ public class TurnCounter : MonoBehaviour
 
 	public void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (newState == GameState.StartTurn)
+		if (newState == GameState.EndTurn)
 		{
 			_turnCount++;
 

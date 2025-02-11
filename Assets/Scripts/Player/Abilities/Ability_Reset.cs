@@ -59,7 +59,7 @@ public class Ability_Reset : Ability_Base
 			return;
 		}
 
-		ResetBall.Instance.ResetTurn(false);
+		ResetBall.Instance.ResetTurn(GameState.StartTurn);
 
 		_isAvailable = false;
 	}

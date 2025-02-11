@@ -2,24 +2,22 @@ using UnityEngine;
 
 public class Test_LogState : MonoBehaviour
 {
-	protected void Start()
+	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += StateEnter;
+
 		Messages_GameStateChanged.OnStateExit += StateExit;
+	}
+
+	protected void OnDisable()
+	{
+		Messages_GameStateChanged.OnStateEnter -= StateEnter;
+
+		Messages_GameStateChanged.OnStateExit -= StateExit;
 	}
 
 	protected void Update()
 	{
-		/* if (Input.GetKeyDown(KeyCode.O))
-		{
-			GameManager.CurrentState = GameState.StartTurn;
-		}
-
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			GameManager.CurrentState = GameState.AimShot;
-		} */
-
 		if (Input.GetKeyDown(KeyCode.I))
 		{
 			Debug.Log(GameManager.CurrentState);

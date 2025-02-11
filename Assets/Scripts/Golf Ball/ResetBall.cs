@@ -6,7 +6,7 @@ public class ResetBall : MonoBehaviour
 
 	private Vector2 _lastPosition;
 
-	private int _turnCount = 0;
+	private int _turnCount = 1;
 
 	protected void Awake()
 	{
@@ -35,7 +35,8 @@ public class ResetBall : MonoBehaviour
 		}
 	}
 
-	public void ResetTurn(bool increaseTurnCount = true)
+	//StartTurn will prevent the turn count from increasing, EndTurn will increase the turn count
+	public void ResetTurn(GameState nextState = GameState.EndTurn)
 	{
 		GetGolfBall.Rigidbody_GolfBall.linearVelocity = Vector2.zero;
 
@@ -43,14 +44,7 @@ public class ResetBall : MonoBehaviour
 
 		GetGolfBall.Rigidbody_GolfBall.transform.position = _lastPosition;
 
-		GameManager.CurrentState = GameState.StartTurn;
-
-		if (increaseTurnCount == false)
-		{
-			_turnCount--;
-
-			Messages_TurnCountChanged.OnTurnCountChanged?.Invoke(_turnCount);
-		}
+		GameManager.CurrentState = nextState;
 	}
 
 	public void OnTurnCountChanged(int turnCount)

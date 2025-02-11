@@ -18,6 +18,11 @@ public class Camera_ChaseGolfBall : MonoBehaviour
 
 	protected void FixedUpdate()
 	{
+		if (GameManager.CurrentState != GameState.BallMoving)
+		{
+			return;
+		}
+
 		transform.position = Vector2.Lerp(transform.position, GetGolfBall.Transform_GolfBall.position, _chaseSpeed);
 
 		if (Vector2.Distance(transform.position, GetGolfBall.Transform_GolfBall.position) > _maxDistance)
