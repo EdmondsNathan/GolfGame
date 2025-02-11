@@ -5,11 +5,13 @@ public class Camera_ChaseGolfBall : MonoBehaviour
 {
 	[SerializeField] private float _chaseSpeed;
 
+	[SerializeField] private float _catchUpSpeed;
+
 	[SerializeField] private float _maxDistance;
 
-	private float _cameraZ;
+	private float _currentSpeed;
 
-	private Vector2 _direction;
+	private float _cameraZ;
 
 	protected void Awake()
 	{
@@ -23,12 +25,16 @@ public class Camera_ChaseGolfBall : MonoBehaviour
 			return;
 		}
 
-		transform.position = Vector2.Lerp(transform.position, GetGolfBall.Transform_GolfBall.position, _chaseSpeed);
+		/* value = distance
+		oldMin = 0
+		oldMax = maxDistance
+		newMin = chasespeed
+		newMax = catchupspeed
+		(value - oldMin) / (oldMax - oldMin) * (newMax - newMin) + newMin */
 
-		if (Vector2.Distance(transform.position, GetGolfBall.Transform_GolfBall.position) > _maxDistance)
-		{
-			transform.position = (Vector2)GetGolfBall.Transform_GolfBall.position + ((Vector2)transform.position - (Vector2)GetGolfBall.Transform_GolfBall.position).normalized * _maxDistance;
-		}
+		_currentSpeed = Mathf.Clamp((Vector2.Distance(transform.position, GetGolfBall.Transform_GolfBall.position)) / (_maxDistance) * (_catchUpSpeed - _chaseSpeed) + _chaseSpeed, 0, _catchUpSpeed);
+
+		transform.position = Vector2.Lerp(transform.position, GetGolfBall.Transform_GolfBall.position, _currentSpeed);
 
 		transform.position += Vector3.forward * _cameraZ;
 	}
