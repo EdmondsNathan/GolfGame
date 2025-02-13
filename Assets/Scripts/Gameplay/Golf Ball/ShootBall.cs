@@ -3,7 +3,20 @@ using UnityEngine;
 
 public class ShootBall : MonoBehaviour
 {
-	[SerializeField] private float _chargeMultiplier = 1;
+	/* [SerializeField]  */
+	private float _chargeMultiplier = 1;
+
+	public float ChargeMultiplier
+	{
+		get
+		{
+			return _chargeMultiplier;
+		}
+		set
+		{
+			_chargeMultiplier = value;
+		}
+	}
 
 	private float _aimAngle;
 
@@ -38,13 +51,13 @@ public class ShootBall : MonoBehaviour
 			return;
 		}
 
-		_aimRad = (_aimAngle + 90) * Mathf.Deg2Rad;
+		_aimRad = _aimAngle * Mathf.Deg2Rad;
 
 		_aimVector.x = Mathf.Cos(_aimRad);
 
 		_aimVector.y = Mathf.Sin(_aimRad);
 
-		GetGolfBall.Rigidbody_GolfBall.AddForce(_aimVector * _chargeAmount * _chargeMultiplier);
+		GetGolfBall.Rigidbody_GolfBall.AddForce(_chargeAmount * _chargeMultiplier * _aimVector, ForceMode2D.Impulse);
 
 		StartCoroutine(EnterBallMovingState());
 	}

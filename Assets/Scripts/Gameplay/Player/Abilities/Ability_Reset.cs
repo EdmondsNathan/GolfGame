@@ -32,7 +32,7 @@ public class Ability_Reset : Ability_Base
 
 		_currentCooldown--;
 
-		if (_currentCooldown == 0)
+		if (_currentCooldown <= 0)
 		{
 			_isAvailable = true;
 
@@ -61,6 +61,6 @@ public class Ability_Reset : Ability_Base
 
 		ResetBall.Instance.ResetTurn(GameState.StartTurn);
 
-		_isAvailable = false;
+		_isAvailable = _currentCooldown <= 0;
 	}
 }

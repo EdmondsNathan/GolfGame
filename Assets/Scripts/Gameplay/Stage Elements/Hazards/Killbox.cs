@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DeathTrigger : MonoBehaviour
+public class Killbox : MonoBehaviour
 {
 	protected void OnTriggerEnter2D(Collider2D collider)
 	{

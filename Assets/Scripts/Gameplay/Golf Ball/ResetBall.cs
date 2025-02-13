@@ -31,7 +31,7 @@ public class ResetBall : MonoBehaviour
 	{
 		if (newState == GameState.ShootBall)
 		{
-			_lastPosition = transform.position;
+			_lastPosition = GetGolfBall.Transform_GolfBall.position;
 		}
 	}
 

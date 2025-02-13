@@ -40,14 +40,7 @@ public class HasGoalScored : MonoBehaviour
 
 		if (_isGolfBallInGoal == true)
 		{
-			StartCoroutine(GoalScored());
+			GameManager.CurrentState = GameState.GoalScored;
 		}
-	}
-
-	IEnumerator GoalScored()
-	{
-		yield return null;
-
-		GameManager.CurrentState = GameState.GoalScored;
 	}
 }

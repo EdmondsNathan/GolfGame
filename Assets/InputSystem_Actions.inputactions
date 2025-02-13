@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Reset",
+                    "type": "Button",
+                    "id": "ef9dfbeb-ff81-4c4f-8d81-b0d875b036b1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -173,8 +182,8 @@
                 },
                 {
                     "name": "",
-                    "id": "f4a1adcc-4fbe-4842-914f-83602e09dd6f",
-                    "path": "<Gamepad>/leftTrigger",
+                    "id": "6681b710-98b8-4722-ab62-373a791b1dbc",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -206,22 +215,22 @@
                 },
                 {
                     "name": "",
-                    "id": "756ab6db-643b-4d44-a4bf-5f81603b50e8",
-                    "path": "<Keyboard>/shift",
+                    "id": "f4a1adcc-4fbe-4842-914f-83602e09dd6f",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": ";Gamepad",
                     "action": "AimPrecise",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "6681b710-98b8-4722-ab62-373a791b1dbc",
-                    "path": "<Gamepad>/buttonNorth",
+                    "id": "756ab6db-643b-4d44-a4bf-5f81603b50e8",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Keyboard&Mouse",
                     "action": "AimPrecise",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -238,7 +247,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "Arrow Keys",
                     "id": "e18fdaa5-fa9b-4211-9b40-65da29d6bc53",
                     "path": "2DVector",
                     "interactions": "",
@@ -291,6 +300,28 @@
                     "action": "MoveCamera",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "25ae4e9d-c073-4cb5-a6d2-f56a1b1002d7",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "88e73404-9b0f-4c69-af22-1036287d1617",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

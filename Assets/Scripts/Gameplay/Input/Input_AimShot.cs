@@ -38,7 +38,7 @@ public class Input_AimShot : MonoBehaviour
 
 			_aimAngle = Math.Clamp(_aimAngle, -_maxAngle, _maxAngle);
 
-			Messages_AimChanged.OnAimChanged?.Invoke(_aimAngle);
+			Messages_AimChanged.OnAimChanged?.Invoke(_aimAngle + 90);
 		}
 	}
 
