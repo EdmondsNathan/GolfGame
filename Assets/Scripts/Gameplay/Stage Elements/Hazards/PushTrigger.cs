@@ -16,9 +16,7 @@ public class PushTrigger : MonoBehaviour, ISimulationFixedUpdate
 
 	protected void OnTriggerEnter2D(Collider2D collider)
 	{
-		Rigidbody2D newRigidbody = collider.GetComponent<Rigidbody2D>();
-
-		if (newRigidbody != null)
+		if (collider.TryGetComponent<Rigidbody2D>(out var newRigidbody))
 		{
 			_rigidbodies.Add(newRigidbody);
 		}
@@ -43,7 +41,7 @@ public class PushTrigger : MonoBehaviour, ISimulationFixedUpdate
 	{
 		foreach (Rigidbody2D rb in _rigidbodies)
 		{
-			rb.AddForce(_forceAmount * _forceDirection, ForceMode2D.Force);
+			rb.AddForce(_forceAmount * transform.TransformDirection(_forceDirection), ForceMode2D.Force);
 		}
 	}
 }

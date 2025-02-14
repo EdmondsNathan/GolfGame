@@ -6,7 +6,7 @@ public class Killbox : MonoBehaviour
 	{
 		if (collider.gameObject == GetGolfBall.GameObject_GolfBall)
 		{
-			ResetBall.Instance.ResetTurn(GameState.EndTurn);
+			ResetBall.Instance.ResetTurn();
 		}
 	}
 }

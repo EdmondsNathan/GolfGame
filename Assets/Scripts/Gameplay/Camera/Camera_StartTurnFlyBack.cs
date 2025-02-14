@@ -38,7 +38,7 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 			return;
 		}
 
-		if (GameManager.CurrentState != GameState.AimShot && GameManager.CurrentState != GameState.ChargeShot)
+		if (GameManager.CurrentState != GameState.AimShot /* && GameManager.CurrentState != GameState.ChargeShot */)
 		{
 			_currentSpeed = 0;
 

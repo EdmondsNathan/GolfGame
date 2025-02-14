@@ -1,10 +1,7 @@
 ToDo:
 
--More abilities
-
 -Menu
 
+-More abilities
+
 -Courses
-
--Aiming and charging UI
-

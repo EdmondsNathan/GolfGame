@@ -9,7 +9,7 @@ public abstract class Ability_Base : MonoBehaviour
 
 	protected bool _isPressed = false;
 
-	protected void OnEnable()
+	protected virtual void OnEnable()
 	{
 		_isActiveState = false;
 
@@ -20,7 +20,7 @@ public abstract class Ability_Base : MonoBehaviour
 		Messages_UseAbility.OnUseAbilityPressed += OnUseAbilityPressed;
 	}
 
-	protected void OnDisable()
+	protected virtual void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 
