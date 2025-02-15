@@ -5,6 +5,19 @@ public class SetSelected : MonoBehaviour
 {
 	private GameObject _previousSelected, _currentSelected;
 
+	public GameObject PreviousSelected
+	{
+		get
+		{
+			return _previousSelected;
+		}
+	}
+
+	protected void Awake()
+	{
+		_currentSelected = EventSystem.current.firstSelectedGameObject;
+	}
+
 	public void SetSelectedGameObject(GameObject selected)
 	{
 		EventSystem.current.SetSelectedGameObject(selected);
