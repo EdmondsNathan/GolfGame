@@ -66,7 +66,7 @@ public class Input_AimShot : MonoBehaviour
 			return;
 		}
 
-		AimAngle -= _aimInput * Time.deltaTime * _currentSpeed;
+		AimAngle -= _aimInput * Time.unscaledDeltaTime * _currentSpeed;
 	}
 
 	public void OnAimShot(InputValue inputValue)

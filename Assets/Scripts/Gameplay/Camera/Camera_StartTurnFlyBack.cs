@@ -45,9 +45,9 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 			return;
 		}
 
-		_currentSpeed = Mathf.Lerp(_currentSpeed, _maxSpeed, _acceleration * Time.deltaTime);
+		_currentSpeed = Mathf.Lerp(_currentSpeed, _maxSpeed, _acceleration * Time.unscaledDeltaTime);
 
-		transform.position = Vector2.Lerp(transform.position, GetGolfBall.Transform_GolfBall.position, _maxSpeed * Time.deltaTime);
+		transform.position = Vector2.Lerp(transform.position, GetGolfBall.Transform_GolfBall.position, _maxSpeed * Time.unscaledDeltaTime);
 
 		transform.position += Vector3.forward * _cameraZ;
 	}

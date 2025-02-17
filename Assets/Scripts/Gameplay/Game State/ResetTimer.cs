@@ -44,17 +44,4 @@ public class ResetTimer : MonoBehaviour
 			_currentTimer = 0;
 		}
 	}
-
-	public void OnReset(InputValue inputValue)
-	{
-		if (inputValue.isPressed == false)
-		{
-			return;
-		}
-
-		if (_currentTimer > _resetTimer)
-		{
-			ResetBall.Instance.ResetTurn(true);
-		}
-	}
 }

@@ -20,7 +20,8 @@ public class Camera_ChaseGolfBall : MonoBehaviour
 
 	protected void FixedUpdate()
 	{
-		if (GameManager.CurrentState != GameState.BallMoving)
+		if (GameManager.CurrentState != GameState.BallMoving && GameManager.CurrentState != GameState.GoalScored)
+		//if (GetGolfBall.Rigidbody_GolfBall.IsSleeping() == true)
 		{
 			return;
 		}

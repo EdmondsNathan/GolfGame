@@ -16,7 +16,7 @@ public class RotateMenu : MonoBehaviour
 	{
 		_currentRotation.y = Mathf.Lerp(_currentRotation.y, _targetRotation, _speed * Time.deltaTime);
 
-		_planet.eulerAngles = _currentRotation;
+		_planet.localEulerAngles = _currentRotation;
 	}
 
 	public void Rotate()

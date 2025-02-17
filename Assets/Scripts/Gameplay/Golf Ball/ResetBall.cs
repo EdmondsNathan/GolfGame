@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ResetBall : MonoBehaviour
 {
-	public static ResetBall Instance;
+	//public static ResetBall Instance;
 
 	private Vector2 _lastPosition;
 
@@ -10,12 +10,14 @@ public class ResetBall : MonoBehaviour
 
 	protected void Awake()
 	{
-		Instance = this;
+		//Instance = this;
 	}
 
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
+
+		Messages_ResetTimer.OnReset += ResetTurn;
 
 		//Messages_TurnCountChanged.OnTurnCountChanged += OnTurnCountChanged;
 	}
@@ -23,6 +25,8 @@ public class ResetBall : MonoBehaviour
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
+
+		Messages_ResetTimer.OnReset -= ResetTurn;
 
 		//Messages_TurnCountChanged.OnTurnCountChanged += OnTurnCountChanged;
 	}
@@ -36,7 +40,7 @@ public class ResetBall : MonoBehaviour
 	}
 
 	//StartTurn will prevent the turn count from increasing, EndTurn will increase the turn count
-	public void ResetTurn(bool countTurn = true)
+	public void ResetTurn(bool countTurn)
 	{
 		GetGolfBall.Rigidbody_GolfBall.linearVelocity = Vector2.zero;
 

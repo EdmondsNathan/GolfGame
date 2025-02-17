@@ -33,9 +33,9 @@ public class Camera_Move : MonoBehaviour
 			return;
 		}
 
-		_currentSpeed = Mathf.Lerp(_currentSpeed, _maxSpeed, _acceleration * Time.deltaTime);
+		_currentSpeed = Mathf.Lerp(_currentSpeed, _maxSpeed, _acceleration * Time.unscaledDeltaTime);
 
-		transform.position += _movementVector * _currentSpeed * Time.deltaTime;
+		transform.position += _movementVector * _currentSpeed * Time.unscaledDeltaTime;
 	}
 
 	public void OnStateEnter(GameState oldState, GameState newState)

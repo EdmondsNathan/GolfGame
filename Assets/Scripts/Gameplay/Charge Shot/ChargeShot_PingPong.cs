@@ -11,7 +11,7 @@ public class ChargeShot_PingPong : ChargeShot_Base
 
 	protected override void ChargeShot()
 	{
-		_pingPongValue = Mathf.PingPong((Time.time - _startingTime) * _speed, _maxCharge - _minCharge);
+		_pingPongValue = Mathf.PingPong((Time.unscaledTime - _startingTime) * _speed, _maxCharge - _minCharge);
 
 		CurrentCharge = _minCharge + _pingPongValue;
 	}
@@ -27,6 +27,6 @@ public class ChargeShot_PingPong : ChargeShot_Base
 
 		_pingPongValue = 0;
 
-		_startingTime = Time.time;
+		_startingTime = Time.unscaledTime;
 	}
 }

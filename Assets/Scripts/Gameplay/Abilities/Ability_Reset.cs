@@ -59,7 +59,8 @@ public class Ability_Reset : Ability_Base
 			return;
 		}
 
-		ResetBall.Instance.ResetTurn(false);
+		//ResetBall.Instance.ResetTurn(false);
+		Messages_ResetTimer.OnReset?.Invoke(false);
 
 		_isAvailable = _currentCooldown <= 0;
 	}

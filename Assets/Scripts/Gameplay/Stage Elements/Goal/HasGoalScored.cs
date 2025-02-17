@@ -3,23 +3,24 @@ using UnityEngine;
 
 public class HasGoalScored : MonoBehaviour
 {
-	private bool _isGolfBallInGoal = false;
+	//private bool _isGolfBallInGoal = false;
 
 	protected void OnEnable()
 	{
-		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
+		//Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 	}
 
 	protected void OnDisable()
 	{
-		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
+		//Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 	}
 
 	protected void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.gameObject == GetGolfBall.GameObject_GolfBall)
 		{
-			_isGolfBallInGoal = true;
+			//_isGolfBallInGoal = true;
+			GameManager.CurrentState = GameState.GoalScored;
 		}
 	}
 
@@ -27,11 +28,11 @@ public class HasGoalScored : MonoBehaviour
 	{
 		if (collider.gameObject == GetGolfBall.GameObject_GolfBall)
 		{
-			_isGolfBallInGoal = false;
+			//_isGolfBallInGoal = false;
 		}
 	}
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	/*public void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState != GameState.BallLanded)
 		{
@@ -42,5 +43,5 @@ public class HasGoalScored : MonoBehaviour
 		{
 			GameManager.CurrentState = GameState.GoalScored;
 		}
-	}
+	}*/
 }

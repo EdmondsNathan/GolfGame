@@ -6,6 +6,11 @@ public abstract class ChargeShot_Base : MonoBehaviour
 
 	private float _currentCharge = 0;
 
+	protected void Start()
+	{
+		Messages_ChargeShot.OnChargeChanged?.Invoke(_minCharge);
+	}
+
 	protected float CurrentCharge
 	{
 		get
