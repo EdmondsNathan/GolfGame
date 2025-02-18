@@ -3,13 +3,21 @@ using UnityEngine;
 
 public class FadeMenu : MonoBehaviour
 {
-	[SerializeField] CanvasGroup _startingCanvasGroup;
+	[SerializeField] private CanvasGroup _startingCanvasGroup;
 
 	[SerializeField] private float _fadeInSpeed, _fadeOutSpeed;
 
 	//[SerializeField] private float _fadeTime = 1f;
 
 	private CanvasGroup _previousCanvasGroup, _currentCanvasGroup;
+
+	/*public CanvasGroup CurrentCanvasGroup
+	{
+		get
+		{
+			return _currentCanvasGroup;
+		}
+	}*/
 
 	public CanvasGroup PreviousCanvasGroup
 	{
@@ -22,6 +30,11 @@ public class FadeMenu : MonoBehaviour
 	public void Awake()
 	{
 		_currentCanvasGroup = _startingCanvasGroup;
+	}
+
+	public void Start()
+	{
+		Messages_MenuChange.OnCanvasGroupChanged?.Invoke(_currentCanvasGroup);
 	}
 
 	protected void Update()
@@ -49,6 +62,8 @@ public class FadeMenu : MonoBehaviour
 		_previousCanvasGroup.blocksRaycasts = false;
 
 		_currentCanvasGroup.blocksRaycasts = true;
+
+		Messages_MenuChange.OnCanvasGroupChanged?.Invoke(canvasGroup);
 	}
 
 	public void PreviousFade()
