@@ -68,10 +68,10 @@ public class Projection : MonoBehaviour
 
 	public void OnChargeChanged(float chargeAmount)
 	{
-		if (GameManager.CurrentState != GameState.ChargeShot)
+		/*if (GameManager.CurrentState != GameState.ChargeShot)
 		{
 			return;
-		}
+		}*/
 
 		_chargeAmount = chargeAmount;
 

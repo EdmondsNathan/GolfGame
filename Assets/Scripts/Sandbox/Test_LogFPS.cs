@@ -10,7 +10,7 @@ public class Test_LogFPS : MonoBehaviour
 
 	protected void Update()
 	{
-		_fps[_count] = 1 / Time.deltaTime;
+		_fps[_count] = 1 / Time.unscaledDeltaTime;
 
 		_count++;
 
@@ -20,6 +20,6 @@ public class Test_LogFPS : MonoBehaviour
 		}
 
 		Debug.Log("avg fps: " + _fps.Sum() / 10);
-		// Debug.Log("FPS: " + 1 / Time.deltaTime);
+		// Debug.Log("FPS: " + 1 / Time.unscaledDeltaTime);
 	}
 }

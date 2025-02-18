@@ -8,7 +8,9 @@ public abstract class ChargeShot_Base : MonoBehaviour
 
 	protected void Start()
 	{
-		Messages_ChargeShot.OnChargeChanged?.Invoke(_minCharge);
+		Messages_ChargeShot.MinAndMaxCharge?.Invoke(_minCharge, _maxCharge);
+
+		//Messages_ChargeShot.OnChargeChanged?.Invoke(_minCharge);
 	}
 
 	protected float CurrentCharge

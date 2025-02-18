@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using UnityEngine;
 
 public enum GameState
 {
@@ -34,7 +33,7 @@ public static class GameManager
 
 			_oldState = CurrentState;
 
-			Messages_GameStateChanged.OnStateExit?.Invoke(_oldState, value);
+			//Messages_GameStateChanged.OnStateExit?.Invoke(_oldState, value);
 
 			_currentState = value;
 

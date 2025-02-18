@@ -36,11 +36,11 @@ public class TransitionTurn : MonoBehaviour
 
 	IEnumerator ChangeStateNextFrame(GameState checkState, GameState nextState)
 	{
-		yield return null;
-
 		if (GameManager.CurrentState == checkState)
 		{
 			GameManager.CurrentState = nextState;
 		}
+
+		yield return null;
 	}
 }

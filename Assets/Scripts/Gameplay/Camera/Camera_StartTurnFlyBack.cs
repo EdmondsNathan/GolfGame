@@ -6,7 +6,7 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 
 	[SerializeField] private float _acceleration;
 
-	private float _currentSpeed;
+	private float _currentSpeed = 0;
 
 	private float _cameraZ;
 

@@ -6,14 +6,14 @@ public class Test_LogState : MonoBehaviour
 	{
 		Messages_GameStateChanged.OnStateEnter += StateEnter;
 
-		Messages_GameStateChanged.OnStateExit += StateExit;
+		//Messages_GameStateChanged.OnStateExit += StateExit;
 	}
 
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= StateEnter;
 
-		Messages_GameStateChanged.OnStateExit -= StateExit;
+		//Messages_GameStateChanged.OnStateExit -= StateExit;
 	}
 
 	protected void Update()
@@ -29,8 +29,8 @@ public class Test_LogState : MonoBehaviour
 		Debug.Log("Entering " + newState);
 	}
 
-	public void StateExit(GameState oldState, GameState newState)
+	/*public void StateExit(GameState oldState, GameState newState)
 	{
 		Debug.Log("Exiting " + oldState);
-	}
+	}*/
 }

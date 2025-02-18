@@ -4,6 +4,11 @@
 	-Ability Selction
 	-Ball Selection
 
+-UI
+	-Better aim/charge preview
+	-Turn and par counter
+	-Ability
+
 -Abilities
 	-Grapple
 	-Gravity shift(Shift gravity in input direction)
@@ -41,11 +46,11 @@
 	-Solar system(goal is the sun, orbiting planets cause gravity issues)
 
 -Unlocks
-	-balls
-		-zero gravity ball: finish a zero-g course under par
+	-balls: hidden spots in courses
+		-zero gravity ball: //finish a zero-g course under par
 		-square ball: 
-		-sticky ball: finish a stage under par after touching a goo field
-		-bouncy ball: score a goal on the same shot that a ball hits a bounce pad
+		-sticky ball: //finish a stage under par after touching a goo field
+		-bouncy ball: //score a goal on the same shot that a ball hits a bounce pad
 	-abilities
 		-random ability: unlock all other abilities
 		-brake: 

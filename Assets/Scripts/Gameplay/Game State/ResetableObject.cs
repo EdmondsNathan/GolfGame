@@ -1,4 +1,3 @@
-using UnityEditor.Presets;
 using UnityEngine;
 
 public class ResetableObject : MonoBehaviour
@@ -9,6 +8,17 @@ public class ResetableObject : MonoBehaviour
 
 	private Vector3 _lastScale = new();
 
+	private Vector2 _lastLinearVelocity = new();
+
+	private float _lastAngularVelocity;
+
+	private Rigidbody2D _rigidbody;
+
+	protected void Awake()
+	{
+		_rigidbody = GetComponent<Rigidbody2D>();
+	}
+
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -18,20 +28,27 @@ public class ResetableObject : MonoBehaviour
 
 	protected void OnDisable()
 	{
-		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
+		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 
-		Messages_ResetTimer.OnReset += OnReset;
+		Messages_ResetTimer.OnReset -= OnReset;
 	}
 
 	public void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (newState == GameState.ShootBall)
+		if (newState == GameState.AimShot)
 		{
 			_lastPosition = transform.position;
 
 			_lastRotation = transform.rotation;
 
 			_lastScale = transform.localScale;
+
+			if (_rigidbody != null)
+			{
+				_lastLinearVelocity = _rigidbody.linearVelocity;
+
+				_lastAngularVelocity = _rigidbody.angularVelocity;
+			}
 		}
 	}
 
@@ -42,5 +59,12 @@ public class ResetableObject : MonoBehaviour
 		transform.rotation = _lastRotation;
 
 		transform.localScale = _lastScale;
+
+		if (_rigidbody != null)
+		{
+			_rigidbody.linearVelocity = _lastLinearVelocity;
+
+			_rigidbody.angularVelocity = _lastAngularVelocity;
+		}
 	}
 }

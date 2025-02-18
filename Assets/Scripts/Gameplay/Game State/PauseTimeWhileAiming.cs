@@ -22,7 +22,5 @@ public class PauseTimeWhileAiming : MonoBehaviour
 		{
 			Time.timeScale = 1f;
 		}
-
-		Debug.Log(Time.timeScale);
 	}
 }
