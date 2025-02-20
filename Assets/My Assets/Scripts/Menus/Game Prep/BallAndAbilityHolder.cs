@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallAndAbilityHolder : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class BallAndAbilityHolder : MonoBehaviour
 		Messages_SelectGolfBall.OnGolfBallSelected += OnGolfBallSelected;
 
 		Messages_SelectAbility.OnAbilitySelected += OnAbilitySelected;
+
+		SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
 	protected void OnDisable()
@@ -16,6 +19,15 @@ public class BallAndAbilityHolder : MonoBehaviour
 		Messages_SelectGolfBall.OnGolfBallSelected -= OnGolfBallSelected;
 
 		Messages_SelectAbility.OnAbilitySelected -= OnAbilitySelected;
+
+		SceneManager.sceneLoaded -= OnSceneLoaded;
+	}
+
+	protected void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		Messages_SetGolfBall.SetGolfBall?.Invoke(_golfBallPrefab);
+
+		Messages_SetAbility.SetAbility?.Invoke(_abilityPrefab);
 	}
 
 	private void OnGolfBallSelected(GameObject golfBallPrefab)

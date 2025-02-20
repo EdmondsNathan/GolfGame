@@ -35,7 +35,11 @@ public class Input_OnCancel : MonoBehaviour
 			return;
 		}
 
+		GoBack();
+	}
 
+	public void GoBack()
+	{
 		if (_previousSelecteds.Count < 2)
 		{
 			return;

@@ -15,6 +15,16 @@ public class AimReticle : MonoBehaviour
 
 	private Vector2 _aimVector = new();
 
+	private Vector3 _positionVector = new();
+
+	private float _zPosition;
+
+
+	protected void Awake()
+	{
+		_zPosition = transform.position.z;
+	}
+
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -41,7 +51,12 @@ public class AimReticle : MonoBehaviour
 	{
 		if (GameManager.CurrentState == GameState.AimShot || GameManager.CurrentState == GameState.ChargeShot)
 		{
-			transform.position = (Vector2)GetGolfBall.Transform_GolfBall.position + Mathf.Lerp(_minChargeDistance, _maxChargeDistance, (_charge - _minCharge) / _maxCharge) * _aimVector;
+			_positionVector = (Vector2)GetGolfBall.Transform_GolfBall.position + Mathf.Lerp(_minChargeDistance, _maxChargeDistance, (_charge - _minCharge) / _maxCharge) * _aimVector;
+			//transform.position = (Vector2)GetGolfBall.Transform_GolfBall.position + Mathf.Lerp(_minChargeDistance, _maxChargeDistance, (_charge - _minCharge) / _maxCharge) * (Vector2)_aimVector;
+
+			_positionVector.z = _zPosition;
+
+			transform.position = _positionVector;
 		}
 	}
 

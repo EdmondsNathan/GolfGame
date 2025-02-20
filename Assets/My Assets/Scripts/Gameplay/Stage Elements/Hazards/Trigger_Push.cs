@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PushTrigger : MonoBehaviour, ISimulationFixedUpdate
+public class Trigger_Push : MonoBehaviour, ISimulationFixedUpdate
 {
 	[SerializeField] private Vector2 _forceDirection = Vector2.up;
 

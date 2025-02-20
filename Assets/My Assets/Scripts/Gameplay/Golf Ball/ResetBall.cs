@@ -6,6 +6,8 @@ public class ResetBall : MonoBehaviour
 
 	private Vector2 _lastPosition;
 
+	private Quaternion _lastRotation;
+
 	//private int _turnCount = 1;
 
 	protected void Awake()
@@ -36,6 +38,8 @@ public class ResetBall : MonoBehaviour
 		if (newState == GameState.ShootBall)
 		{
 			_lastPosition = GetGolfBall.Transform_GolfBall.position;
+
+			_lastRotation = GetGolfBall.Transform_GolfBall.rotation;
 		}
 	}
 
@@ -46,7 +50,9 @@ public class ResetBall : MonoBehaviour
 
 		GetGolfBall.Rigidbody_GolfBall.angularVelocity = 0;
 
-		GetGolfBall.Rigidbody_GolfBall.transform.position = _lastPosition;
+		GetGolfBall.Transform_GolfBall.position = _lastPosition;
+
+		GetGolfBall.Transform_GolfBall.rotation = _lastRotation;
 
 		// GameManager.CurrentState = nextState;
 

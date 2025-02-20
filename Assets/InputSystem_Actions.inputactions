@@ -7,57 +7,57 @@
             "actions": [
                 {
                     "name": "AimShot",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "70c6422f-b8b4-4393-9c52-a42075627355",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "AimPrecise",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "a24a0dd9-66b3-418b-9a5f-426df41a249e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ChargeShot",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "bd583ed5-4254-4262-85a1-cf4cd8dd4b31",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "CancelCharge",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "4f29aa49-ca44-4d00-9af2-ed3986729c0b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "UseAbility",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "346b5f2f-dc44-4a0b-b6ac-566cfa91d06e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MoveCamera",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "a1c0b4bb-dace-4537-9a0e-58095149d0e3",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Reset",
@@ -70,12 +70,12 @@
                 },
                 {
                     "name": "AimAbility",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "adaced84-a948-4662-8065-9213eaaa1b59",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [

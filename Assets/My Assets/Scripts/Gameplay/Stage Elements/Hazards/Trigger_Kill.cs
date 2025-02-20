@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class Killbox : MonoBehaviour
+public class Trigger_Kill : MonoBehaviour
 {
+	[SerializeField] private bool _destroyObjects = false;
+
 	protected void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.gameObject == GetGolfBall.GameObject_GolfBall)
@@ -14,6 +16,15 @@ public class Killbox : MonoBehaviour
 			//ResetBall.Instance.ResetTurn();
 
 			Messages_ResetTimer.OnReset?.Invoke(true);
+
+			return;
+		}
+
+		if (_destroyObjects == true)
+		{
+			//Destroy(collider.gameObject);
+
+			collider.gameObject.SetActive(false);
 		}
 	}
 }
