@@ -23,7 +23,6 @@
 
 ## Hazards/Stage elements
 - Mines
-- Hinged platforms
 - Moving platforms
 	- Sliding doors
 	- Windmill
