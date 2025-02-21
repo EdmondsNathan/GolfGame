@@ -24,12 +24,7 @@ public class Trigger_Push : MonoBehaviour, ISimulationFixedUpdate
 
 	protected void OnTriggerExit2D(Collider2D collider)
 	{
-		Rigidbody2D newRigidbody = collider.GetComponent<Rigidbody2D>();
-
-		if (_rigidbodies.Contains(newRigidbody))
-		{
-			_rigidbodies.Remove(newRigidbody);
-		}
+		_rigidbodies.Remove(collider.attachedRigidbody);
 	}
 
 	protected void FixedUpdate()

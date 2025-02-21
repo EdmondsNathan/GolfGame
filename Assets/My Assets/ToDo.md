@@ -1,4 +1,4 @@
-# TODO
+# TO-DO
 ## Menu
 - Menu hides/shows locked/unlocked items
 
@@ -22,8 +22,6 @@
 - Bouncy
 
 ## Hazards/Stage elements
-- Worm hole
-- Black hole
 - Mines
 - Hinged platforms
 - Moving platforms
