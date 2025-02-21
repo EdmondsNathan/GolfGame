@@ -145,14 +145,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35329403}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -15.99, y: 3, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.5, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 750003571}
   m_Father: {fileID: 1783717035}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!233 &35329405
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.49999994, y: -0.00000010927845}
+  m_ConnectedAnchor: {x: 0.5, y: 0}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -177,8 +177,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 90
+    m_LowerAngle: -90
+    m_UpperAngle: 0
 --- !u!50 &35329406
 Rigidbody2D:
   serializedVersion: 5
@@ -383,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 289165170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.39, y: 1.93, z: 0}
+  m_LocalPosition: {x: -22.9, y: 2.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -802,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079805884643131490, guid: 76df654324d381c4a8d3f0902e004978, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6500592263050065385, guid: 76df654324d381c4a8d3f0902e004978, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1451,6 +1451,7 @@ GameObject:
   - component: {fileID: 750003570}
   - component: {fileID: 750003569}
   - component: {fileID: 750003568}
+  - component: {fileID: 750003572}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -1601,6 +1602,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 35329404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750003572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750003567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688cca5ea27694c419989af40f661f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldown: 1
+  _torqueAmount: -150
 --- !u!1 &796042842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,7 +2593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 808618362256775505, guid: 15f84e36a9544b344b291ca1252ba67a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1449883348149215994, guid: 15f84e36a9544b344b291ca1252ba67a, type: 3}
       propertyPath: m_LocalPosition.x

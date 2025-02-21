@@ -1,19 +1,32 @@
-# TO-DO
+# To-do
+
 ## Menu
-- Menu hides/shows locked/unlocked items
+- Hide/Show locked/unlocked items
+- Options menu
+- Better UI for tour/level/challenge select menu
 
 ## Game
-- Unlockables
+- Unlocking balls (hidden in different levels)
+- Unlocking abilities (different achievements)
+
+## Saving
+- Preferences
+- Unlocks
+- Scores
 
 ## UI
 - Better aim/charge preview
 - Turn and par counter
-- Ability
+- Ability interfaces
+	- Ability name/icon
+	- Availability
+		- Gray out when unavailable
+		- Fuel gauge for abilities like thrust
 
 ## Abilities
 - Grapple
 - Gravity shift (Shift gravity in input direction)
-- Random ability(at the start of each turn, you are told what ability you have for the following shot)
+- Random ability (at the start of each turn, you are told what ability you have for the following shot)
 
 ## Golf balls
 - Standard
@@ -26,7 +39,6 @@
 - Moving platforms
 	- Sliding doors
 	- Windmill
-- Pinball paddles
 - Lasers
 - Turrets(shoots projectiles that push the ball)
 - Goo(slows down ball)
@@ -50,8 +62,8 @@
 	- bouncy ball: ~~score a goal on the same shot that a ball hits a bounce pad~~
 - abilities
 	- random ability: unlock all other abilities
-	- brake: 
-	- boost: 
+	- brake: have a ball in play long enough for the reset timer to activate
+	- boost: have a ball go over X meters/second
 	- reset: lose your ball to a killbox-type effect
-	-thrust: score a goal on the same shot a ball goes through a push zone
-	-gravity shift: finish a stage with gravity shifting under par
+	- thrust: score a goal on the same shot a ball goes through a push zone
+	- gravity shift: finish a stage with gravity shifting under par
