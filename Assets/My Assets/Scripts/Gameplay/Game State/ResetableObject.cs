@@ -14,6 +14,20 @@ public class ResetableObject : MonoBehaviour
 
 	private Rigidbody2D _rigidbody;
 
+	private bool _lastEnabled;
+
+	public bool LastEnabled
+	{
+		get
+		{
+			return _lastEnabled;
+		}
+		set
+		{
+			_lastEnabled = value;
+		}
+	}
+
 	protected void Awake()
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
@@ -23,14 +37,17 @@ public class ResetableObject : MonoBehaviour
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_ResetTimer.OnReset += OnReset;
+		ResetableManager.Instance.AddResetable(this);
 	}
 
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
+	}
 
-		Messages_ResetTimer.OnReset -= OnReset;
+	protected void OnDestroy()
+	{
+		ResetableManager.Instance.RemoveResetable(this);
 	}
 
 	public void OnStateEnter(GameState oldState, GameState newState)
@@ -52,7 +69,7 @@ public class ResetableObject : MonoBehaviour
 		}
 	}
 
-	public void OnReset(bool countTurn)
+	public void Reset()
 	{
 		transform.position = _lastPosition;
 

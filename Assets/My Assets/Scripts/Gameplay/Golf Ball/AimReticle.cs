@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AimReticle : MonoBehaviour
@@ -9,7 +10,7 @@ public class AimReticle : MonoBehaviour
 
 	private float _minCharge, _maxCharge;
 
-	private float _charge;
+	private float _currentCharge;
 
 	private float _aimRad;
 
@@ -18,6 +19,8 @@ public class AimReticle : MonoBehaviour
 	private Vector3 _positionVector = new();
 
 	private float _zPosition;
+
+	private List<GameState> _visibleState = new() { GameState.AimShot, GameState.ChargeShot };
 
 
 	protected void Awake()
@@ -51,25 +54,34 @@ public class AimReticle : MonoBehaviour
 	{
 		if (GameManager.CurrentState == GameState.AimShot || GameManager.CurrentState == GameState.ChargeShot)
 		{
-			_positionVector = (Vector2)GetGolfBall.Transform_GolfBall.position + Mathf.Lerp(_minChargeDistance, _maxChargeDistance, (_charge - _minCharge) / _maxCharge) * _aimVector;
-			//transform.position = (Vector2)GetGolfBall.Transform_GolfBall.position + Mathf.Lerp(_minChargeDistance, _maxChargeDistance, (_charge - _minCharge) / _maxCharge) * (Vector2)_aimVector;
-
-			_positionVector.z = _zPosition;
-
-			transform.position = _positionVector;
+			UpdatePosition(_currentCharge, _aimVector);
 		}
 	}
 
 	public void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (newState == GameState.AimShot)
+		if (newState == GameState.StartTurn)
 		{
-			transform.position = GetGolfBall.Transform_GolfBall.position;
+			_aimVector = Vector2.up;
+		}
+		else if (newState == GameState.AimShot)
+		{
+			//transform.position = GetGolfBall.Transform_GolfBall.position;
+			_currentCharge = _minCharge;
 
-			_charge = _minCharge;
+			UpdatePosition(_minCharge, _aimVector);
 		}
 
-		GetComponent<Renderer>().enabled = newState == GameState.AimShot || newState == GameState.ChargeShot;
+		GetComponent<Renderer>().enabled = _visibleState.Contains(newState);
+	}
+
+	private void UpdatePosition(float charge, Vector2 vector)
+	{
+		_positionVector = (Vector2)GetGolfBall.Transform_GolfBall.position + Mathf.Lerp(_minChargeDistance, _maxChargeDistance, (charge - _minCharge) / _maxCharge) * vector;
+
+		_positionVector.z = _zPosition;
+
+		transform.position = _positionVector;
 	}
 
 	private void OnAimChanged(float aimAngle)
@@ -83,7 +95,7 @@ public class AimReticle : MonoBehaviour
 
 	private void OnChargeChanged(float charge)
 	{
-		_charge = charge;
+		_currentCharge = charge;
 	}
 
 	private void MinAndMaxCharge(float min, float max)
@@ -92,6 +104,6 @@ public class AimReticle : MonoBehaviour
 
 		_maxCharge = max;
 
-		_charge = min;
+		_currentCharge = min;
 	}
 }
