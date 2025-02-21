@@ -1,9 +1,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability_Thrust : Ability_Base
+public class Ability_Thrust : Ability_DurationFixedUpdate
 {
-	[SerializeField] private float _thurstDuration = 2;
+	[SerializeField] private float _speed = 10;
+
+	private Vector2 _aimVector = new();
+
+	protected override void OnEnable()
+	{
+		base.OnEnable();
+		Messages_AimAbility.OnAimAbility += OnAimAbility;
+	}
+
+	protected override void OnDisable()
+	{
+		base.OnDisable();
+		Messages_AimAbility.OnAimAbility += OnAimAbility;
+	}
+
+	protected void OnAimAbility(Vector2 aimVector)
+	{
+		_aimVector = aimVector;
+
+		_isUsing = _aimVector != Vector2.zero;
+	}
+
+	protected override void UseAbility()
+	{
+		GetGolfBall.Rigidbody_GolfBall.AddForce(_speed * _aimVector, ForceMode2D.Force);
+	}
+
+	/*[SerializeField] private float _thurstDuration = 2;
 
 	[SerializeField] private float _speed = 10;
 
@@ -63,5 +91,5 @@ public class Ability_Thrust : Ability_Base
 	public void OnAimAbility(Vector2 aimVector)
 	{
 		_aimVector = aimVector;
-	}
+	}*/
 }

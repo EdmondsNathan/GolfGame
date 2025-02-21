@@ -29,14 +29,16 @@ public abstract class Ability_Base : MonoBehaviour
 
 	public virtual void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (_activeStates.Contains(newState) == false)
+		_isActiveState = _activeStates.Contains(newState);
+
+		/*if (_activeStates.Contains(newState) == true)
 		{
-			_isActiveState = false;
+			_isActiveState = true;
 
 			return;
 		}
 
-		_isActiveState = true;
+		_isActiveState = false;*/
 	}
 
 	public virtual void OnUseAbilityPressed(bool isPressed)

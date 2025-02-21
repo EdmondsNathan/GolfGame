@@ -847,7 +847,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4079805884643131490, guid: 76df654324d381c4a8d3f0902e004978, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2003395265}
   m_SourcePrefab: {fileID: 100100000, guid: 76df654324d381c4a8d3f0902e004978, type: 3}
 --- !u!1 &519420028
 GameObject:
@@ -1901,6 +1904,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &831471527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831471529}
+  - component: {fileID: 831471528}
+  m_Layer: 0
+  m_Name: Ability_Grapple
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &831471528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831471527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438726fda6a0da643804eda7c01aaa44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldown: 1
+  _grappleJoint: {fileID: 11400000, guid: f753dd6fefe86e049a379e3ce107c070, type: 2}
+--- !u!4 &831471529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831471527}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &884111377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,7 +2642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 808618362256775505, guid: 15f84e36a9544b344b291ca1252ba67a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1449883348149215994, guid: 15f84e36a9544b344b291ca1252ba67a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3640,6 +3689,31 @@ MonoBehaviour:
   _destination: {fileID: 289165172}
   _isExitOnly: 0
   _relativeVelocity: 1
+--- !u!1 &2003395259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4079805884643131490, guid: 76df654324d381c4a8d3f0902e004978, type: 3}
+  m_PrefabInstance: {fileID: 516184846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!232 &2003395265
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003395259}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 23.26478
+  m_MaxDistanceOnly: 0
 --- !u!1 &2009622535
 GameObject:
   m_ObjectHideFlags: 0
@@ -4018,3 +4092,4 @@ SceneRoots:
   - {fileID: 8572883287630578443}
   - {fileID: 516184846}
   - {fileID: 1306288915}
+  - {fileID: 831471529}
