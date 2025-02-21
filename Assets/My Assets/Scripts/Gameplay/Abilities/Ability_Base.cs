@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Ability_Base : MonoBehaviour
 {
-	protected List<GameState> _activeStates;
+	protected List<GameState> _activeStates = new List<GameState> { GameState.BallMoving };
 
 	protected bool _isActiveState = false;
 
