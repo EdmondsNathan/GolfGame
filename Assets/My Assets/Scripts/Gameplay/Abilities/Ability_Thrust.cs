@@ -26,7 +26,7 @@ public class Ability_Thrust : Ability_DurationFixedUpdate
 		_isUsing = _aimVector != Vector2.zero;
 	}
 
-	protected override void UseAbility()
+	protected override void UseAbility_FixedUpdate()
 	{
 		GetGolfBall.Rigidbody_GolfBall.AddForce(_speed * _aimVector, ForceMode2D.Force);
 	}

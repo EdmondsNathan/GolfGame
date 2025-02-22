@@ -11,6 +11,8 @@ public abstract class Ability_DurationFixedUpdate : Ability_Duration
 
 		_currentDuration += Time.fixedDeltaTime;
 
-		UseAbility();
+		UseAbility_FixedUpdate();
 	}
+
+	protected abstract void UseAbility_FixedUpdate();
 }

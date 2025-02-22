@@ -9,7 +9,7 @@ public abstract class Ability_Duration : Ability_Base
 
 	protected bool _isUsing = false;
 
-	public override void OnStateEnter(GameState oldState, GameState newState)
+	protected override void OnStateEnter(GameState oldState, GameState newState)
 	{
 		base.OnStateEnter(oldState, newState);
 
@@ -38,5 +38,4 @@ public abstract class Ability_Duration : Ability_Base
 
 		return true;
 	}
-	protected abstract void UseAbility();
 }

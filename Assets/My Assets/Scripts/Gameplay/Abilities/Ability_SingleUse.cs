@@ -5,7 +5,7 @@ public abstract class Ability_SingleUse : Ability_Base
 {
 	[SerializeField] private int _cooldown = 1;
 
-	private int _currentCooldown;
+	protected int _currentCooldown;
 
 	private bool _isAvailable = true;
 
@@ -14,7 +14,7 @@ public abstract class Ability_SingleUse : Ability_Base
 		_currentCooldown = _cooldown;
 	}
 
-	public override void OnStateEnter(GameState oldState, GameState newState)
+	protected override void OnStateEnter(GameState oldState, GameState newState)
 	{
 		base.OnStateEnter(oldState, newState);
 
@@ -38,7 +38,7 @@ public abstract class Ability_SingleUse : Ability_Base
 		}
 	}
 
-	public override void OnUseAbilityPressed(bool isPressed)
+	protected override void OnUseAbilityPressed(bool isPressed)
 	{
 		base.OnUseAbilityPressed(isPressed);
 

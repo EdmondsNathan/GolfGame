@@ -30,6 +30,8 @@ public class Trigger_Teleporter : MonoBehaviour
 			return;
 		}
 
+		Messages_BreakGrapple.BreakGrapple?.Invoke();
+
 		_teleportedBodies.Add(_enteringBody);
 
 		_destination._teleportedBodies.Add(_enteringBody);

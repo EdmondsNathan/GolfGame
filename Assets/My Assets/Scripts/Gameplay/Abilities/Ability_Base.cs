@@ -27,7 +27,7 @@ public abstract class Ability_Base : MonoBehaviour
 		Messages_UseAbility.OnUseAbilityPressed -= OnUseAbilityPressed;
 	}
 
-	public virtual void OnStateEnter(GameState oldState, GameState newState)
+	protected virtual void OnStateEnter(GameState oldState, GameState newState)
 	{
 		_isActiveState = _activeStates.Contains(newState);
 
@@ -41,7 +41,7 @@ public abstract class Ability_Base : MonoBehaviour
 		_isActiveState = false;*/
 	}
 
-	public virtual void OnUseAbilityPressed(bool isPressed)
+	protected virtual void OnUseAbilityPressed(bool isPressed)
 	{
 		_isPressed = isPressed;
 	}

@@ -14,11 +14,11 @@ Preset:
   m_Properties:
   - target: {fileID: 0}
     propertyPath: m_Enabled
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_EnableCollision
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_ConnectedRigidBody
@@ -62,11 +62,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Distance
-    value: 23.26478
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_MaxDistanceOnly
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
   m_CoupledType:

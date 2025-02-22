@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d0b937787baf024186b9d840ae70eb0, type: 3}
-  m_Name: New SO_Grapple Joint
+  m_Name: Test_SO_GrappleJoint
   m_EditorClassIdentifier: 
   _jointType: 0
   _jointPreset: {fileID: 2655988077585873504, guid: ec6a2b58ac4828f4dbe8119b50970a11, type: 2}

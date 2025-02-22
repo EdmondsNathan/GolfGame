@@ -11,6 +11,8 @@ public abstract class Ability_DurationUpdate : Ability_Duration
 
 		_currentDuration += Time.deltaTime;
 
-		UseAbility();
+		UseAbility_Update();
 	}
+
+	protected abstract void UseAbility_Update();
 }

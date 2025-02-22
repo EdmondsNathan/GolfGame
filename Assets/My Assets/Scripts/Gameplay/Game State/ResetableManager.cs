@@ -63,6 +63,8 @@ public class ResetableManager : MonoBehaviour
 
 	public void OnReset(bool countTurn)
 	{
+		Messages_BreakGrapple.BreakGrapple?.Invoke();
+
 		foreach (var resetable in _resetables)
 		{
 			resetable.gameObject.SetActive(resetable.LastEnabled);
