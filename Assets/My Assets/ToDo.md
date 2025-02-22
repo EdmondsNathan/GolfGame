@@ -24,8 +24,8 @@
 		- Fuel gauge for abilities like thrust
 
 ## Abilities
-- Grapple
-- Gravity shift (Shift gravity in input direction)
+- ~~Grapple~~ (Shelved for now)
+- Gravity shift (Shift gravity in input direction, or maybe movement direction)
 - Random ability (at the start of each turn, you are told what ability you have for the following shot)
 
 ## Golf balls

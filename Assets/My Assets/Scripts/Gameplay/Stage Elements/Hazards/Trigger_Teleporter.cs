@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,9 +10,23 @@ public class Trigger_Teleporter : MonoBehaviour
 
 	[SerializeField] private bool _relativeVelocity = true;
 
+	[SerializeField] private float _reenterDelay = 0.5f;
+
 	private Rigidbody2D _enteringBody;
 
 	private List<Rigidbody2D> _teleportedBodies = new();
+
+	private List<Coroutine> _exitCoroutines = new();
+
+	protected void OnEnable()
+	{
+		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
+	}
+
+	protected void OnDisable()
+	{
+		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
+	}
 
 	protected void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -49,6 +64,36 @@ public class Trigger_Teleporter : MonoBehaviour
 
 	protected void OnTriggerExit2D(Collider2D collision)
 	{
-		_teleportedBodies.Remove(collision.attachedRigidbody);
+		if (_teleportedBodies.Contains(collision.attachedRigidbody) == true)
+		{
+			_exitCoroutines.Add(StartCoroutine(ReenterDelay(collision.attachedRigidbody, _exitCoroutines.Count)));
+		}
+	}
+
+	protected void OnStateEnter(GameState oldState, GameState newState)
+	{
+		if (newState != GameState.StartTurn)
+		{
+			return;
+		}
+
+		_teleportedBodies.Clear();
+
+		foreach (Coroutine coroutine in _exitCoroutines)
+		{
+			if (coroutine != null)
+			{
+				StopCoroutine(coroutine);
+			}
+		}
+	}
+
+	IEnumerator ReenterDelay(Rigidbody2D body, int index)
+	{
+		yield return new WaitForSeconds(_reenterDelay);
+
+		_teleportedBodies.Remove(body);
+
+		_exitCoroutines.RemoveAt(index);
 	}
 }
