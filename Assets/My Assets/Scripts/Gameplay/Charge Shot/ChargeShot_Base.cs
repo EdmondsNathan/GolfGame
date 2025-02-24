@@ -2,17 +2,13 @@ using UnityEngine;
 
 public abstract class ChargeShot_Base : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] protected float _minCharge, _maxCharge;
 
 	private float _currentCharge = 0;
+	#endregion
 
-	protected void Start()
-	{
-		Messages_ChargeShot.MinAndMaxCharge?.Invoke(_minCharge, _maxCharge);
-
-		//Messages_ChargeShot.OnChargeChanged?.Invoke(_minCharge);
-	}
-
+	#region Properties
 	protected float CurrentCharge
 	{
 		get
@@ -26,7 +22,9 @@ public abstract class ChargeShot_Base : MonoBehaviour
 			Messages_ChargeShot.OnChargeChanged?.Invoke(_currentCharge);
 		}
 	}
+	#endregion
 
+	#region Unity methods
 	protected virtual void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -35,6 +33,13 @@ public abstract class ChargeShot_Base : MonoBehaviour
 	protected virtual void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
+	}
+
+	protected void Start()
+	{
+		Messages_ChargeShot.OnMinAndMaxChargeSet?.Invoke(_minCharge, _maxCharge);
+
+		//Messages_ChargeShot.OnChargeChanged?.Invoke(_minCharge);
 	}
 
 	protected void Update()
@@ -46,14 +51,19 @@ public abstract class ChargeShot_Base : MonoBehaviour
 
 		ChargeShot();
 	}
+	#endregion
 
+	#region Abstract methods
 	protected abstract void ChargeShot();
+	#endregion
 
+	#region Event listener methods
 	public virtual void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.ChargeShot)
 		{
-			_currentCharge = 0;
+			CurrentCharge = 0;
 		}
 	}
+	#endregion
 }

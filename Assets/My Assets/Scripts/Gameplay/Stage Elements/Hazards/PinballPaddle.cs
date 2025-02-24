@@ -28,6 +28,8 @@ public class PinballPaddle : MonoBehaviour
 
 		if (_currentTimer >= _cooldown)
 		{
+			_rigidbody.AddTorque(-1 * _torqueAmount, ForceMode2D.Impulse);
+
 			_activated = false;
 
 			_currentTimer = 0;

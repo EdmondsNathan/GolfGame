@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AimReticle : MonoBehaviour
 {
-	//[SerializeField] private float _distance = 1;
-
+	#region Fields
 	[SerializeField] private float _minChargeDistance, _maxChargeDistance;
 
 	private float _minCharge, _maxCharge;
@@ -21,8 +20,9 @@ public class AimReticle : MonoBehaviour
 	private float _zPosition;
 
 	private List<GameState> _visibleState = new() { GameState.AimShot, GameState.ChargeShot };
+	#endregion
 
-
+	#region Unity methods
 	protected void Awake()
 	{
 		_zPosition = transform.position.z;
@@ -36,7 +36,7 @@ public class AimReticle : MonoBehaviour
 
 		Messages_ChargeShot.OnChargeChanged += OnChargeChanged;
 
-		Messages_ChargeShot.MinAndMaxCharge += MinAndMaxCharge;
+		Messages_ChargeShot.OnMinAndMaxChargeSet += OnMinAndMaxChargeSet;
 	}
 
 	protected void OnDisable()
@@ -47,7 +47,7 @@ public class AimReticle : MonoBehaviour
 
 		Messages_ChargeShot.OnChargeChanged -= OnChargeChanged;
 
-		Messages_ChargeShot.MinAndMaxCharge -= MinAndMaxCharge;
+		Messages_ChargeShot.OnMinAndMaxChargeSet -= OnMinAndMaxChargeSet;
 	}
 
 	protected void Update()
@@ -57,7 +57,9 @@ public class AimReticle : MonoBehaviour
 			UpdatePosition(_currentCharge, _aimVector);
 		}
 	}
+	#endregion
 
+	#region Event listener methods
 	public void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.StartTurn)
@@ -66,22 +68,12 @@ public class AimReticle : MonoBehaviour
 		}
 		else if (newState == GameState.AimShot)
 		{
-			//transform.position = GetGolfBall.Transform_GolfBall.position;
 			_currentCharge = _minCharge;
 
-			UpdatePosition(_minCharge, _aimVector);
+			UpdatePosition(_currentCharge, _aimVector);
 		}
 
 		GetComponent<Renderer>().enabled = _visibleState.Contains(newState);
-	}
-
-	private void UpdatePosition(float charge, Vector2 vector)
-	{
-		_positionVector = (Vector2)GetGolfBall.Transform_GolfBall.position + Mathf.Lerp(_minChargeDistance, _maxChargeDistance, (charge - _minCharge) / _maxCharge) * vector;
-
-		_positionVector.z = _zPosition;
-
-		transform.position = _positionVector;
 	}
 
 	private void OnAimChanged(float aimAngle)
@@ -95,10 +87,11 @@ public class AimReticle : MonoBehaviour
 
 	private void OnChargeChanged(float charge)
 	{
+		//_currentCharge = (charge - _minCharge) / (_maxCharge - _minCharge);
 		_currentCharge = charge;
 	}
 
-	private void MinAndMaxCharge(float min, float max)
+	private void OnMinAndMaxChargeSet(float min, float max)
 	{
 		_minCharge = min;
 
@@ -106,4 +99,16 @@ public class AimReticle : MonoBehaviour
 
 		_currentCharge = min;
 	}
+	#endregion
+
+	#region Private methods
+	private void UpdatePosition(float charge, Vector2 vector)
+	{
+		_positionVector = Mathf.Lerp(_minChargeDistance, _maxChargeDistance, (charge - _minCharge) / (_maxCharge - _minCharge)) * vector + (Vector2)GetGolfBall.Transform_GolfBall.position;
+
+		_positionVector.z = _zPosition;
+
+		transform.position = _positionVector;
+	}
+	#endregion
 }

@@ -101,4 +101,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minChargeDistance: 1
-  _maxChargeDistance: 5
+  _maxChargeDistance: 4
