@@ -9,6 +9,10 @@
 - Unlocking balls (hidden in different levels)
 - Unlocking abilities (different achievements)
 
+## Game Modes
+- Level Select
+- Survival(Lots of hazards, maybe things like rising lava, survive as many turns as possible)
+
 ## Saving
 - Preferences
 - Unlocks

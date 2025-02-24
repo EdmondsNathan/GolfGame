@@ -4,12 +4,12 @@ public class EndTurnOnResetTimerElapsed : MonoBehaviour
 {
 	protected void OnEnable()
 	{
-		Messages_ResetTimer.OnTimerElapsed += OnTimerElapsed;
+		Messages_ResetTimer.OnResetTimerElapsed += OnTimerElapsed;
 	}
 
 	protected void OnDisable()
 	{
-		Messages_ResetTimer.OnTimerElapsed += OnTimerElapsed;
+		Messages_ResetTimer.OnResetTimerElapsed += OnTimerElapsed;
 	}
 
 	public void OnTimerElapsed()

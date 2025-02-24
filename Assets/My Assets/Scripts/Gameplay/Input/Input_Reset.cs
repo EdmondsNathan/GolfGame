@@ -9,14 +9,14 @@ public class Input_Reset : MonoBehaviour
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_ResetTimer.OnTimerElapsed += OnTimerElapsed;
+		Messages_ResetTimer.OnResetTimerElapsed += OnTimerElapsed;
 	}
 
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_ResetTimer.OnTimerElapsed += OnTimerElapsed;
+		Messages_ResetTimer.OnResetTimerElapsed += OnTimerElapsed;
 	}
 
 	public void OnStateEnter(GameState oldState, GameState newState)

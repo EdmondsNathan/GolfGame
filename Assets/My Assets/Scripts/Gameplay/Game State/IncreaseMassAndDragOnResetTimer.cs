@@ -19,14 +19,14 @@ public class IncreaseMassAndDragOnResetTimer : MonoBehaviour
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_ResetTimer.OnTimerElapsed += OnTimerElapsed;
+		Messages_ResetTimer.OnTooLongTimerElapsed += OnTimerElapsed;
 	}
 
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 
-		Messages_ResetTimer.OnTimerElapsed -= OnTimerElapsed;
+		Messages_ResetTimer.OnTooLongTimerElapsed -= OnTimerElapsed;
 	}
 
 	protected void FixedUpdate()
