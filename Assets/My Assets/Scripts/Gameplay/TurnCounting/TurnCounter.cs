@@ -4,6 +4,7 @@ public class TurnCounter : MonoBehaviour
 {
 	private int _turnCount = 1;
 
+	#region Unity methods
 	protected void Start()
 	{
 		Messages_TurnCountChanged.OnTurnCountChanged?.Invoke(_turnCount);
@@ -22,7 +23,9 @@ public class TurnCounter : MonoBehaviour
 
 		Messages_TurnCountChanged.OnTurnCountChanged -= OnTurnCountChanged;
 	}
+	#endregion
 
+	#region Event listener methods
 	public void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.EndTurn)
@@ -37,4 +40,5 @@ public class TurnCounter : MonoBehaviour
 	{
 		_turnCount = turnCount;
 	}
+	#endregion
 }

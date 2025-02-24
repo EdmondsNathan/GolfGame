@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum GameState
@@ -33,14 +34,16 @@ public static class GameManager
 
 			_oldState = CurrentState;
 
-			//Messages_GameStateChanged.OnStateExit?.Invoke(_oldState, value);
-
 			_currentState = value;
 
 			Messages_GameStateChanged.OnStateEnter?.Invoke(_oldState, value);
 		}
 	}
 
+	/// <summary>
+	/// Should only be used when starting a new level to reset state
+	/// </summary>
+	/// <param name="newState"></param>
 	public static void ChangeStateWithoutSendingMessages(GameState newState)
 	{
 		_currentState = newState;
