@@ -4,15 +4,15 @@ public class EndTurnOnResetTimerElapsed : MonoBehaviour
 {
 	protected void OnEnable()
 	{
-		Messages_ResetTimer.OnResetTimerElapsed += OnTimerElapsed;
+		Messages_Reset.OnResetTimerElapsed += OnResetTimerElapsed;
 	}
 
 	protected void OnDisable()
 	{
-		Messages_ResetTimer.OnResetTimerElapsed += OnTimerElapsed;
+		Messages_Reset.OnResetTimerElapsed += OnResetTimerElapsed;
 	}
 
-	public void OnTimerElapsed()
+	public void OnResetTimerElapsed()
 	{
 		GameManager.CurrentState = GameState.EndTurn;
 	}

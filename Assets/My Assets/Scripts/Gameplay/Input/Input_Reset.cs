@@ -9,14 +9,14 @@ public class Input_Reset : MonoBehaviour
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_ResetTimer.OnResetTimerElapsed += OnTimerElapsed;
+		Messages_Reset.OnResetTimerElapsed += OnResetTimerElapsed;
 	}
 
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_ResetTimer.OnResetTimerElapsed += OnTimerElapsed;
+		Messages_Reset.OnResetTimerElapsed += OnResetTimerElapsed;
 	}
 
 	public void OnStateEnter(GameState oldState, GameState newState)
@@ -27,7 +27,7 @@ public class Input_Reset : MonoBehaviour
 		}
 	}
 
-	public void OnTimerElapsed()
+	public void OnResetTimerElapsed()
 	{
 		_canReset = true;
 	}
@@ -43,7 +43,7 @@ public class Input_Reset : MonoBehaviour
 		{
 			//ResetBall.Instance.ResetTurn(true);
 
-			Messages_ResetTimer.OnReset?.Invoke(true);
+			Messages_Reset.OnTurnReset?.Invoke(true);
 		}
 	}
 }

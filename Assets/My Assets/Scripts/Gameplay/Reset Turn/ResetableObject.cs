@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ResetableObject : MonoBehaviour
 {
+	#region Fields
 	private Vector3 _lastPosition = new();
 
 	private Quaternion _lastRotation = new();
@@ -15,7 +16,9 @@ public class ResetableObject : MonoBehaviour
 	private Rigidbody2D _rigidbody;
 
 	private bool _lastEnabled;
+	#endregion
 
+	#region Properties
 	public bool LastEnabled
 	{
 		get
@@ -27,7 +30,9 @@ public class ResetableObject : MonoBehaviour
 			_lastEnabled = value;
 		}
 	}
+	#endregion
 
+	#region Unity methods
 	protected void Awake()
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
@@ -36,8 +41,6 @@ public class ResetableObject : MonoBehaviour
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
-
-		ResetableManager.Instance.AddResetable(this);
 	}
 
 	protected void OnDisable()
@@ -45,12 +48,19 @@ public class ResetableObject : MonoBehaviour
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 	}
 
+	protected void Start()
+	{
+		ResetableManager.Instance.AddResetable(this);
+	}
+
 	protected void OnDestroy()
 	{
 		ResetableManager.Instance.RemoveResetable(this);
 	}
+	#endregion
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.AimShot)
 		{
@@ -68,7 +78,9 @@ public class ResetableObject : MonoBehaviour
 			}
 		}
 	}
+	#endregion
 
+	#region Public methods
 	public void Reset()
 	{
 		transform.position = _lastPosition;
@@ -84,4 +96,5 @@ public class ResetableObject : MonoBehaviour
 			_rigidbody.angularVelocity = _lastAngularVelocity;
 		}
 	}
+	#endregion
 }

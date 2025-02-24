@@ -15,7 +15,7 @@ public class Trigger_Kill : MonoBehaviour
 
 			//ResetBall.Instance.ResetTurn();
 
-			Messages_ResetTimer.OnReset?.Invoke(true);
+			Messages_Reset.OnTurnReset?.Invoke(true);
 
 			return;
 		}

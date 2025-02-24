@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class ResetableManager : MonoBehaviour
 {
+	#region Fields
 	private static ResetableManager _instance;
 
 	private List<ResetableObject> _resetables = new();
+	#endregion
 
+	#region Properties
 	public static ResetableManager Instance
 	{
 		get
@@ -14,7 +17,9 @@ public class ResetableManager : MonoBehaviour
 			return _instance;
 		}
 	}
+	#endregion
 
+	#region Unity methods
 	protected void Awake()
 	{
 		if (_instance == null)
@@ -27,17 +32,19 @@ public class ResetableManager : MonoBehaviour
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_ResetTimer.OnReset += OnReset;
+		Messages_Reset.OnTurnReset += OnResetTurn;
 	}
 
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_ResetTimer.OnReset -= OnReset;
+		Messages_Reset.OnTurnReset -= OnResetTurn;
 	}
+	#endregion
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.AimShot)
 		{
@@ -48,6 +55,20 @@ public class ResetableManager : MonoBehaviour
 		}
 	}
 
+	private void OnResetTurn(bool countTurn)
+	{
+		Messages_BreakGrapple.BreakGrapple?.Invoke();
+
+		foreach (var resetable in _resetables)
+		{
+			resetable.gameObject.SetActive(resetable.LastEnabled);
+
+			resetable.Reset();
+		}
+	}
+	#endregion
+
+	#region Public methods
 	public void AddResetable(ResetableObject resetable)
 	{
 		if (_resetables.Contains(resetable) == false)
@@ -60,16 +81,5 @@ public class ResetableManager : MonoBehaviour
 	{
 		_resetables.Remove(resetable);
 	}
-
-	public void OnReset(bool countTurn)
-	{
-		Messages_BreakGrapple.BreakGrapple?.Invoke();
-
-		foreach (var resetable in _resetables)
-		{
-			resetable.gameObject.SetActive(resetable.LastEnabled);
-
-			resetable.Reset();
-		}
-	}
+	#endregion
 }

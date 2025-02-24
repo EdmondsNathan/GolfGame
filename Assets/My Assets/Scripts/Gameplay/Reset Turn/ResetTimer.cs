@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class ResetTimer : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class ResetTimer : MonoBehaviour
 
 		if (_calledTooLongTimer == false && _currentTimer >= _tooLongTimer)
 		{
-			Messages_ResetTimer.OnTooLongTimerElapsed?.Invoke();
+			Messages_Reset.OnTooLongTimerElapsed?.Invoke();
 
 			_calledTooLongTimer = true;
 		}
@@ -44,7 +43,7 @@ public class ResetTimer : MonoBehaviour
 
 		if (_currentTimer >= _resetTimer)
 		{
-			Messages_ResetTimer.OnResetTimerElapsed?.Invoke();
+			Messages_Reset.OnResetTimerElapsed?.Invoke();
 		}
 	}
 
