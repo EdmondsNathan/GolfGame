@@ -62,20 +62,22 @@ public class ResetableObject : MonoBehaviour
 	#region Event listener methods
 	private void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (newState == GameState.AimShot)
+		if (newState != GameState.AimShot)
 		{
-			_lastPosition = transform.position;
+			return;
+		}
 
-			_lastRotation = transform.rotation;
+		_lastPosition = transform.position;
 
-			_lastScale = transform.localScale;
+		_lastRotation = transform.rotation;
 
-			if (_rigidbody != null)
-			{
-				_lastLinearVelocity = _rigidbody.linearVelocity;
+		_lastScale = transform.localScale;
 
-				_lastAngularVelocity = _rigidbody.angularVelocity;
-			}
+		if (_rigidbody != null)
+		{
+			_lastLinearVelocity = _rigidbody.linearVelocity;
+
+			_lastAngularVelocity = _rigidbody.angularVelocity;
 		}
 	}
 	#endregion
