@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Input_AimShot : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private float _maxAngle = 90;
 
 	[SerializeField] private float _aimSpeed = 45f;
@@ -16,7 +17,9 @@ public class Input_AimShot : MonoBehaviour
 	private float _aimAngle = 0;
 
 	private float _aimInput = 0;
+	#endregion
 
+	#region Properties
 	private float AimAngle
 	{
 		get
@@ -41,7 +44,9 @@ public class Input_AimShot : MonoBehaviour
 			Messages_AimChanged.OnAimChanged?.Invoke(_aimAngle + 90);
 		}
 	}
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -68,7 +73,9 @@ public class Input_AimShot : MonoBehaviour
 
 		AimAngle -= _aimInput * Time.unscaledDeltaTime * _currentSpeed;
 	}
+	#endregion
 
+	#region Event listener methods
 	public void OnAimShot(InputValue inputValue)
 	{
 		_aimInput = inputValue.Get<float>();
@@ -86,7 +93,7 @@ public class Input_AimShot : MonoBehaviour
 		}
 	}
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState != GameState.StartTurn)
 		{
@@ -95,4 +102,5 @@ public class Input_AimShot : MonoBehaviour
 
 		AimAngle = 0;
 	}
+	#endregion
 }

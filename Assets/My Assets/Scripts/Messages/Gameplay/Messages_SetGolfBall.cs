@@ -3,5 +3,5 @@ using UnityEngine;
 
 public static class Messages_SetGolfBall
 {
-	public static Action<GameObject> SetGolfBall;
+	public static Action<GameObject> OnSetGolfBall;
 }

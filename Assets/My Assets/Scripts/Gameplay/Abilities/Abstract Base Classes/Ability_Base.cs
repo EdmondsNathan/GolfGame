@@ -3,12 +3,15 @@ using UnityEngine;
 
 public abstract class Ability_Base : MonoBehaviour
 {
+	#region Fields
 	protected List<GameState> _activeStates = new List<GameState> { GameState.BallMoving };
 
 	protected bool _isActiveState = false;
 
 	protected bool _isPressed = false;
+	#endregion
 
+	#region Unity methods
 	protected virtual void OnEnable()
 	{
 		_isActiveState = false;
@@ -26,23 +29,17 @@ public abstract class Ability_Base : MonoBehaviour
 
 		Messages_UseAbility.OnUseAbilityPressed -= OnUseAbilityPressed;
 	}
+	#endregion
 
+	#region Event listener methods
 	protected virtual void OnStateEnter(GameState oldState, GameState newState)
 	{
 		_isActiveState = _activeStates.Contains(newState);
-
-		/*if (_activeStates.Contains(newState) == true)
-		{
-			_isActiveState = true;
-
-			return;
-		}
-
-		_isActiveState = false;*/
 	}
 
 	protected virtual void OnUseAbilityPressed(bool isPressed)
 	{
 		_isPressed = isPressed;
 	}
+	#endregion
 }

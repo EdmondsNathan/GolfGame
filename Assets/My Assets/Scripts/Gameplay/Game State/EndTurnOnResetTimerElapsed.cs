@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EndTurnOnResetTimerElapsed : MonoBehaviour
 {
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_Reset.OnResetTimerElapsed += OnResetTimerElapsed;
@@ -11,9 +12,12 @@ public class EndTurnOnResetTimerElapsed : MonoBehaviour
 	{
 		Messages_Reset.OnResetTimerElapsed += OnResetTimerElapsed;
 	}
+	#endregion
 
-	public void OnResetTimerElapsed()
+	#region Event listener methods
+	private void OnResetTimerElapsed()
 	{
 		GameManager.CurrentState = GameState.EndTurn;
 	}
+	#endregion
 }

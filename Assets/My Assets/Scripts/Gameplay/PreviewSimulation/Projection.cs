@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[Obsolete]
 public class Projection : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private LineRenderer _line;
 	[SerializeField] private int _maxPhysicsFrameIterations = 100;
 	[SerializeField] private Transform _obstaclesParent;
@@ -35,7 +38,9 @@ public class Projection : MonoBehaviour
 	private GameObject _ghostBall;
 
 	private BounceCounter _bounceCounter;
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_AimChanged.OnAimChanged += OnAimChanged;
@@ -60,13 +65,15 @@ public class Projection : MonoBehaviour
 
 		_currentFrequency = _simulateFrequency;
 	}
+	#endregion
 
-	public void OnAimChanged(float aimAngle)
+	#region Event listener methods
+	private void OnAimChanged(float aimAngle)
 	{
 		_aimAngle = aimAngle;
 	}
 
-	public void OnChargeChanged(float chargeAmount)
+	private void OnChargeChanged(float chargeAmount)
 	{
 		/*if (GameManager.CurrentState != GameState.ChargeShot)
 		{
@@ -85,7 +92,7 @@ public class Projection : MonoBehaviour
 		}
 	}
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.ShootBall)
 		{
@@ -101,29 +108,12 @@ public class Projection : MonoBehaviour
 			ClearLine();
 		}
 	}
+	#endregion
 
-	private void CreatePhysicsScene()
+	#region Public methods
+	public void ClearLine()
 	{
-		_simulationScene = SceneManager.CreateScene("Simulation", new CreateSceneParameters(LocalPhysicsMode.Physics2D));
-		_physicsScene = _simulationScene.GetPhysicsScene2D();
-
-		foreach (Transform obj in _obstaclesParent)
-		{
-			var ghostObj = Instantiate(obj.gameObject, obj.position, obj.rotation);
-			ghostObj.GetComponent<Renderer>().enabled = false;
-			SceneManager.MoveGameObjectToScene(ghostObj, _simulationScene);
-			if (!ghostObj.isStatic) _spawnedObjects.Add(obj, ghostObj.transform);
-
-			foreach (ISimulationFixedUpdate sim in ghostObj.GetComponents<ISimulationFixedUpdate>())
-			{
-				_simulators.Add(sim);
-			}
-		}
-
-		_ghostBall = Instantiate(GetGolfBall.GameObject_GolfBall, GetGolfBall.Transform_GolfBall.position, Quaternion.identity);
-		_ghostBall.GetComponent<Renderer>().enabled = false;
-		_bounceCounter = _ghostBall.AddComponent<BounceCounter>();
-		SceneManager.MoveGameObjectToScene(_ghostBall, _simulationScene);
+		_line.positionCount = 0;
 	}
 
 	public void SimulateTrajectory()
@@ -190,9 +180,32 @@ public class Projection : MonoBehaviour
 
 		// Destroy(_ghostBall.gameObject);
 	}
+	#endregion
 
-	public void ClearLine()
+	#region Private methods
+	private void CreatePhysicsScene()
 	{
-		_line.positionCount = 0;
+		_simulationScene = SceneManager.CreateScene("Simulation", new CreateSceneParameters(LocalPhysicsMode.Physics2D));
+		_physicsScene = _simulationScene.GetPhysicsScene2D();
+
+		foreach (Transform obj in _obstaclesParent)
+		{
+			var ghostObj = Instantiate(obj.gameObject, obj.position, obj.rotation);
+			ghostObj.GetComponent<Renderer>().enabled = false;
+			SceneManager.MoveGameObjectToScene(ghostObj, _simulationScene);
+			if (!ghostObj.isStatic) _spawnedObjects.Add(obj, ghostObj.transform);
+
+			foreach (ISimulationFixedUpdate sim in ghostObj.GetComponents<ISimulationFixedUpdate>())
+			{
+				_simulators.Add(sim);
+			}
+		}
+
+		_ghostBall = Instantiate(GetGolfBall.GameObject_GolfBall, GetGolfBall.Transform_GolfBall.position, Quaternion.identity);
+		_ghostBall.GetComponent<Renderer>().enabled = false;
+		_bounceCounter = _ghostBall.AddComponent<BounceCounter>();
+		SceneManager.MoveGameObjectToScene(_ghostBall, _simulationScene);
 	}
+
+	#endregion
 }

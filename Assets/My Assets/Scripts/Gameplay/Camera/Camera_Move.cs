@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Camera_Move : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private float _maxSpeed = 25;
 
 	[SerializeField] private float _acceleration = .1f;
@@ -11,7 +12,9 @@ public class Camera_Move : MonoBehaviour
 	private Vector3 _movementVector = new();
 
 	private float _currentSpeed = 0;
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -37,8 +40,10 @@ public class Camera_Move : MonoBehaviour
 
 		transform.position += _movementVector * _currentSpeed * Time.unscaledDeltaTime;
 	}
+	#endregion
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.AimShot || newState == GameState.ChargeShot)
 		{
@@ -52,7 +57,7 @@ public class Camera_Move : MonoBehaviour
 		}
 	}
 
-	public void OnMoveCamera(Vector2 movement)
+	private void OnMoveCamera(Vector2 movement)
 	{
 		_movementVector = movement;
 
@@ -61,4 +66,5 @@ public class Camera_Move : MonoBehaviour
 			_currentSpeed = 0;
 		}
 	}
+	#endregion
 }

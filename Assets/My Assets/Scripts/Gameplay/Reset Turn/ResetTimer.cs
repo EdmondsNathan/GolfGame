@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ResetTimer : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private float _tooLongTimer = 20f;
 
 	[SerializeField] private float _resetTimer = 60f;
@@ -9,7 +10,9 @@ public class ResetTimer : MonoBehaviour
 	private float _currentTimer = 0;
 
 	private bool _calledTooLongTimer = false;
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -46,8 +49,10 @@ public class ResetTimer : MonoBehaviour
 			Messages_Reset.OnResetTimerElapsed?.Invoke();
 		}
 	}
+	#endregion
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState != GameState.BallMoving)
 		{
@@ -56,4 +61,5 @@ public class ResetTimer : MonoBehaviour
 			_calledTooLongTimer = false;
 		}
 	}
+	#endregion
 }

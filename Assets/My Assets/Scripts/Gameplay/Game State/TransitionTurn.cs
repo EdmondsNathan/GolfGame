@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TransitionTurn : MonoBehaviour
 {
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -12,8 +13,10 @@ public class TransitionTurn : MonoBehaviour
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 	}
+	#endregion
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		switch (newState)
 		{
@@ -33,7 +36,9 @@ public class TransitionTurn : MonoBehaviour
 				break;
 		}
 	}
+	#endregion
 
+	#region Coroutines
 	IEnumerator ChangeStateNextFrame(GameState checkState, GameState nextState)
 	{
 		yield return null;
@@ -43,4 +48,5 @@ public class TransitionTurn : MonoBehaviour
 			GameManager.CurrentState = nextState;
 		}
 	}
+	#endregion
 }

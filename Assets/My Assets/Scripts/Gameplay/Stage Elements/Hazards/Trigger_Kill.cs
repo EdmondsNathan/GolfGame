@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Trigger_Kill : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private bool _destroyObjects = false;
+	#endregion
 
+	#region Unity methods
 	protected void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.gameObject == GetGolfBall.GameObject_GolfBall)
@@ -13,8 +16,6 @@ public class Trigger_Kill : MonoBehaviour
 				return;
 			}
 
-			//ResetBall.Instance.ResetTurn();
-
 			Messages_Reset.OnTurnReset?.Invoke(true);
 
 			return;
@@ -22,9 +23,8 @@ public class Trigger_Kill : MonoBehaviour
 
 		if (_destroyObjects == true)
 		{
-			//Destroy(collider.gameObject);
-
 			collider.gameObject.SetActive(false);
 		}
 	}
+	#endregion
 }

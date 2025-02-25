@@ -3,12 +3,15 @@ using UnityEngine;
 
 public abstract class Ability_Duration : Ability_Base
 {
+	#region Fields
 	[SerializeField] protected float _duration = 2;
 
 	protected float _currentDuration;
 
 	protected bool _isUsing = false;
+	#endregion
 
+	#region Overriden methods
 	protected override void OnStateEnter(GameState oldState, GameState newState)
 	{
 		base.OnStateEnter(oldState, newState);
@@ -18,7 +21,9 @@ public abstract class Ability_Duration : Ability_Base
 			_currentDuration = 0;
 		}
 	}
+	#endregion
 
+	#region Protected methods
 	protected bool CanUse()
 	{
 		if (_isActiveState == false)
@@ -38,4 +43,5 @@ public abstract class Ability_Duration : Ability_Base
 
 		return true;
 	}
+	#endregion
 }

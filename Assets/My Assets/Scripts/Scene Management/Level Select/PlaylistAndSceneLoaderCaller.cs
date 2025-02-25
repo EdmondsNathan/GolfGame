@@ -3,6 +3,7 @@ using UnityEngine;
 //using this for button events for the PlaylistLoader and SceneLoader since they aren't in the main menu at start
 public class PlaylistAndSceneLoaderCaller : MonoBehaviour
 {
+	#region Public methods
 	public void SetPlaylist(SO_PlaylistReference playlist)
 	{
 		PlaylistLoader.Instance.SetPlaylist(playlist);
@@ -22,4 +23,5 @@ public class PlaylistAndSceneLoaderCaller : MonoBehaviour
 	{
 		SceneLoader.Instance.SetNextScene(scene);
 	}
+	#endregion
 }

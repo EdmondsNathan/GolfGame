@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Camera_SnapToBall : MonoBehaviour
 {
+	#region Fields
 	private float _cameraZ;
+	#endregion
 
+	#region Unity methods
 	protected void Awake()
 	{
 		_cameraZ = transform.position.z;
@@ -18,19 +21,24 @@ public class Camera_SnapToBall : MonoBehaviour
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 	}
+	#endregion
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.StartTurn/*  || newState == GameState.ShootBall */)
 		{
 			SnapToBall();
 		}
 	}
+	#endregion
 
+	#region Private methods
 	private void SnapToBall()
 	{
 		transform.position = (Vector2)GetGolfBall.Transform_GolfBall.position;
 
 		transform.position += Vector3.forward * _cameraZ;
 	}
+	#endregion
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SetGolfBallOnAwake : MonoBehaviour
 {
+	#region Unity methods
 	protected void Awake()
 	{
 		if (GetGolfBall.GameObject_GolfBall != null)
@@ -15,4 +16,5 @@ public class SetGolfBallOnAwake : MonoBehaviour
 
 		GetGolfBall.Transform_GolfBall = transform;
 	}
+	#endregion
 }

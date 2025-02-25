@@ -3,17 +3,22 @@ using UnityEngine;
 
 public abstract class Ability_SingleUse : Ability_Base
 {
+	#region Fields
 	[SerializeField] private int _cooldown = 1;
 
 	protected int _currentCooldown;
 
 	private bool _isAvailable = true;
+	#endregion
 
+	#region Unity methods
 	protected virtual void Awake()
 	{
 		_currentCooldown = _cooldown;
 	}
+	#endregion
 
+	#region Event listener methods
 	protected override void OnStateEnter(GameState oldState, GameState newState)
 	{
 		base.OnStateEnter(oldState, newState);
@@ -61,6 +66,9 @@ public abstract class Ability_SingleUse : Ability_Base
 
 		_isAvailable = _currentCooldown <= 0;
 	}
+	#endregion
 
+	#region Abstract methods
 	protected abstract void UseAbility();
+	#endregion
 }

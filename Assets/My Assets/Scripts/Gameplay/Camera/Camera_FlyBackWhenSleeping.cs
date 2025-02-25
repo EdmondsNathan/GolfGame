@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
+[Obsolete]
 public class Camera_FlyBackWhenSleeping : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private float _maxSpeed;
 
 	[SerializeField] private float _acceleration;
@@ -13,7 +16,9 @@ public class Camera_FlyBackWhenSleeping : MonoBehaviour
 	private bool _isActive = true;
 
 	private bool _isSleeping = true;
+	#endregion
 
+	#region Unity methods
 	protected void Awake()
 	{
 		_cameraZ = transform.position.z;
@@ -57,15 +62,15 @@ public class Camera_FlyBackWhenSleeping : MonoBehaviour
 			return;
 		}
 
-		Debug.Log("Yarp");
-
 		_currentSpeed = Mathf.Lerp(_currentSpeed, _maxSpeed, _acceleration * Time.deltaTime);
 
 		transform.position = Vector2.Lerp(transform.position, GetGolfBall.Transform_GolfBall.position, _maxSpeed * Time.deltaTime);
 
 		transform.position += Vector3.forward * _cameraZ;
 	}
+	#endregion
 
+	#region Event listener methods
 	public void OnMoveCamera(Vector2 movement)
 	{
 		if (GameManager.CurrentState != GameState.AimShot && GameManager.CurrentState != GameState.ChargeShot)
@@ -75,4 +80,5 @@ public class Camera_FlyBackWhenSleeping : MonoBehaviour
 
 		_isActive = false;
 	}
+	#endregion
 }

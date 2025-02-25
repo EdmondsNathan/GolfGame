@@ -3,9 +3,19 @@ using UnityEngine;
 
 public class ShootBall : MonoBehaviour
 {
-	/* [SerializeField]  */
+	#region Fields
 	private float _chargeMultiplier = 1;
 
+	private float _aimAngle;
+
+	private float _aimRad;
+
+	private float _chargeAmount;
+
+	private Vector2 _aimVector;
+	#endregion
+
+	#region Properties
 	public float ChargeMultiplier
 	{
 		get
@@ -17,15 +27,9 @@ public class ShootBall : MonoBehaviour
 			_chargeMultiplier = value;
 		}
 	}
+	#endregion
 
-	private float _aimAngle;
-
-	private float _aimRad;
-
-	private float _chargeAmount;
-
-	private Vector2 _aimVector;
-
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -43,7 +47,9 @@ public class ShootBall : MonoBehaviour
 
 		Messages_ChargeShot.OnChargeChanged -= OnChargeChanged;
 	}
+	#endregion
 
+	#region Event listener methods
 	public void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState != GameState.ShootBall)
@@ -62,13 +68,6 @@ public class ShootBall : MonoBehaviour
 		StartCoroutine(EnterBallMovingState());
 	}
 
-	IEnumerator EnterBallMovingState()
-	{
-		yield return null;
-
-		GameManager.CurrentState = GameState.BallMoving;
-	}
-
 	public void OnAimChanged(float angle)
 	{
 		_aimAngle = angle;
@@ -78,4 +77,14 @@ public class ShootBall : MonoBehaviour
 	{
 		_chargeAmount = charge;
 	}
+	#endregion
+
+	#region Coroutines
+	IEnumerator EnterBallMovingState()
+	{
+		yield return null;
+
+		GameManager.CurrentState = GameState.BallMoving;
+	}
+	#endregion
 }

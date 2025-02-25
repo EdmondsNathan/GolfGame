@@ -4,24 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Grapple Joint")]
 public class SO_GrappleJoint : ScriptableObject
 {
-	/*private enum Joints
-	{
-		Distance,
-		Spring
-	}*/
-
-	//[SerializeField] private Joints _jointType = Joints.Distance;
-
+	#region Fields
 	[SerializeField] private Preset _jointPreset;
+	#endregion
 
-	/*public Preset JointPreset
-	{
-		get
-		{
-			return _jointPreset;
-		}
-	}*/
-
+	#region Public methods
 	public DistanceJoint2D AddJoint(GameObject owner)
 	{
 		/*Joint2D newJoint = _jointType switch
@@ -37,4 +24,5 @@ public class SO_GrappleJoint : ScriptableObject
 
 		return newJoint;
 	}
+	#endregion
 }

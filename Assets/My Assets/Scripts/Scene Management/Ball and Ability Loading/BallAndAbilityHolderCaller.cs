@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BallAndAbilityHolderCaller : MonoBehaviour
 {
+	#region Public methods
 	public void ChooseBall(GameObject ball)
 	{
 		SelectGolfBall.Instance.Select(ball);
@@ -11,4 +12,5 @@ public class BallAndAbilityHolderCaller : MonoBehaviour
 	{
 		SelectAbility.Instance.Select(ability);
 	}
+	#endregion
 }

@@ -4,25 +4,30 @@ using UnityEngine;
 [Obsolete]
 public class ResetBall : MonoBehaviour
 {
+	#region Fields
 	private Vector2 _lastPosition;
 
 	private Quaternion _lastRotation;
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_Reset.OnTurnReset += ResetTurn;
+		Messages_Reset.OnTurnReset += OnTurnReset;
 	}
 
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 
-		Messages_Reset.OnTurnReset -= ResetTurn;
+		Messages_Reset.OnTurnReset -= OnTurnReset;
 	}
+	#endregion
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.ShootBall)
 		{
@@ -33,7 +38,7 @@ public class ResetBall : MonoBehaviour
 	}
 
 	//StartTurn will prevent the turn count from increasing, EndTurn will increase the turn count
-	public void ResetTurn(bool countTurn)
+	private void OnTurnReset(bool countTurn)
 	{
 		GetGolfBall.Rigidbody_GolfBall.linearVelocity = Vector2.zero;
 
@@ -43,4 +48,5 @@ public class ResetBall : MonoBehaviour
 
 		GetGolfBall.Transform_GolfBall.rotation = _lastRotation;
 	}
+	#endregion
 }

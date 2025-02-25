@@ -3,8 +3,11 @@ using UnityEngine.InputSystem;
 
 public class Input_Reset : MonoBehaviour
 {
+	#region Fields
 	private bool _canReset = false;
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -18,7 +21,9 @@ public class Input_Reset : MonoBehaviour
 
 		Messages_Reset.OnResetTimerElapsed += OnResetTimerElapsed;
 	}
+	#endregion
 
+	#region Event listener methods
 	public void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState != GameState.BallMoving)
@@ -46,4 +51,5 @@ public class Input_Reset : MonoBehaviour
 			Messages_Reset.OnTurnReset?.Invoke(true);
 		}
 	}
+	#endregion
 }

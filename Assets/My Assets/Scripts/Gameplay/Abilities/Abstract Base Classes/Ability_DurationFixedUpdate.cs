@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class Ability_DurationFixedUpdate : Ability_Duration
 {
+	#region Unity methods
 	protected void FixedUpdate()
 	{
 		if (CanUse() == false)
@@ -13,6 +14,9 @@ public abstract class Ability_DurationFixedUpdate : Ability_Duration
 
 		UseAbility_FixedUpdate();
 	}
+	#endregion
 
+	#region Abstract methods
 	protected abstract void UseAbility_FixedUpdate();
+	#endregion
 }

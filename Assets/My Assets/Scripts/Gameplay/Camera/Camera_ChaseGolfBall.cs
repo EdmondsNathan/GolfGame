@@ -3,6 +3,7 @@ using UnityEngine;
 [DefaultExecutionOrder(100)]
 public class Camera_ChaseGolfBall : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private float _chaseSpeed;
 
 	[SerializeField] private float _catchUpSpeed;
@@ -12,7 +13,9 @@ public class Camera_ChaseGolfBall : MonoBehaviour
 	private float _currentSpeed;
 
 	private float _cameraZ;
+	#endregion
 
+	#region Unity methods
 	protected void Awake()
 	{
 		_cameraZ = transform.position.z;
@@ -21,7 +24,6 @@ public class Camera_ChaseGolfBall : MonoBehaviour
 	protected void FixedUpdate()
 	{
 		if (GameManager.CurrentState != GameState.BallMoving && GameManager.CurrentState != GameState.GoalScored)
-		//if (GetGolfBall.Rigidbody_GolfBall.IsSleeping() == true)
 		{
 			return;
 		}
@@ -39,4 +41,5 @@ public class Camera_ChaseGolfBall : MonoBehaviour
 
 		transform.position += Vector3.forward * _cameraZ;
 	}
+	#endregion
 }

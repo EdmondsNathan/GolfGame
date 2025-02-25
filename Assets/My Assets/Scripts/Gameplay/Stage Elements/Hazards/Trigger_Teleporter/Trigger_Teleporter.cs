@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Trigger_Teleporter : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private Trigger_Teleporter _destination;
 
 	[SerializeField] private bool _isExitOnly = false;
@@ -17,7 +18,9 @@ public class Trigger_Teleporter : MonoBehaviour
 	private List<Rigidbody2D> _teleportedBodies = new();
 
 	private List<Coroutine> _exitCoroutines = new();
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -69,7 +72,9 @@ public class Trigger_Teleporter : MonoBehaviour
 			_exitCoroutines.Add(StartCoroutine(ReenterDelay(collision.attachedRigidbody, _exitCoroutines.Count)));
 		}
 	}
+	#endregion
 
+	#region Event listener methods
 	protected void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState != GameState.StartTurn)
@@ -87,7 +92,9 @@ public class Trigger_Teleporter : MonoBehaviour
 			}
 		}
 	}
+	#endregion
 
+	#region Coroutines
 	IEnumerator ReenterDelay(Rigidbody2D body, int index)
 	{
 		yield return new WaitForSeconds(_reenterDelay);
@@ -96,4 +103,5 @@ public class Trigger_Teleporter : MonoBehaviour
 
 		_exitCoroutines.RemoveAt(index);
 	}
+	#endregion
 }

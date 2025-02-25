@@ -1,14 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger_Push : MonoBehaviour, ISimulationFixedUpdate
+public class Trigger_Push : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private Vector2 _forceDirection = Vector2.up;
 
 	[SerializeField] private float _forceAmount = 5;
 
 	private List<Rigidbody2D> _rigidbodies = new();
+	#endregion
 
+	#region Unity methods
 	protected void Awake()
 	{
 		_forceDirection.Normalize();
@@ -29,14 +32,10 @@ public class Trigger_Push : MonoBehaviour, ISimulationFixedUpdate
 
 	protected void FixedUpdate()
 	{
-		FixedUpdate_Simulation();
-	}
-
-	public void FixedUpdate_Simulation()
-	{
 		foreach (Rigidbody2D rb in _rigidbodies)
 		{
 			rb.AddForce(_forceAmount * transform.TransformDirection(_forceDirection), ForceMode2D.Force);
 		}
 	}
+	#endregion
 }

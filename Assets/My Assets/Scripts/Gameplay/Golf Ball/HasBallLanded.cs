@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class HasBallLanded : MonoBehaviour
 {
+	#region Unity methods
 	protected void Update()
 	{
 		if (GameManager.CurrentState != GameState.BallMoving)
@@ -14,4 +15,5 @@ public class HasBallLanded : MonoBehaviour
 			GameManager.CurrentState = GameState.BallLanded;
 		}
 	}
+	#endregion
 }

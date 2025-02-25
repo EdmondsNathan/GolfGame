@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
+[Obsolete]
 public class TrajectoryPreview : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private LineRenderer _lineRenderer;  // Reference to LineRenderer
 
 	[SerializeField] private int _resolution = 30;        // Number of points in the trajectory
@@ -32,7 +35,9 @@ public class TrajectoryPreview : MonoBehaviour
 	private Vector2 _origin;
 
 	private bool _showTrajectory = false;
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_AimChanged.OnAimChanged += OnAimChanged;
@@ -59,13 +64,15 @@ public class TrajectoryPreview : MonoBehaviour
 
 		_ballRadius = GetGolfBall.Transform_GolfBall.localScale.x * 0.5f;
 	}
+	#endregion
 
-	public void OnAimChanged(float aimAngle)
+	#region Event listener methods
+	private void OnAimChanged(float aimAngle)
 	{
 		_aimAngle = aimAngle;
 	}
 
-	public void OnChargeChanged(float chargeAmount)
+	private void OnChargeChanged(float chargeAmount)
 	{
 		_chargeAmount = chargeAmount;
 
@@ -79,7 +86,7 @@ public class TrajectoryPreview : MonoBehaviour
 		}
 	}
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.ChargeShot)
 		{
@@ -93,7 +100,16 @@ public class TrajectoryPreview : MonoBehaviour
 		}
 
 	}
+	#endregion
 
+	#region Public methods
+	public void ClearTrajectory()
+	{
+		_lineRenderer.positionCount = 0;
+	}
+	#endregion
+
+	#region Private methods
 	private void DrawTrajectory(Vector2 startPosition, Vector2 initialVelocity)
 	{
 		List<Vector3> points = new();
@@ -148,9 +164,5 @@ public class TrajectoryPreview : MonoBehaviour
 		_lineRenderer.positionCount = points.Count;
 		_lineRenderer.SetPositions(points.ToArray());
 	}
-
-	public void ClearTrajectory()
-	{
-		_lineRenderer.positionCount = 0;
-	}
+	#endregion
 }

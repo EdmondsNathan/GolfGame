@@ -3,8 +3,11 @@ using UnityEngine.EventSystems;
 
 public class SetSelected : MonoBehaviour
 {
+	#region Fields
 	private GameObject _previousSelected, _currentSelected;
+	#endregion
 
+	#region Properties
 	public GameObject PreviousSelected
 	{
 		get
@@ -12,7 +15,9 @@ public class SetSelected : MonoBehaviour
 			return _previousSelected;
 		}
 	}
+	#endregion
 
+	#region Unity methods
 	protected void Awake()
 	{
 		_currentSelected = EventSystem.current.firstSelectedGameObject;
@@ -20,9 +25,11 @@ public class SetSelected : MonoBehaviour
 
 	protected void Start()
 	{
-		Messages_MenuChange.OnSelectedChange?.Invoke(_currentSelected);
+		Messages_MenuChange.OnSelectedChanged?.Invoke(_currentSelected);
 	}
+	#endregion
 
+	#region Public methods
 	public void SetSelectedGameObject(GameObject selected)
 	{
 		EventSystem.current.SetSelectedGameObject(selected);
@@ -31,19 +38,12 @@ public class SetSelected : MonoBehaviour
 
 		_currentSelected = selected;
 
-		Messages_MenuChange.OnSelectedChange?.Invoke(selected);
+		Messages_MenuChange.OnSelectedChanged?.Invoke(selected);
 	}
 
 	public void SetPreviousSelected()
 	{
 		SetSelectedGameObject(_previousSelected);
-
-		/*EventSystem.current.SetSelectedGameObject(_previousSelected);
-
-		GameObject previousSelected = _currentSelected;
-
-		_currentSelected = _previousSelected;
-
-		_previousSelected = previousSelected;*/
 	}
+	#endregion
 }

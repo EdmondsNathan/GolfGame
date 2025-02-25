@@ -3,8 +3,11 @@ using UnityEngine.InputSystem;
 
 public class Input_ChargeShot : MonoBehaviour
 {
+	#region Fields
 	private bool _isChargeHeld = false;
+	#endregion
 
+	#region Event Listener methods
 	public void OnChargeShot(InputValue inputValue)
 	{
 		_isChargeHeld = inputValue.isPressed;
@@ -35,4 +38,5 @@ public class Input_ChargeShot : MonoBehaviour
 
 		GameManager.CurrentState = GameState.AimShot;
 	}
+	#endregion
 }

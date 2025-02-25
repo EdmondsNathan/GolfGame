@@ -3,22 +3,15 @@ using UnityEngine;
 
 public class FadeMenu : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private CanvasGroup _startingCanvasGroup;
 
 	[SerializeField] private float _fadeInSpeed, _fadeOutSpeed;
 
-	//[SerializeField] private float _fadeTime = 1f;
-
 	private CanvasGroup _previousCanvasGroup, _currentCanvasGroup;
+	#endregion
 
-	/*public CanvasGroup CurrentCanvasGroup
-	{
-		get
-		{
-			return _currentCanvasGroup;
-		}
-	}*/
-
+	#region Properties
 	public CanvasGroup PreviousCanvasGroup
 	{
 		get
@@ -26,7 +19,9 @@ public class FadeMenu : MonoBehaviour
 			return _previousCanvasGroup;
 		}
 	}
+	#endregion
 
+	#region Unity methods
 	public void Awake()
 	{
 		_currentCanvasGroup = _startingCanvasGroup;
@@ -47,7 +42,9 @@ public class FadeMenu : MonoBehaviour
 		}
 
 	}
+	#endregion
 
+	#region Public methods
 	public void FadeTransition(CanvasGroup canvasGroup)
 	{
 		if (_previousCanvasGroup != null)
@@ -70,16 +67,5 @@ public class FadeMenu : MonoBehaviour
 	{
 		FadeTransition(_previousCanvasGroup);
 	}
-
-	/*IEnumerator Fade(CanvasGroup canvasGroup, float targetValue)
-	{
-		float currentTime = 0f;
-
-		while (currentTime < _fadeTime)
-		{
-			currentTime += Time.deltaTime;
-
-			yield return null;
-		}
-	}*/
+	#endregion
 }

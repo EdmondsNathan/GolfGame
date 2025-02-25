@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PauseTimeWhileAiming : MonoBehaviour
 {
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -11,8 +12,10 @@ public class PauseTimeWhileAiming : MonoBehaviour
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 	}
+	#endregion
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.StartTurn)
 		{
@@ -23,4 +26,5 @@ public class PauseTimeWhileAiming : MonoBehaviour
 			Time.timeScale = 1f;
 		}
 	}
+	#endregion
 }

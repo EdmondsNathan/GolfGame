@@ -3,6 +3,7 @@
 //TODO: Get grappling hook to work, probably need to rewrite the whole thing
 public class Ability_Grapple : Ability_SingleUse
 {
+	#region Fields
 	[SerializeField] SO_GrappleJoint _grappleJoint;
 
 	[SerializeField] private float _duration = 10;
@@ -16,7 +17,9 @@ public class Ability_Grapple : Ability_SingleUse
 	private bool _connected = false;
 
 	private Rigidbody2D _connectedRigidbody;
+	#endregion
 
+	#region Unity methods
 	protected override void OnEnable()
 	{
 		base.OnDisable();
@@ -52,16 +55,9 @@ public class Ability_Grapple : Ability_SingleUse
 			}
 		}
 	}
+	#endregion
 
-	protected void Disconnect()
-	{
-		_joint.enabled = false;
-
-		_joint.connectedBody = null;
-
-		_connected = false;
-	}
-
+	#region Overriden methods
 	protected override void OnStateEnter(GameState oldState, GameState newState)
 	{
 		base.OnStateEnter(oldState, newState);
@@ -78,6 +74,7 @@ public class Ability_Grapple : Ability_SingleUse
 			_currentDuration = 0;
 		}
 	}
+
 	protected override void UseAbility()
 	{
 		RaycastHit2D[] hits = Physics2D.CircleCastAll(GetGolfBall.Transform_GolfBall.position, _range, Vector2.zero, 0, ~(1 << LayerMask.NameToLayer("GolfBall")));
@@ -129,4 +126,16 @@ public class Ability_Grapple : Ability_SingleUse
 
 		_connected = true;
 	}
+	#endregion
+
+	#region Private methods
+	private void Disconnect()
+	{
+		_joint.enabled = false;
+
+		_joint.connectedBody = null;
+
+		_connected = false;
+	}
+	#endregion
 }

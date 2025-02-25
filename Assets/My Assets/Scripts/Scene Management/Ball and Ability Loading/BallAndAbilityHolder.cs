@@ -30,9 +30,9 @@ public class BallAndAbilityHolder : MonoBehaviour
 	#region Event listener methods
 	protected void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		Messages_SetGolfBall.SetGolfBall?.Invoke(_golfBallPrefab);
+		Messages_SetGolfBall.OnSetGolfBall?.Invoke(_golfBallPrefab);
 
-		Messages_SetAbility.SetAbility?.Invoke(_abilityPrefab);
+		Messages_SetAbility.OnSetAbility?.Invoke(_abilityPrefab);
 	}
 
 	private void OnGolfBallSelected(GameObject golfBallPrefab)

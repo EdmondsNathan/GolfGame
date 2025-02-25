@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Input_OnCancel : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private RotateMenu _rotateMenu;
 
 	[SerializeField] private SetSelected _setSelected;
@@ -13,21 +14,25 @@ public class Input_OnCancel : MonoBehaviour
 	private List<GameObject> _previousSelecteds = new();
 
 	private List<CanvasGroup> _previousCanvasGroups = new();
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
-		Messages_MenuChange.OnCanvasGroupChanged += AddCanvasGroup;
+		Messages_MenuChange.OnCanvasGroupChanged += OnCanvasGroupChange;
 
-		Messages_MenuChange.OnSelectedChange += AddSelected;
+		Messages_MenuChange.OnSelectedChanged += OnSelectedChanged;
 	}
 
 	protected void OnDisable()
 	{
-		Messages_MenuChange.OnCanvasGroupChanged -= AddCanvasGroup;
+		Messages_MenuChange.OnCanvasGroupChanged -= OnCanvasGroupChange;
 
-		Messages_MenuChange.OnSelectedChange -= AddSelected;
+		Messages_MenuChange.OnSelectedChanged -= OnSelectedChanged;
 	}
+	#endregion
 
+	#region Event listener methods
 	public void OnCancel(InputValue inputValue)
 	{
 		if (inputValue.isPressed == false)
@@ -38,21 +43,7 @@ public class Input_OnCancel : MonoBehaviour
 		GoBack();
 	}
 
-	public void GoBack()
-	{
-		if (_previousSelecteds.Count < 2)
-		{
-			return;
-		}
-
-		_rotateMenu.Rotate();
-
-		_setSelected.SetSelectedGameObject(_previousSelecteds[_previousSelecteds.Count - 2]);
-
-		_fadeMenu.FadeTransition(_previousCanvasGroups[_previousCanvasGroups.Count - 2]);
-	}
-
-	public void AddSelected(GameObject selected)
+	private void OnSelectedChanged(GameObject selected)
 	{
 		if (_previousSelecteds.Count < 2)
 		{
@@ -71,7 +62,7 @@ public class Input_OnCancel : MonoBehaviour
 		_previousSelecteds.Add(selected);
 	}
 
-	public void AddCanvasGroup(CanvasGroup canvasGroup)
+	private void OnCanvasGroupChange(CanvasGroup canvasGroup)
 	{
 		if (_previousCanvasGroups.Count < 2)
 		{
@@ -89,7 +80,25 @@ public class Input_OnCancel : MonoBehaviour
 
 		_previousCanvasGroups.Add(canvasGroup);
 	}
+	#endregion
 
+	#region Public methods
+	public void GoBack()
+	{
+		if (_previousSelecteds.Count < 2)
+		{
+			return;
+		}
+
+		_rotateMenu.Rotate();
+
+		_setSelected.SetSelectedGameObject(_previousSelecteds[_previousSelecteds.Count - 2]);
+
+		_fadeMenu.FadeTransition(_previousCanvasGroups[_previousCanvasGroups.Count - 2]);
+	}
+	#endregion
+
+	#region Private methods
 	private void PopSelected()
 	{
 		if (_previousSelecteds.Count > 1)
@@ -106,4 +115,5 @@ public class Input_OnCancel : MonoBehaviour
 			_previousCanvasGroups.RemoveAt(_previousCanvasGroups.Count - 1);
 		}
 	}
+	#endregion
 }

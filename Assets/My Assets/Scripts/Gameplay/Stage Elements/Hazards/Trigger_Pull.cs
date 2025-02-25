@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger_Pull : MonoBehaviour, ISimulationFixedUpdate
+public class Trigger_Pull : MonoBehaviour
 {
+	#region Fields
 	private enum FalloffFormula
 	{
 		Linear,
@@ -21,7 +22,9 @@ public class Trigger_Pull : MonoBehaviour, ISimulationFixedUpdate
 	private List<Rigidbody2D> _rigidbodies = new();
 
 	private Vector2 _forceDirection = new();
+	#endregion
 
+	#region Unity methods
 	protected void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.TryGetComponent<Rigidbody2D>(out var newRigidbody))
@@ -36,11 +39,6 @@ public class Trigger_Pull : MonoBehaviour, ISimulationFixedUpdate
 	}
 
 	protected void FixedUpdate()
-	{
-		FixedUpdate_Simulation();
-	}
-
-	public void FixedUpdate_Simulation()
 	{
 		foreach (Rigidbody2D rb in _rigidbodies)
 		{
@@ -58,4 +56,5 @@ public class Trigger_Pull : MonoBehaviour, ISimulationFixedUpdate
 			rb.AddForce(_forceAmount * _forceDirection, ForceMode2D.Force);
 		}
 	}
+	#endregion
 }
