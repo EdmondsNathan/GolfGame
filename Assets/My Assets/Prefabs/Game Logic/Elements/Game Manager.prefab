@@ -116,8 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aaa711697674bc4f83c1bde77062ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tooLongTimer: 20
-  _resetTimer: 10
+  _tooLongTimer: 10
+  _resetTimer: 45
 --- !u!114 &5009157870400334347
 MonoBehaviour:
   m_ObjectHideFlags: 0

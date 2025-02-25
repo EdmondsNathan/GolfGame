@@ -55,8 +55,6 @@ public class IncreaseMassAndDragOnResetTimer : MonoBehaviour
 			_isElapsed = false;
 
 			ResetMassAndDrag();
-
-			//GetGolfBall.Rigidbody_GolfBall.linearDamping = _startingDrag;
 		}
 	}
 
