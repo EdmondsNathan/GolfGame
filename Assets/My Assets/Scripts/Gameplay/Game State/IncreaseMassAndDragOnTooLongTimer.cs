@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IncreaseMassAndDragOnResetTimer : MonoBehaviour
+public class IncreaseMassAndDragOnTooLongTimer : MonoBehaviour
 {
 	#region Fields
 	[SerializeField] private float _MassIncreaseRate = 1;
