@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class BallAndAbilityHolder : MonoBehaviour
 {
+	#region Fields
 	private GameObject _abilityPrefab, _golfBallPrefab;
+	#endregion
 
+	#region Unity methods
 	protected void OnEnable()
 	{
 		Messages_SelectGolfBall.OnGolfBallSelected += OnGolfBallSelected;
@@ -22,7 +25,9 @@ public class BallAndAbilityHolder : MonoBehaviour
 
 		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
+	#endregion
 
+	#region Event listener methods
 	protected void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		Messages_SetGolfBall.SetGolfBall?.Invoke(_golfBallPrefab);
@@ -39,4 +44,5 @@ public class BallAndAbilityHolder : MonoBehaviour
 	{
 		_abilityPrefab = abilityPrefab;
 	}
+	#endregion
 }

@@ -5,10 +5,13 @@ using UnityEngine;
 [DefaultExecutionOrder(100)]
 public class SetStateOnStart : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private GameState _startingState = GameState.StartTurn;
 
 	[SerializeField] private bool _sendMessage = true;
+	#endregion
 
+	#region Unity methods
 	protected void Start()
 	{
 		//Makes sure that any previous state that might be from another scene doesn't send junk messages
@@ -19,4 +22,5 @@ public class SetStateOnStart : MonoBehaviour
 			Messages_GameStateChanged.OnStateEnter?.Invoke(_startingState, _startingState);
 		}
 	}
+	#endregion
 }

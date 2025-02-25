@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class TurnCounter : MonoBehaviour
 {
+	#region Fields
 	private int _turnCount = 1;
+	#endregion
 
 	#region Unity methods
 	protected void Start()

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Camera_StartTurnFlyBack : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private float _maxSpeed;
 
 	[SerializeField] private float _acceleration;
@@ -11,7 +12,9 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 	private float _cameraZ;
 
 	private bool _isActive = false;
+	#endregion
 
+	#region Unity methods
 	protected void Awake()
 	{
 		_cameraZ = transform.position.z;
@@ -51,8 +54,10 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 
 		transform.position += Vector3.forward * _cameraZ;
 	}
+	#endregion
 
-	public void OnStateEnter(GameState oldState, GameState newState)
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.StartTurn)
 		{
@@ -60,7 +65,7 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 		}
 	}
 
-	public void OnMoveCamera(Vector2 movement)
+	private void OnMoveCamera(Vector2 movement)
 	{
 		if (GameManager.CurrentState != GameState.AimShot && GameManager.CurrentState != GameState.ChargeShot)
 		{
@@ -69,4 +74,5 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 
 		_isActive = false;
 	}
+	#endregion
 }

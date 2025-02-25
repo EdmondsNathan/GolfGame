@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PinballPaddle : MonoBehaviour
 {
+	#region Fields
 	[SerializeField] private float _cooldown = 1;
 
 	[SerializeField] private float _torqueAmount = 5;
@@ -11,7 +12,9 @@ public class PinballPaddle : MonoBehaviour
 	private bool _activated = false;
 
 	private Rigidbody2D _rigidbody;
+	#endregion
 
+	#region Unity methods
 	protected void Awake()
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
@@ -47,4 +50,5 @@ public class PinballPaddle : MonoBehaviour
 
 		_activated = true;
 	}
+	#endregion
 }

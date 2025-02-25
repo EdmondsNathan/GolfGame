@@ -15,10 +15,13 @@ public enum GameState
 
 public static class GameManager
 {
+	#region Fields
 	private static GameState _oldState;
 
 	private static GameState _currentState = GameState.StartTurn;
+	#endregion
 
+	#region Properties
 	public static GameState CurrentState
 	{
 		get
@@ -39,7 +42,9 @@ public static class GameManager
 			Messages_GameStateChanged.OnStateEnter?.Invoke(_oldState, value);
 		}
 	}
+	#endregion
 
+	#region Public methods
 	/// <summary>
 	/// Should only be used when starting a new level to reset state
 	/// </summary>
@@ -48,4 +53,5 @@ public static class GameManager
 	{
 		_currentState = newState;
 	}
+	#endregion
 }
