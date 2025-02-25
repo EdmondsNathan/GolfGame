@@ -33,7 +33,6 @@
 - Random ability (at the start of each turn, you are told what ability you have for the following shot)
 
 ## Golf balls
-- Standard
 - Zero Gravity
 - Sticky
 - Bouncy
