@@ -3,13 +3,29 @@ using UnityEngine;
 public class TurnCounter : MonoBehaviour
 {
 	#region Fields
+	//private static TurnCounter _instance;
+
 	private int _turnCount = 1;
+	#endregion
+
+	#region Properties
+	public int TurnCount
+	{
+		get
+		{
+			return _turnCount;
+		}
+		private set
+		{
+			_turnCount = value;
+		}
+	}
 	#endregion
 
 	#region Unity methods
 	protected void Start()
 	{
-		Messages_TurnCountChanged.OnTurnCountChanged?.Invoke(_turnCount);
+		Messages_TurnCountChanged.OnTurnCountChanged?.Invoke(TurnCount);
 	}
 
 	protected void OnEnable()
@@ -32,15 +48,15 @@ public class TurnCounter : MonoBehaviour
 	{
 		if (newState == GameState.EndTurn)
 		{
-			_turnCount++;
+			TurnCount++;
 
-			Messages_TurnCountChanged.OnTurnCountChanged?.Invoke(_turnCount);
+			Messages_TurnCountChanged.OnTurnCountChanged?.Invoke(TurnCount);
 		}
 	}
 
 	public void OnTurnCountChanged(int turnCount)
 	{
-		_turnCount = turnCount;
+		TurnCount = turnCount;
 	}
 	#endregion
 }

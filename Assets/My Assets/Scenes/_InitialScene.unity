@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f5348fbd0898d40a85c5c7dcbb3e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultScene: {fileID: 11400000, guid: b1357ff7d9e4aa3498eab224040a1de9, type: 2}
 --- !u!114 &90654416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb02d680a453b9c4393a9797b463f8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultScene: {fileID: 11400000, guid: b1357ff7d9e4aa3498eab224040a1de9, type: 2}
 --- !u!4 &90654417
 Transform:
   m_ObjectHideFlags: 0

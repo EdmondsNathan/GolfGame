@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
 	#region Fields
+	[SerializeField] private SO_SceneReference _defaultScene;
+
 	private static SceneLoader _instance;
 
 	private SO_SceneReference _nextScene;
@@ -41,6 +43,14 @@ public class SceneLoader : MonoBehaviour
 			return _currentScene;
 		}
 	}
+
+	public SO_SceneReference DefaultScene
+	{
+		get
+		{
+			return _defaultScene;
+		}
+	}
 	#endregion
 
 	#region Unity methods
@@ -61,9 +71,16 @@ public class SceneLoader : MonoBehaviour
 
 	public void LoadNextScene()
 	{
+		if (NextScene == null)
+		{
+			SetNextScene(_defaultScene);
+		}
+
 		_currentScene = NextScene;
 
 		LoadScene(NextScene);
+
+		NextScene = null;
 	}
 
 	public void SetNextScene(SO_SceneReference nextScene)

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(ObjectName))]
 public class SetGolfBallOnAwake : MonoBehaviour
 {
 	#region Unity methods
@@ -15,6 +16,8 @@ public class SetGolfBallOnAwake : MonoBehaviour
 		GetGolfBall.Rigidbody_GolfBall = GetComponent<Rigidbody2D>();
 
 		GetGolfBall.Transform_GolfBall = transform;
+
+		GetGolfBall.Name_GolfBall = GetComponent<ObjectName>().Name;
 	}
 	#endregion
 }

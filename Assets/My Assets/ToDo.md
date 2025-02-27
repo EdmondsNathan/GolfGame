@@ -1,24 +1,38 @@
 # To-do
 
-## Menu
+## <span style = "color:cyan">Tasks</span>
+### Save system
+- Save at the end of rounds
+	- If tour, always save to local object
+		- At end of tour, save if better
+	- If single level, determine if score is better and overwrite save file
+
+### Goal indicator UI
+- Arrow pointed towards the goal when it is not visible on the screen
+
+<br><br><br>
+
+## <span style = "color:cyan">Backlog</span>
+
+### Menu
 - Hide/Show locked/unlocked items
 - Options menu
 - Better UI for tour/level/challenge select menu
 
-## Game
+### Game
 - Unlocking balls (hidden in different levels)
 - Unlocking abilities (different achievements)
 
-## Game Modes
+### Game Modes
 - Level Select
 - Survival(Lots of hazards, maybe things like rising lava, survive as many turns as possible)
 
-## Saving
+### Saving
 - Preferences
 - Unlocks
 - Scores
 
-## UI
+### UI
 - Better aim/charge preview
 - Turn and par counter
 - Ability interfaces
@@ -27,17 +41,17 @@
 		- Gray out when unavailable
 		- Fuel gauge for abilities like thrust
 
-## Abilities
+### Abilities
 - ~~Grapple~~ (Shelved for now)
 - Gravity shift (Shift gravity in input direction, or maybe movement direction)
 - Random ability (at the start of each turn, you are told what ability you have for the following shot)
 
-## Golf balls
+### Golf balls
 - Zero Gravity
 - Sticky
 - Bouncy
 
-## Hazards/Stage elements
+### Hazards/Stage elements
 - Mines
 - Moving platforms
 	- Sliding doors
@@ -48,7 +62,7 @@
 - Breakable terrain(break after being hit)
 - physics objects
 
-## Courses
+### Courses
 - Tours
 	- Earth(standard gravity)
 	- Spaceship(closed off levels, buttons to toggle artificial gravity)
@@ -57,7 +71,7 @@
 	- Jupiter(high gravity, lots of pitfalls cause gas planet)
 - Solar system(goal is the sun, orbiting planets cause gravity issues)
 
-## Unlocks
+### Unlocks
 - balls: hidden spots in courses
 	- zero gravity ball: ~~finish a zero- g course under par~~
 	- square ball: 

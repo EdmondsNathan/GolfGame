@@ -18,7 +18,7 @@ public class HintBar : MonoBehaviour
 
 	protected void OnDisable()
 	{
-		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
+		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 	}
 	#endregion
 

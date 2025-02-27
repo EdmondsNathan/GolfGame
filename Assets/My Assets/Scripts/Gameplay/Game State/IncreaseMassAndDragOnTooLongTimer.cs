@@ -67,6 +67,11 @@ public class IncreaseMassAndDragOnTooLongTimer : MonoBehaviour
 	#region Private methods
 	private void ResetMassAndDrag()
 	{
+		if (GetGolfBall.Rigidbody_GolfBall == null)
+		{
+			return;
+		}
+
 		GetGolfBall.Rigidbody_GolfBall.mass = _startingMass;
 
 		GetGolfBall.Rigidbody_GolfBall.linearDamping = _startingDrag;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-//TODO: Get grappling hook to work, probably need to rewrite the whole thing
+//SHELVED: Get grappling hook to work, probably need to rewrite the whole thing
 public class Ability_Grapple : Ability_SingleUse
 {
 	#region Fields

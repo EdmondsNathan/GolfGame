@@ -35,7 +35,7 @@ public class ChargeMeter : MonoBehaviour
 
 	protected void OnDisable()
 	{
-		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
+		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 
 		Messages_ChargeShot.OnMinAndMaxChargeSet -= OnMinAndMaxChargeSet;
 

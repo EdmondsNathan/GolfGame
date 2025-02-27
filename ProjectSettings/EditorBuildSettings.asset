@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/My Assets/Scenes/InitialScene.unity
+    path: Assets/My Assets/Scenes/_InitialScene.unity
     guid: 9a001db36eae866459feecb0df09b275
   - enabled: 1
     path: Assets/My Assets/Scenes/MainMenu3D.unity
@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/My Assets/Scenes/SampleScene1.unity
     guid: 5af3ba60377baee42b7f3f3db6c47788
+  - enabled: 1
+    path: Assets/My Assets/Scenes/Asteroids1.unity
+    guid: 8650e025c20b84a479b917ce725dcc2d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 2b517c51137bd444bbb653338e19577f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

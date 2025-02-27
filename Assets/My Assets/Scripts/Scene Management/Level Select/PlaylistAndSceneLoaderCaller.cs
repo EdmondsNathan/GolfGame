@@ -22,6 +22,8 @@ public class PlaylistAndSceneLoaderCaller : MonoBehaviour
 	public void SetNextScene(SO_SceneReference scene)
 	{
 		SceneLoader.Instance.SetNextScene(scene);
+
+		SetPlaylist(null);
 	}
 	#endregion
 }

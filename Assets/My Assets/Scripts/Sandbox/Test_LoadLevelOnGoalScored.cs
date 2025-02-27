@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Test_LoadLevelOnGoalScored : MonoBehaviour
@@ -16,7 +17,16 @@ public class Test_LoadLevelOnGoalScored : MonoBehaviour
 	{
 		if (newState == GameState.GoalScored)
 		{
-			SceneLoader.Instance.LoadNextScene();
+			//SceneLoader.Instance.LoadNextScene();
+
+			StartCoroutine(LoadSceneNextFrame());
 		}
+	}
+
+	IEnumerator LoadSceneNextFrame()
+	{
+		yield return null;
+
+		SceneLoader.Instance.LoadNextScene();
 	}
 }
