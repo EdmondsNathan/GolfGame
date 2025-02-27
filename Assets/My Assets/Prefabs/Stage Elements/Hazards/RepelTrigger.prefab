@@ -148,6 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 582527647534251761}
-  _forceAmount: -10
-  _fallOffFormula: 2
+  _forceAmount: -25
+  _fallOffFormula: 1
   _falloffStrength: 5

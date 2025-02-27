@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionField: {fileID: 6212190503915790374}
-  _duration: 0
+  _duration: 0.1
   _onlyActivateOnce: 1
 --- !u!114 &1506797723550898166
 MonoBehaviour:
@@ -290,6 +290,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4609644151030702829, guid: ad912eae1bde4da47a4a7444382dfc75, type: 3}
       propertyPath: _fallOffFormula
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609644151030702829, guid: ad912eae1bde4da47a4a7444382dfc75, type: 3}
+      propertyPath: _falloffStrength
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4917833524113039193, guid: ad912eae1bde4da47a4a7444382dfc75, type: 3}
