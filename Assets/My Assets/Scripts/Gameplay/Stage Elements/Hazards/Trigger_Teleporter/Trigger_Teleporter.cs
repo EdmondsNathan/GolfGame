@@ -58,9 +58,9 @@ public class Trigger_Teleporter : MonoBehaviour
 
 		if (_relativeVelocity == true)
 		{
-			var velocity = transform.InverseTransformDirection(_enteringBody.linearVelocity);
+			Vector3 velocity = transform.InverseTransformDirection(_enteringBody.linearVelocity);
 
-			_enteringBody.linearVelocity = _destination.transform.TransformDirection(transform.InverseTransformDirection(velocity));
+			_enteringBody.linearVelocity = _destination.transform.TransformDirection(velocity);
 		}
 
 	}
