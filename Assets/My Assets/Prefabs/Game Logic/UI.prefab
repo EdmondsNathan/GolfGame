@@ -220,7 +220,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4359208893467853493, guid: ecaf55b535ca8754dac4d53bf417a427, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6352300621446206721, guid: ecaf55b535ca8754dac4d53bf417a427, type: 3}
       propertyPath: m_Name
@@ -315,10 +315,11 @@ PrefabInstance:
       value: Move camera     Cancel aim
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4171327142302020129, guid: ecaf55b535ca8754dac4d53bf417a427, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2320165404750108527, guid: ecaf55b535ca8754dac4d53bf417a427, type: 3}
-      insertIndex: 2
+      insertIndex: 1
       addedObject: {fileID: 3606559819540115373}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecaf55b535ca8754dac4d53bf417a427, type: 3}

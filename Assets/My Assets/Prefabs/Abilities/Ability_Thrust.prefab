@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8235152947896763619}
   - component: {fileID: 1461556619891120087}
+  - component: {fileID: 3289297588862858329}
+  - component: {fileID: 861098226574216203}
   m_Layer: 0
   m_Name: Ability_Thrust
   m_TagString: Untagged
@@ -44,5 +46,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5c5725b122779439113ff5d126575a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _thurstDuration: 2
+  _duration: 2
   _speed: 10
+--- !u!114 &3289297588862858329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275403809652400073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d41c1664d69f945bab7cc0e1754075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Thrust
+--- !u!114 &861098226574216203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275403809652400073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752765996f747094a86e53b6c75eca46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
