@@ -1,12 +1,6 @@
 # To-do
 
 ## <span style = "color:cyan">Tasks</span>
-### Save system
-- Save at the end of rounds
-	- If tour, always save to local object
-		- At end of tour, save if better
-	- If single level, determine if score is better and overwrite save file
-
 ### Goal indicator UI
 - Arrow pointed towards the goal when it is not visible on the screen
 

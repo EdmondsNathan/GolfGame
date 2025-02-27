@@ -1,24 +1,14 @@
 using UnityEngine;
 
-public class RoundTimer : MonoBehaviour
+public class RoundTimer : SingletonMonoBehaviour<RoundTimer>
 {
 	#region Fields
-	private static RoundTimer _instance;
-
 	private float _startingRealTime = -1f;
 
 	private float _startingGameTime = -1f;
 	#endregion
 
 	#region Properties
-	public static RoundTimer Instance
-	{
-		get
-		{
-			return _instance;
-		}
-	}
-
 	public float RealTime
 	{
 		get
@@ -44,18 +34,9 @@ public class RoundTimer : MonoBehaviour
 			return Time.time - _startingGameTime;
 		}
 	}
-
 	#endregion
 
 	#region Unity methods
-	protected void Awake()
-	{
-		if (_instance == null)
-		{
-			_instance = this;
-		}
-	}
-
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -68,11 +49,6 @@ public class RoundTimer : MonoBehaviour
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 
 		Messages_AimAbility.OnAimAbility -= OnAimAbility;
-	}
-
-	protected void Start()
-	{
-
 	}
 	#endregion
 

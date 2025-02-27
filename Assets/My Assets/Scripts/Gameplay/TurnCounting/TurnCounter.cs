@@ -3,8 +3,6 @@ using UnityEngine;
 public class TurnCounter : MonoBehaviour
 {
 	#region Fields
-	//private static TurnCounter _instance;
-
 	private int _turnCount = 1;
 	#endregion
 

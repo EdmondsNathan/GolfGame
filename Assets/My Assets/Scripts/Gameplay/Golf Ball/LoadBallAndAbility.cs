@@ -26,12 +26,6 @@ public class LoadBallAndAbility : MonoBehaviour
 	private void OnSetGolfBall(GameObject ball)
 	{
 		GameObject newBall = Instantiate(ball, _ballSpawnPoint.position, Quaternion.identity);
-
-		/*GetGolfBall.GameObject_GolfBall = newBall;
-
-		GetGolfBall.Rigidbody_GolfBall = newBall.GetComponent<Rigidbody2D>();
-
-		GetGolfBall.Transform_GolfBall = newBall.transform;*/
 	}
 
 	private void OnSetAbility(GameObject ability)

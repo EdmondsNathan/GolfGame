@@ -28,9 +28,4 @@ public class Test_LogState : MonoBehaviour
 	{
 		Debug.Log("Entering " + newState);
 	}
-
-	/*public void StateExit(GameState oldState, GameState newState)
-	{
-		Debug.Log("Exiting " + oldState);
-	}*/
 }

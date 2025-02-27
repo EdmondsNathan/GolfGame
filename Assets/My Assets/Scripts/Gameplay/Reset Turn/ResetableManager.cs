@@ -1,33 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetableManager : MonoBehaviour
+public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 {
 	#region Fields
-	private static ResetableManager _instance;
-
 	private List<ResetableObject> _resetables = new();
 	#endregion
 
-	#region Properties
-	public static ResetableManager Instance
-	{
-		get
-		{
-			return _instance;
-		}
-	}
-	#endregion
-
 	#region Unity methods
-	protected void Awake()
-	{
-		if (_instance == null)
-		{
-			_instance = this;
-		}
-	}
-
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
@@ -37,7 +17,7 @@ public class ResetableManager : MonoBehaviour
 
 	protected void OnDisable()
 	{
-		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
+		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 
 		Messages_Reset.OnTurnReset -= OnResetTurn;
 	}

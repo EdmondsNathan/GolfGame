@@ -3,12 +3,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : SingletonMonoBehaviour<SceneLoader>
 {
 	#region Fields
 	[SerializeField] private SO_SceneReference _defaultScene;
-
-	private static SceneLoader _instance;
 
 	private SO_SceneReference _nextScene;
 
@@ -16,14 +14,6 @@ public class SceneLoader : MonoBehaviour
 	#endregion
 
 	#region Properties
-	public static SceneLoader Instance
-	{
-		get
-		{
-			return _instance;
-		}
-	}
-
 	public SO_SceneReference NextScene
 	{
 		get
@@ -49,16 +39,6 @@ public class SceneLoader : MonoBehaviour
 		get
 		{
 			return _defaultScene;
-		}
-	}
-	#endregion
-
-	#region Unity methods
-	private void Awake()
-	{
-		if (_instance == null)
-		{
-			_instance = this;
 		}
 	}
 	#endregion

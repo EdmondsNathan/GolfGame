@@ -26,7 +26,7 @@ public class Camera_SnapToBall : MonoBehaviour
 	#region Event listener methods
 	private void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (newState == GameState.StartTurn/*  || newState == GameState.ShootBall */)
+		if (newState == GameState.StartTurn)
 		{
 			SnapToBall();
 		}

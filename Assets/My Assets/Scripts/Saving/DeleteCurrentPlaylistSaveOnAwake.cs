@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DeleteCurrentPlaylistSave : MonoBehaviour
+public class DeleteCurrentPlaylistSaveOnAwake : MonoBehaviour
 {
 	protected void Awake()
 	{

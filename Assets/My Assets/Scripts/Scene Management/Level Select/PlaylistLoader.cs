@@ -2,29 +2,15 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlaylistLoader : MonoBehaviour
+public class PlaylistLoader : SingletonMonoBehaviour<PlaylistLoader>
 {
 	#region Fields
-	private static PlaylistLoader _instance;
-
 	private int _index = 0;
 
 	private SO_PlaylistReference _playlistReference;
 	#endregion
 
 	#region Properties
-	public static PlaylistLoader Instance
-	{
-		get
-		{
-			return _instance;
-		}
-		set
-		{
-			_instance = value;
-		}
-	}
-
 	public int Index
 	{
 		get
@@ -51,14 +37,6 @@ public class PlaylistLoader : MonoBehaviour
 	#endregion
 
 	#region Unity methods
-	protected void Awake()
-	{
-		if (_instance == null)
-		{
-			_instance = this;
-		}
-	}
-
 	protected void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
