@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 //TODO: Add a class that compares your new save to existing save and only overwrites if it is an improvement
@@ -109,7 +110,7 @@ public class SaveOnGoalScored : MonoBehaviour
 	private Save_Level PopulateSaveLevel()
 	{
 		return new Save_Level(
-			name: SceneLoader.Instance.CurrentScene.Name,
+			name: SceneManager.GetActiveScene().name,
 			score: FindFirstObjectByType<TurnCounter>().TurnCount,
 			realTimeTaken: RoundTimer.Instance.RealTime,
 			gameTimeTaken: RoundTimer.Instance.GameTime,
