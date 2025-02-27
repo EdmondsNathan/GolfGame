@@ -1,9 +1,12 @@
-# To-do
+# <span style = "color:gold">To-do</span>
 
 ## <span style = "color:cyan">Tasks</span>
 ### Goal indicator UI
 - Arrow pointed towards the goal when it is not visible on the screen
 
+
+### Explosives
+- When explosion is triggered, enable a repel field that is disabled after X seconds
 <br><br><br>
 
 ## <span style = "color:cyan">Backlog</span>
@@ -18,7 +21,6 @@
 - Unlocking abilities (different achievements)
 
 ### Game Modes
-- Level Select
 - Survival(Lots of hazards, maybe things like rising lava, survive as many turns as possible)
 
 ### Saving
@@ -51,8 +53,7 @@
 	- Sliding doors
 	- Windmill
 - Lasers
-- Turrets(shoots projectiles that push the ball)
-- Goo(slows down ball)
+- Turrets(shoots projectiles that push the ball, basic projectiles, explosive)
 - Breakable terrain(break after being hit)
 - physics objects
 
