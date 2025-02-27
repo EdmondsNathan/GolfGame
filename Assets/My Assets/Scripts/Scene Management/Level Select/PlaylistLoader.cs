@@ -1,13 +1,10 @@
 using System;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlaylistLoader : MonoBehaviour
 {
 	#region Fields
-	[SerializeField] private SO_SceneReference _defaultScene;
-
 	private static PlaylistLoader _instance;
 
 	private int _index = 0;
@@ -27,7 +24,6 @@ public class PlaylistLoader : MonoBehaviour
 			_instance = value;
 		}
 	}
-
 
 	public int Index
 	{
@@ -51,27 +47,6 @@ public class PlaylistLoader : MonoBehaviour
 		{
 			_playlistReference = value;
 		}
-	}
-	#endregion
-
-	#region Public methods
-	public void SetPlaylist(SO_PlaylistReference playlist)
-	{
-		if (playlist == null)
-		{
-			PlaylistReference = null;
-		}
-
-		if (IsPlaylistValid(playlist) == false)
-		{
-			return;
-		}
-
-		PlaylistReference = playlist;
-
-		Index = 0;
-
-		SceneLoader.Instance.SetNextScene(PlaylistReference.Playlist[Index]);
 	}
 	#endregion
 
@@ -111,8 +86,29 @@ public class PlaylistLoader : MonoBehaviour
 		}
 		else
 		{
-			SceneLoader.Instance.SetNextScene(_defaultScene);
+			SceneLoader.Instance.SetNextScene(SceneLoader.Instance.DefaultScene);
 		}
+	}
+	#endregion
+
+	#region Public methods
+	public void SetPlaylist(SO_PlaylistReference playlist)
+	{
+		if (playlist == null)
+		{
+			PlaylistReference = null;
+		}
+
+		if (IsPlaylistValid(playlist) == false)
+		{
+			return;
+		}
+
+		PlaylistReference = playlist;
+
+		Index = 0;
+
+		SceneLoader.Instance.SetNextScene(PlaylistReference.Playlist[Index]);
 	}
 	#endregion
 
