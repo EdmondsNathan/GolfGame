@@ -55,6 +55,11 @@ public class ResetableObject : MonoBehaviour
 
 	protected void OnDestroy()
 	{
+		if (ResetableManager.IsInstanceNull() == true)
+		{
+			return;
+		}
+
 		ResetableManager.Instance.RemoveResetable(this);
 	}
 	#endregion

@@ -41,4 +41,11 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : Single
 		_instance = (T)this;
 	}
 	#endregion
+
+	#region Public methods
+	public static bool IsInstanceNull()
+	{
+		return _instance == null;
+	}
+	#endregion
 }
