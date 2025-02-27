@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ResetableObject : MonoBehaviour
@@ -9,16 +10,88 @@ public class ResetableObject : MonoBehaviour
 
 	private Vector3 _lastScale = new();
 
+	private Rigidbody2D _rigidbody;
+
 	private Vector2 _lastLinearVelocity = new();
 
 	private float _lastAngularVelocity;
-
-	private Rigidbody2D _rigidbody;
 
 	private bool _lastEnabled;
 	#endregion
 
 	#region Properties
+	public Vector3 LastPosition
+	{
+		get
+		{
+			return _lastPosition;
+		}
+		set
+		{
+			_lastPosition = value;
+		}
+	}
+
+	public Quaternion LastRotation
+	{
+		get
+		{
+			return _lastRotation;
+		}
+		set
+		{
+			_lastRotation = value;
+		}
+	}
+
+	public Vector3 LastScale
+	{
+		get
+		{
+			return _lastScale;
+		}
+		set
+		{
+			_lastScale = value;
+		}
+	}
+
+	public Rigidbody2D Body
+	{
+		get
+		{
+			return _rigidbody;
+		}
+		set
+		{
+			_rigidbody = value;
+		}
+	}
+
+	public Vector2 LastLinearVelocity
+	{
+		get
+		{
+			return _lastLinearVelocity;
+		}
+		set
+		{
+			_lastLinearVelocity = value;
+		}
+	}
+
+	public float LastAngularVelocity
+	{
+		get
+		{
+			return _lastAngularVelocity;
+		}
+		set
+		{
+			_lastAngularVelocity = value;
+		}
+	}
+
 	public bool LastEnabled
 	{
 		get
@@ -38,16 +111,6 @@ public class ResetableObject : MonoBehaviour
 		_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
-	protected void OnEnable()
-	{
-		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
-	}
-
-	protected void OnDisable()
-	{
-		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
-	}
-
 	protected void Start()
 	{
 		ResetableManager.Instance.AddResetable(this);
@@ -55,53 +118,13 @@ public class ResetableObject : MonoBehaviour
 
 	protected void OnDestroy()
 	{
+		//Makes sure a new singleton isn't instantiated when unloading the scene
 		if (ResetableManager.IsInstanceNull() == true)
 		{
 			return;
 		}
 
 		ResetableManager.Instance.RemoveResetable(this);
-	}
-	#endregion
-
-	#region Event listener methods
-	private void OnStateEnter(GameState oldState, GameState newState)
-	{
-		if (newState != GameState.AimShot)
-		{
-			return;
-		}
-
-		_lastPosition = transform.position;
-
-		_lastRotation = transform.rotation;
-
-		_lastScale = transform.localScale;
-
-		if (_rigidbody != null)
-		{
-			_lastLinearVelocity = _rigidbody.linearVelocity;
-
-			_lastAngularVelocity = _rigidbody.angularVelocity;
-		}
-	}
-	#endregion
-
-	#region Public methods
-	public void Reset()
-	{
-		transform.position = _lastPosition;
-
-		transform.rotation = _lastRotation;
-
-		transform.localScale = _lastScale;
-
-		if (_rigidbody != null)
-		{
-			_rigidbody.linearVelocity = _lastLinearVelocity;
-
-			_rigidbody.angularVelocity = _lastAngularVelocity;
-		}
 	}
 	#endregion
 }

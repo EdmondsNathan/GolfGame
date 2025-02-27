@@ -21,17 +21,30 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 
 		Messages_Reset.OnTurnReset -= OnResetTurn;
 	}
+
+	protected void Start()
+	{
+		foreach (var resetable in FindObjectsByType<ResetableObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+		{
+			if (resetable.gameObject.activeSelf == false)
+			{
+				AddResetable(resetable);
+			}
+		}
+	}
 	#endregion
 
 	#region Event listener methods
 	private void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (newState == GameState.AimShot)
+		if (newState != GameState.AimShot)
 		{
-			foreach (var resetable in _resetables)
-			{
-				resetable.LastEnabled = resetable.gameObject.activeSelf;
-			}
+			return;
+		}
+
+		foreach (var resetable in _resetables)
+		{
+			SaveResetableObject(resetable);
 		}
 	}
 
@@ -41,9 +54,7 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 
 		foreach (var resetable in _resetables)
 		{
-			resetable.gameObject.SetActive(resetable.LastEnabled);
-
-			resetable.Reset();
+			ResetObject(resetable);
 		}
 	}
 	#endregion
@@ -60,6 +71,45 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 	public void RemoveResetable(ResetableObject resetable)
 	{
 		_resetables.Remove(resetable);
+	}
+	#endregion
+
+	#region Private methods
+	private void SaveResetableObject(ResetableObject resetable)
+	{
+		resetable.LastPosition = resetable.transform.localPosition;
+
+		resetable.LastRotation = resetable.transform.localRotation;
+
+		resetable.LastScale = resetable.transform.localScale;
+
+		resetable.LastEnabled = resetable.gameObject.activeSelf;
+
+		if (resetable.Body != null)
+		{
+			resetable.LastLinearVelocity = resetable.Body.linearVelocity;
+
+			resetable.LastAngularVelocity = resetable.Body.angularVelocity;
+		}
+	}
+
+	private void ResetObject(ResetableObject resetable)
+	{
+		resetable.transform.localPosition = resetable.LastPosition;
+
+		resetable.transform.localRotation = resetable.LastRotation;
+
+		resetable.transform.localScale = resetable.LastScale;
+
+		if (resetable.Body != null)
+		{
+			resetable.Body.linearVelocity = resetable.LastLinearVelocity;
+
+			resetable.Body.angularVelocity = resetable.LastAngularVelocity;
+		}
+
+		resetable.gameObject.SetActive(resetable.LastEnabled);
+
 	}
 	#endregion
 }
