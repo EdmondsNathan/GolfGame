@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger_Pull : MonoBehaviour
+public class Trigger_Gravity : MonoBehaviour
 {
 	#region Fields
 	private enum FalloffFormula
