@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 387153994460842534}
   - component: {fileID: 1771282074177127111}
   - component: {fileID: 3905700332195531100}
+  - component: {fileID: 8865693136949252151}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -277,6 +278,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72567bdb18f903345882bf3459107973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8865693136949252151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433793990577428549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317516c22f81ab040a9a5d0408eca343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tags: 00000000
 --- !u!1 &8687026663883514084
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +369,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.5, y: 0}
+  m_ConnectedAnchor: {x: 0.50000006, y: 0}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:

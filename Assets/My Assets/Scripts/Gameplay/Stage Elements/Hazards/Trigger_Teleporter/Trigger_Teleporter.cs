@@ -48,6 +48,14 @@ public class Trigger_Teleporter : MonoBehaviour
 			return;
 		}
 
+		if (collision.gameObject.TryGetComponent(out ObjectTags tags) == true)
+		{
+			if (tags.ContainsTag(Tag.IgnoreTeleporters) == true)
+			{
+				return;
+			}
+		}
+
 		Messages_BreakGrapple.BreakGrapple?.Invoke();
 
 		_teleportedBodies.Add(_enteringBody);
