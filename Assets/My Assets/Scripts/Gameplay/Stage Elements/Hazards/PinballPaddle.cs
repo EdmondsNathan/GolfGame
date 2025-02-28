@@ -39,13 +39,12 @@ public class PinballPaddle : MonoBehaviour
 		}
 	}
 
-	protected void OnCollisionEnter2D(Collision2D collision)
+	protected void OnCollisionStay2D(Collision2D collision)
 	{
 		if (_activated == true)
 		{
 			return;
 		}
-
 		_rigidbody.AddTorque(_torqueAmount, ForceMode2D.Impulse);
 
 		_activated = true;

@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: 0.50000006
       objectReference: {fileID: 0}
+    - target: {fileID: 5070228068808697375, guid: c32b33f05f1b0904aaff5270afd49410, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8687026663883514084, guid: c32b33f05f1b0904aaff5270afd49410, type: 3}
       propertyPath: m_Name
       value: Pinball Paddle
