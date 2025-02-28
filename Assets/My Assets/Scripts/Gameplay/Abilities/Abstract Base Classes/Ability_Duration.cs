@@ -36,6 +36,11 @@ public abstract class Ability_Duration : Ability_Base
 			return false;
 		}
 
+		if (_isPressed == false)
+		{
+			return false;
+		}
+
 		if (_isUsing == false)
 		{
 			return false;

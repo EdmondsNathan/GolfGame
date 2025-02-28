@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6085150330864691810
 Transform:
   m_ObjectHideFlags: 0
@@ -42,6 +42,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6085150330864691810}
     m_Modifications:
+    - target: {fileID: -3883968877781537371, guid: 15f84e36a9544b344b291ca1252ba67a, type: 3}
+      propertyPath: _name
+      value: DEBUG_Reset
+      objectReference: {fileID: 0}
     - target: {fileID: 808618362256775505, guid: 15f84e36a9544b344b291ca1252ba67a, type: 3}
       propertyPath: m_Name
       value: Test_Ability_Reset
@@ -108,9 +112,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6085150330864691810}
     m_Modifications:
+    - target: {fileID: 861098226574216203, guid: 14721d82d9b272d49afcb12caf3696c2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5275403809652400073, guid: 14721d82d9b272d49afcb12caf3696c2, type: 3}
       propertyPath: m_Name
       value: Test_Ability_Thrust
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275403809652400073, guid: 14721d82d9b272d49afcb12caf3696c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8235152947896763619, guid: 14721d82d9b272d49afcb12caf3696c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -170,17 +182,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6085150330864691810}
     m_Modifications:
+    - target: {fileID: -853570420129700776, guid: 6e931405a3bb93740b7d07978d01748e, type: 3}
+      propertyPath: _name
+      value: DEBUG_Standard
+      objectReference: {fileID: 0}
     - target: {fileID: 4079805884643131490, guid: 6e931405a3bb93740b7d07978d01748e, type: 3}
       propertyPath: m_Name
       value: Test_Standard Ball
       objectReference: {fileID: 0}
     - target: {fileID: 6500592263050065385, guid: 6e931405a3bb93740b7d07978d01748e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -23.5
       objectReference: {fileID: 0}
     - target: {fileID: 6500592263050065385, guid: 6e931405a3bb93740b7d07978d01748e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 6500592263050065385, guid: 6e931405a3bb93740b7d07978d01748e, type: 3}
       propertyPath: m_LocalPosition.z

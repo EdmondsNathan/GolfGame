@@ -16,38 +16,38 @@
                 },
                 {
                     "name": "AimPrecise",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "a24a0dd9-66b3-418b-9a5f-426df41a249e",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
                     "name": "ChargeShot",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "bd583ed5-4254-4262-85a1-cf4cd8dd4b31",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
                     "name": "CancelCharge",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "4f29aa49-ca44-4d00-9af2-ed3986729c0b",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
                     "name": "UseAbility",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "346b5f2f-dc44-4a0b-b6ac-566cfa91d06e",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
@@ -61,11 +61,11 @@
                 },
                 {
                     "name": "Reset",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "ef9dfbeb-ff81-4c4f-8d81-b0d875b036b1",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": true
                 },
                 {
@@ -181,7 +181,7 @@
                 {
                     "name": "",
                     "id": "80bee00f-b94f-4445-92b2-f1dae6c05eb5",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -236,7 +236,7 @@
                 {
                     "name": "",
                     "id": "756ab6db-643b-4d44-a4bf-5f81603b50e8",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
