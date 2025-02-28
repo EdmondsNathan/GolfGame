@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c15c3d1f0ef2a429165e6d4bbe1fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingState: 0
+  _startingState: 8
   _sendMessage: 1
 --- !u!114 &1057560960681072138
 MonoBehaviour:

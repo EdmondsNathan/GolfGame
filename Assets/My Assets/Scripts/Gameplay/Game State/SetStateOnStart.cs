@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -21,6 +22,17 @@ public class SetStateOnStart : MonoBehaviour
 		{
 			Messages_GameStateChanged.OnStateEnter?.Invoke(_startingState, _startingState);
 		}
+		//StartCoroutine(SetStateAfterOneFrame());
 	}
 	#endregion
+
+	private IEnumerator SetStateAfterOneFrame()
+	{
+		yield return null;
+
+		if (_sendMessage == true)
+		{
+			Messages_GameStateChanged.OnStateEnter?.Invoke(_startingState, _startingState);
+		}
+	}
 }

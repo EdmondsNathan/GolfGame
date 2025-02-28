@@ -26,7 +26,7 @@ public class TransitionTurn : MonoBehaviour
 				break;
 
 			case GameState.EndTurn:
-				StartCoroutine(ChangeStateNextFrame(GameState.EndTurn, GameState.StartTurn));
+				StartCoroutine(ChangeStateNextFrame(GameState.EndTurn, GameState.CameraFlyBack));
 
 				break;
 

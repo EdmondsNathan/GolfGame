@@ -17,7 +17,7 @@ public class CountTurnOnReset : MonoBehaviour
 	#region Event listener methods
 	private void OnResetTurn(bool countTurn)
 	{
-		GameManager.CurrentState = countTurn ? GameState.EndTurn : GameState.StartTurn;
+		GameManager.CurrentState = countTurn ? GameState.EndTurn : GameState.CameraFlyBack;
 	}
 	#endregion
 }

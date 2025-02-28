@@ -3,13 +3,15 @@ using UnityEngine;
 public class Camera_StartTurnFlyBack : MonoBehaviour
 {
 	#region Fields
-	[SerializeField] private float _maxSpeed;
+	[SerializeField] private float _startSpeed, _endSpeed;
 
-	[SerializeField] private float _acceleration;
-
-	private float _currentSpeed = 0;
+	private float _currentSpeed;
 
 	private float _cameraZ;
+
+	private float _timer = 0;
+
+	private Vector2 _startingPosition;
 
 	private bool _isActive = false;
 	#endregion
@@ -23,15 +25,11 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 	protected void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
-
-		Messages_MoveCamera.OnMoveCamera += OnMoveCamera;
 	}
 
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
-
-		Messages_MoveCamera.OnMoveCamera -= OnMoveCamera;
 	}
 
 	protected void LateUpdate()
@@ -41,16 +39,18 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 			return;
 		}
 
-		if (GameManager.CurrentState != GameState.AimShot && GameManager.CurrentState != GameState.ChargeShot)
+		if (_timer * _currentSpeed >= 1)
 		{
-			_currentSpeed = 0;
+			GameManager.CurrentState = GameState.StartTurn;
 
 			return;
 		}
 
-		_currentSpeed = Mathf.Lerp(_currentSpeed, _maxSpeed, _acceleration * Time.unscaledDeltaTime);
+		_timer += Time.unscaledDeltaTime;
 
-		transform.position = Vector2.Lerp(transform.position, GetGolfBall.Transform_GolfBall.position, _maxSpeed * Time.unscaledDeltaTime);
+		_currentSpeed = Mathf.Lerp(_startSpeed, _endSpeed, _timer);
+
+		transform.position = Vector2.Lerp(_startingPosition, GetGolfBall.Transform_GolfBall.position, _timer * _currentSpeed);
 
 		transform.position += Vector3.forward * _cameraZ;
 	}
@@ -59,20 +59,20 @@ public class Camera_StartTurnFlyBack : MonoBehaviour
 	#region Event listener methods
 	private void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (newState == GameState.StartTurn)
+		if (newState != GameState.CameraFlyBack)
 		{
-			_isActive = true;
-		}
-	}
+			_isActive = false;
 
-	private void OnMoveCamera(Vector2 movement)
-	{
-		if (GameManager.CurrentState != GameState.AimShot && GameManager.CurrentState != GameState.ChargeShot)
-		{
 			return;
 		}
 
-		_isActive = false;
+		_isActive = true;
+
+		_timer = 0;
+
+		_startingPosition = transform.position;
+
+		return;
 	}
 	#endregion
 }

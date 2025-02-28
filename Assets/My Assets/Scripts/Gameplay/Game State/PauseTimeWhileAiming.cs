@@ -17,7 +17,7 @@ public class PauseTimeWhileAiming : MonoBehaviour
 	#region Event listener methods
 	private void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (newState == GameState.StartTurn)
+		if (newState == GameState.CameraFlyBack/* || newState == GameState.StartTurn*/)
 		{
 			Time.timeScale = 0f;
 		}
