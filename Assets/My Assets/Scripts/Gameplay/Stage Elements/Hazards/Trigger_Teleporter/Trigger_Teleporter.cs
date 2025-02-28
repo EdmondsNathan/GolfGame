@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,9 +16,7 @@ public class Trigger_Teleporter : MonoBehaviour
 
 	private Rigidbody2D _enteringBody;
 
-	private List<Rigidbody2D> _teleportedBodies = new();
-
-	private List<Coroutine> _exitCoroutines = new();
+	private Dictionary<Rigidbody2D, IEnumerator> _rigidbodyDictionary = new();
 	#endregion
 
 	#region Unity methods
@@ -38,7 +37,7 @@ public class Trigger_Teleporter : MonoBehaviour
 			return;
 		}
 
-		if (_teleportedBodies.Contains(collision.attachedRigidbody) == true)
+		if (_rigidbodyDictionary.ContainsKey(collision.attachedRigidbody) == true)
 		{
 			return;
 		}
@@ -58,9 +57,9 @@ public class Trigger_Teleporter : MonoBehaviour
 
 		Messages_BreakGrapple.BreakGrapple?.Invoke();
 
-		_teleportedBodies.Add(_enteringBody);
+		_rigidbodyDictionary.Add(_enteringBody, ReenterDelay(_enteringBody));
 
-		_destination._teleportedBodies.Add(_enteringBody);
+		_destination._rigidbodyDictionary.Add(_enteringBody, _destination.ReenterDelay(_enteringBody));
 
 		_enteringBody.position = _destination.transform.position;
 
@@ -75,9 +74,9 @@ public class Trigger_Teleporter : MonoBehaviour
 
 	protected void OnTriggerExit2D(Collider2D collision)
 	{
-		if (_teleportedBodies.Contains(collision.attachedRigidbody) == true)
+		if (_rigidbodyDictionary.ContainsKey(collision.attachedRigidbody) == true)
 		{
-			_exitCoroutines.Add(StartCoroutine(ReenterDelay(collision.attachedRigidbody, _exitCoroutines.Count)));
+			StartCoroutine(_rigidbodyDictionary[collision.attachedRigidbody]);
 		}
 	}
 	#endregion
@@ -89,27 +88,21 @@ public class Trigger_Teleporter : MonoBehaviour
 		{
 			return;
 		}
-
-		_teleportedBodies.Clear();
-
-		foreach (Coroutine coroutine in _exitCoroutines)
+		foreach (KeyValuePair<Rigidbody2D, IEnumerator> pair in _rigidbodyDictionary)
 		{
-			if (coroutine != null)
-			{
-				StopCoroutine(coroutine);
-			}
+			StopCoroutine(pair.Value);
 		}
+
+		_rigidbodyDictionary.Clear();
 	}
 	#endregion
 
 	#region Coroutines
-	IEnumerator ReenterDelay(Rigidbody2D body, int index)
+	IEnumerator ReenterDelay(Rigidbody2D body)
 	{
 		yield return new WaitForSeconds(_reenterDelay);
 
-		_teleportedBodies.Remove(body);
-
-		_exitCoroutines.RemoveAt(index);
+		_rigidbodyDictionary.Remove(body);
 	}
 	#endregion
 }
