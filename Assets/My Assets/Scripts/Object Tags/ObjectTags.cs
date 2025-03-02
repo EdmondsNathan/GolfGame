@@ -3,7 +3,8 @@ using UnityEngine;
 
 public enum Tag
 {
-	IgnoreTeleporters
+	IgnoreTeleporters,
+	Goal
 }
 
 public class ObjectTags : MonoBehaviour
@@ -22,8 +23,22 @@ public class ObjectTags : MonoBehaviour
 	}
 	#endregion
 
+	#region Unity methods
+	protected void OnEnable()
+	{
+		ObjectTagManager.AddObject(this);
+	}
+
+	protected void OnDisable()
+	{
+		ObjectTagManager.RemoveObject(this);
+	}
+	#endregion
+
+	#region Public methods
 	public bool ContainsTag(Tag tag)
 	{
 		return _tags.Contains(tag);
 	}
+	#endregion
 }
