@@ -28,6 +28,18 @@ public class GoalArrowIndicator : MonoBehaviour
 	protected void Start()
 	{
 		_camera = Camera.main;
+
+		if (_goal == null)
+		{
+			if (ObjectTagManager.TryFindFirstObjectWithTag(Tag.Goal, out _goal))
+			{
+				return;
+			}
+
+			Debug.LogError("Goal not found");
+
+			this.enabled = false;
+		}
 	}
 
 	protected void Update()
