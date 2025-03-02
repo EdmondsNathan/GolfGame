@@ -1,8 +1,6 @@
 # <span style = "color:gold">Game Plan</span>
 
 ## <span style = "color:cyan">To-do</span>
-### UI
-- Arrow pointed towards the goal when it is not visible on the screen
 
 <br><br><br>
 
