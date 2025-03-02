@@ -1,10 +1,10 @@
-# <span style = "color:gold">Game Plan</span>
+# <span style = "color:red">Game Plan</span>
 
-## <span style = "color:cyan">To-do</span>
+## <span style = "color:orange">To-do</span>
 
 <br><br><br>
 
-## <span style = "color:cyan">Backlog</span>
+## <span style = "color:yellow">Backlog</span>
 
 ### Menu
 - Hide/Show locked/unlocked items
