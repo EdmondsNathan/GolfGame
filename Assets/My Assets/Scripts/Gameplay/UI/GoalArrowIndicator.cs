@@ -99,16 +99,6 @@ public class GoalArrowIndicator : MonoBehaviour
 
 		_arrowPosition.y = _factor * _direction.y;
 
-		/*if (960 - Mathf.Abs(_arrowPosition.x) < _offset)
-		{
-			_arrowPosition.x = (960 - _offset) * Mathf.Sign(_arrowPosition.x);
-		}
-
-		if (540 - Mathf.Abs(_arrowPosition.y) < _offset)
-		{
-			_arrowPosition.y = (540 - _offset) * Mathf.Sign(_arrowPosition.y);
-		}*/
-
 		_arrow.anchoredPosition = _arrowPosition;
 	}
 	#endregion
