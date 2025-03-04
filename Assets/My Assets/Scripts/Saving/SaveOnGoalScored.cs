@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-//TODO: Add a class that compares your new save to existing save and only overwrites if it is an improvement
 public class SaveOnGoalScored : MonoBehaviour
 {
 	#region Fields
