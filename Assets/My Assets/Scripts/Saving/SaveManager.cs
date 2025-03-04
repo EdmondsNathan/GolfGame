@@ -7,14 +7,14 @@ using UnityEngine;
 public static class SaveManager
 {
 	#region Public methods
-	public static void Save(string saveName, SaveObject_HighScore saveData)
+	public static void Save(string saveName, SaveObject_HighScores saveData)
 	{
 		File.WriteAllText(SavePath(saveName), JsonOutput(saveData));
 	}
 
 	public static void OverwriteLevel(string saveName, SaveObject_Level saveLevel)
 	{
-		SaveObject_HighScore saveObject;
+		SaveObject_HighScores saveObject;
 
 		if (Load(saveName, out saveObject) == false)
 		{
@@ -34,7 +34,7 @@ public static class SaveManager
 
 	public static void OverwritePlaylist(string saveName, SaveObject_Playlist savePlaylist)
 	{
-		SaveObject_HighScore saveObject;
+		SaveObject_HighScores saveObject;
 
 		if (Load(saveName, out saveObject) == false)
 		{
@@ -52,7 +52,7 @@ public static class SaveManager
 		Save(saveName, saveObject);
 	}
 
-	public static bool Load(string saveName, out SaveObject_HighScore saveObject)
+	public static bool Load(string saveName, out SaveObject_HighScores saveObject)
 	{
 		if (File.Exists(SavePath(saveName)) == false)
 		{
@@ -61,7 +61,7 @@ public static class SaveManager
 			return false;
 		}
 
-		saveObject = JsonConvert.DeserializeObject<SaveObject_HighScore>(File.ReadAllText(SavePath(saveName)));
+		saveObject = JsonConvert.DeserializeObject<SaveObject_HighScores>(File.ReadAllText(SavePath(saveName)));
 
 		return true;
 	}
@@ -73,7 +73,7 @@ public static class SaveManager
 	#endregion
 
 	#region Private methods
-	private static string JsonOutput(SaveObject_HighScore saveData)
+	private static string JsonOutput(SaveObject_HighScores saveData)
 	{
 		return JsonConvert.SerializeObject(saveData, Formatting.Indented);
 	}

@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-public class SaveObject_HighScore
+public class SaveObject_HighScores
 {
 	#region Fields
 	[JsonProperty] private Dictionary<string, SaveObject_Level> _levelSaves = new();

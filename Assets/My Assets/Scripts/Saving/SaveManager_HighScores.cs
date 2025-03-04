@@ -2,12 +2,12 @@ using Newtonsoft.Json;
 using System.IO;
 using UnityEngine;
 
-public class HighScoreSaveManager : GenericSaveManager<SaveObject_HighScore>
+public class SaveManager_HighScores : SaveManager_Base<SaveObject_HighScores>
 {
 	#region Public methods
 	public static void OverwriteLevel(string saveName, SaveObject_Level saveLevel)
 	{
-		SaveObject_HighScore saveObject;
+		SaveObject_HighScores saveObject;
 
 		if (Load(saveName, out saveObject) == false)
 		{
@@ -27,7 +27,7 @@ public class HighScoreSaveManager : GenericSaveManager<SaveObject_HighScore>
 
 	public static void OverwritePlaylist(string saveName, SaveObject_Playlist savePlaylist)
 	{
-		SaveObject_HighScore saveObject;
+		SaveObject_HighScores saveObject;
 
 		if (Load(saveName, out saveObject) == false)
 		{

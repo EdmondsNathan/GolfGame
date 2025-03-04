@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor.Overlays;
 using UnityEngine;
 
-public abstract class GenericSaveManager<T> where T : new()
+public abstract class SaveManager_Base<T> where T : new()
 {
 	#region Public methods
 	public static void Save(string saveName, T saveObject)

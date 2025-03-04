@@ -29,7 +29,7 @@ public class SaveOnGoalScored : MonoBehaviour
 
 		if (PlaylistLoader.Instance.Index == 0)
 		{
-			HighScoreSaveManager.DeleteSave("CurrentPlaylist");
+			SaveManager_HighScores.DeleteSave("CurrentPlaylist");
 		}
 	}
 	#endregion
@@ -55,7 +55,7 @@ public class SaveOnGoalScored : MonoBehaviour
 		{
 			if (_saveLevel.IsSaveLevelBetterThanSave("HighScores") == true)
 			{
-				HighScoreSaveManager.OverwriteLevel("HighScores", _saveLevel);
+				SaveManager_HighScores.OverwriteLevel("HighScores", _saveLevel);
 			}
 
 			return;
@@ -67,24 +67,24 @@ public class SaveOnGoalScored : MonoBehaviour
 		{
 			if (_savePlaylist.IsSavePlaylistBetterThanSave("HighScores") == true)
 			{
-				HighScoreSaveManager.OverwritePlaylist("HighScores", _savePlaylist);
+				SaveManager_HighScores.OverwritePlaylist("HighScores", _savePlaylist);
 			}
 
-			HighScoreSaveManager.DeleteSave("CurrentPlaylist");
+			SaveManager_HighScores.DeleteSave("CurrentPlaylist");
 
 			return;
 		}
 
-		HighScoreSaveManager.OverwritePlaylist("CurrentPlaylist", _savePlaylist);
+		SaveManager_HighScores.OverwritePlaylist("CurrentPlaylist", _savePlaylist);
 
 		return;
 	}
 
 	private SaveObject_Playlist PopulateSavePlaylist(SaveObject_Level saveLevel)
 	{
-		SaveObject_HighScore saveObject;
+		SaveObject_HighScores saveObject;
 
-		if (HighScoreSaveManager.Load("CurrentPlaylist", out saveObject) == false)
+		if (SaveManager_HighScores.Load("CurrentPlaylist", out saveObject) == false)
 		{
 			return new SaveObject_Playlist(
 				name: PlaylistLoader.Instance.PlaylistReference.Name,

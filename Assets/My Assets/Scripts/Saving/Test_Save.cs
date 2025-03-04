@@ -8,7 +8,7 @@ public class Test_Save : MonoBehaviour
 
 	[SerializeField] private List<SaveObject_Playlist> _playlistSaves = new();
 
-	private SaveObject_HighScore _saveData = new();
+	private SaveObject_HighScores _saveData = new();
 	#endregion
 
 	#region Unity methods
@@ -25,13 +25,13 @@ public class Test_Save : MonoBehaviour
 			_saveData.AddPlaylistData(_playlistSaves[i]);
 		}
 
-		HighScoreSaveManager.Save("TestSave", _saveData);
+		SaveManager_HighScores.Save("TestSave", _saveData);
 
 
 		//Save loading
-		SaveObject_HighScore loadedSave;
+		SaveObject_HighScores loadedSave;
 
-		if (HighScoreSaveManager.Load("TestSave", out loadedSave) == false)
+		if (SaveManager_HighScores.Load("TestSave", out loadedSave) == false)
 		{
 			Debug.Log("No save present");
 

@@ -5,9 +5,9 @@ public static class SaveObjectExtensions
 	#region Extension methods
 	public static bool IsSaveLevelBetterThanSave(this SaveObject_Level save_Level, string saveName)
 	{
-		SaveObject_HighScore loadedSaveObject;
+		SaveObject_HighScores loadedSaveObject;
 
-		if (HighScoreSaveManager.Load(saveName, out loadedSaveObject) == false)
+		if (SaveManager_HighScores.Load(saveName, out loadedSaveObject) == false)
 		{
 			return true;
 		}
@@ -50,9 +50,9 @@ public static class SaveObjectExtensions
 
 	public static bool IsSavePlaylistBetterThanSave(this SaveObject_Playlist save_Playlist, string saveName)
 	{
-		SaveObject_HighScore loadedSaveObject;
+		SaveObject_HighScores loadedSaveObject;
 
-		if (HighScoreSaveManager.Load(saveName, out loadedSaveObject) == false)
+		if (SaveManager_HighScores.Load(saveName, out loadedSaveObject) == false)
 		{
 			return true;
 		}
