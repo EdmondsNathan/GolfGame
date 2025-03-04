@@ -1,5 +1,4 @@
-[System.Serializable]
-public class Save_Level
+public class SaveObject_Level
 {
 	#region Fields
 	public string Name;
@@ -16,10 +15,10 @@ public class Save_Level
 	#endregion
 
 	#region Constructors
-	public Save_Level()
+	public SaveObject_Level()
 	{ }
 
-	public Save_Level(string name, int score, float realTimeTaken, float gameTimeTaken, string golfBall, string ability)
+	public SaveObject_Level(string name, int score, float realTimeTaken, float gameTimeTaken, string golfBall, string ability)
 	{
 		Name = name;
 		Score = score;
@@ -29,7 +28,7 @@ public class Save_Level
 		Ability = ability;
 	}
 
-	public Save_Level(SO_SceneReference sceneReference, int score, float realTimeTaken, float gameTimeTaken, string golfBall, string ability) :
+	public SaveObject_Level(SO_SceneReference sceneReference, int score, float realTimeTaken, float gameTimeTaken, string golfBall, string ability) :
 		this(sceneReference.Name, score, realTimeTaken, gameTimeTaken, golfBall, ability)
 	{ }
 	#endregion

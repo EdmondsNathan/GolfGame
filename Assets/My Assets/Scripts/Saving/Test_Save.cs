@@ -4,11 +4,11 @@ using UnityEngine;
 public class Test_Save : MonoBehaviour
 {
 	#region Fields
-	[SerializeField] private List<Save_Level> _levelSaves = new();
+	[SerializeField] private List<SaveObject_Level> _levelSaves = new();
 
-	[SerializeField] private List<Save_Playlist> _playlistSaves = new();
+	[SerializeField] private List<SaveObject_Playlist> _playlistSaves = new();
 
-	private SaveObject _saveData = new();
+	private SaveObject_HighScore _saveData = new();
 	#endregion
 
 	#region Unity methods
@@ -25,13 +25,13 @@ public class Test_Save : MonoBehaviour
 			_saveData.AddPlaylistData(_playlistSaves[i]);
 		}
 
-		SaveManager.Save("TestSave", _saveData);
+		HighScoreSaveManager.Save("TestSave", _saveData);
 
 
 		//Save loading
-		SaveObject loadedSave;
+		SaveObject_HighScore loadedSave;
 
-		if (SaveManager.Load("TestSave", out loadedSave) == false)
+		if (HighScoreSaveManager.Load("TestSave", out loadedSave) == false)
 		{
 			Debug.Log("No save present");
 
@@ -42,9 +42,9 @@ public class Test_Save : MonoBehaviour
 
 
 		//Getting data from SaveObject
-		Save_Playlist playlistSave;
+		SaveObject_Playlist playlistSave;
 
-		Save_Level levelSave;
+		SaveObject_Level levelSave;
 
 		if (loadedSave.GetPlaylistData("xyz", out playlistSave) == true)
 		{

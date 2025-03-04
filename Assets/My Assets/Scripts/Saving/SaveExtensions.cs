@@ -3,16 +3,16 @@ using System.Linq;
 public static class SaveExtensions
 {
 	#region Extension methods
-	public static bool IsSaveLevelBetterThanSave(this Save_Level save_Level, string saveName)
+	public static bool IsSaveLevelBetterThanSave(this SaveObject_Level save_Level, string saveName)
 	{
-		SaveObject loadedSaveObject;
+		SaveObject_HighScore loadedSaveObject;
 
-		if (SaveManager.Load(saveName, out loadedSaveObject) == false)
+		if (HighScoreSaveManager.Load(saveName, out loadedSaveObject) == false)
 		{
 			return true;
 		}
 
-		Save_Level loadedSaveLevel;
+		SaveObject_Level loadedSaveLevel;
 
 		if (loadedSaveObject.GetLevelData(save_Level.Name, out loadedSaveLevel) == false)
 		{
@@ -23,7 +23,7 @@ public static class SaveExtensions
 		return save_Level.IsScoreBetter(loadedSaveLevel);
 	}
 
-	public static bool IsScoreBetter(this Save_Level save_Level, Save_Level compareToLevel)
+	public static bool IsScoreBetter(this SaveObject_Level save_Level, SaveObject_Level compareToLevel)
 	{
 		if (save_Level.Score < compareToLevel.Score)
 		{
@@ -48,16 +48,16 @@ public static class SaveExtensions
 		return save_Level.RealTimeTaken <= compareToLevel.RealTimeTaken;
 	}
 
-	public static bool IsSavePlaylistBetterThanSave(this Save_Playlist save_Playlist, string saveName)
+	public static bool IsSavePlaylistBetterThanSave(this SaveObject_Playlist save_Playlist, string saveName)
 	{
-		SaveObject loadedSaveObject;
+		SaveObject_HighScore loadedSaveObject;
 
-		if (SaveManager.Load(saveName, out loadedSaveObject) == false)
+		if (HighScoreSaveManager.Load(saveName, out loadedSaveObject) == false)
 		{
 			return true;
 		}
 
-		Save_Playlist loadedSavePlaylist;
+		SaveObject_Playlist loadedSavePlaylist;
 
 		if (loadedSaveObject.GetPlaylistData(save_Playlist.Name, out loadedSavePlaylist) == false)
 		{
@@ -68,7 +68,7 @@ public static class SaveExtensions
 		return save_Playlist.IsScoreBetter(loadedSavePlaylist);
 	}
 
-	public static bool IsScoreBetter(this Save_Playlist save_Playlist, Save_Playlist compareToPlaylist)
+	public static bool IsScoreBetter(this SaveObject_Playlist save_Playlist, SaveObject_Playlist compareToPlaylist)
 	{
 		if (save_Playlist.ScoreSum() < compareToPlaylist.ScoreSum())
 		{
@@ -93,17 +93,17 @@ public static class SaveExtensions
 		return save_Playlist.RealTimeSum() <= compareToPlaylist.RealTimeSum();
 	}
 
-	public static int ScoreSum(this Save_Playlist save_Playlist)
+	public static int ScoreSum(this SaveObject_Playlist save_Playlist)
 	{
 		return save_Playlist.Levels.Sum(level => level.Score);
 	}
 
-	public static float RealTimeSum(this Save_Playlist save_Playlist)
+	public static float RealTimeSum(this SaveObject_Playlist save_Playlist)
 	{
 		return save_Playlist.Levels.Sum(level => level.RealTimeTaken);
 	}
 
-	public static float GameTimeSum(this Save_Playlist save_Playlist)
+	public static float GameTimeSum(this SaveObject_Playlist save_Playlist)
 	{
 		return save_Playlist.Levels.Sum(level => level.GameTimeTaken);
 	}

@@ -4,6 +4,6 @@ public class DeleteCurrentPlaylistSaveOnAwake : MonoBehaviour
 {
 	protected void Awake()
 	{
-		SaveManager.DeleteSave("CurrentPlaylist");
+		HighScoreSaveManager.DeleteSave("CurrentPlaylist");
 	}
 }

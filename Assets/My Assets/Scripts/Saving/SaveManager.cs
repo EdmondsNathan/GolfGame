@@ -1,18 +1,20 @@
 using Newtonsoft.Json;
+using System;
 using System.IO;
 using UnityEngine;
 
+[Obsolete]
 public static class SaveManager
 {
 	#region Public methods
-	public static void Save(string saveName, SaveObject saveData)
+	public static void Save(string saveName, SaveObject_HighScore saveData)
 	{
 		File.WriteAllText(SavePath(saveName), JsonOutput(saveData));
 	}
 
-	public static void OverwriteLevel(string saveName, Save_Level saveLevel)
+	public static void OverwriteLevel(string saveName, SaveObject_Level saveLevel)
 	{
-		SaveObject saveObject;
+		SaveObject_HighScore saveObject;
 
 		if (Load(saveName, out saveObject) == false)
 		{
@@ -30,9 +32,9 @@ public static class SaveManager
 		Save(saveName, saveObject);
 	}
 
-	public static void OverwritePlaylist(string saveName, Save_Playlist savePlaylist)
+	public static void OverwritePlaylist(string saveName, SaveObject_Playlist savePlaylist)
 	{
-		SaveObject saveObject;
+		SaveObject_HighScore saveObject;
 
 		if (Load(saveName, out saveObject) == false)
 		{
@@ -50,7 +52,7 @@ public static class SaveManager
 		Save(saveName, saveObject);
 	}
 
-	public static bool Load(string saveName, out SaveObject saveObject)
+	public static bool Load(string saveName, out SaveObject_HighScore saveObject)
 	{
 		if (File.Exists(SavePath(saveName)) == false)
 		{
@@ -59,7 +61,7 @@ public static class SaveManager
 			return false;
 		}
 
-		saveObject = JsonConvert.DeserializeObject<SaveObject>(File.ReadAllText(SavePath(saveName)));
+		saveObject = JsonConvert.DeserializeObject<SaveObject_HighScore>(File.ReadAllText(SavePath(saveName)));
 
 		return true;
 	}
@@ -71,7 +73,7 @@ public static class SaveManager
 	#endregion
 
 	#region Private methods
-	private static string JsonOutput(SaveObject saveData)
+	private static string JsonOutput(SaveObject_HighScore saveData)
 	{
 		return JsonConvert.SerializeObject(saveData, Formatting.Indented);
 	}

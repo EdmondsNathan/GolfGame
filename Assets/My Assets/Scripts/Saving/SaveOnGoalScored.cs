@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 public class SaveOnGoalScored : MonoBehaviour
 {
 	#region Fields
-	private Save_Playlist _savePlaylist;
+	private SaveObject_Playlist _savePlaylist;
 
-	private Save_Level _saveLevel;
+	private SaveObject_Level _saveLevel;
 
 	private bool _isPlaylist = false;
 	#endregion
@@ -29,7 +29,7 @@ public class SaveOnGoalScored : MonoBehaviour
 
 		if (PlaylistLoader.Instance.Index == 0)
 		{
-			SaveManager.DeleteSave("CurrentPlaylist");
+			HighScoreSaveManager.DeleteSave("CurrentPlaylist");
 		}
 	}
 	#endregion
@@ -55,7 +55,7 @@ public class SaveOnGoalScored : MonoBehaviour
 		{
 			if (_saveLevel.IsSaveLevelBetterThanSave("HighScores") == true)
 			{
-				SaveManager.OverwriteLevel("HighScores", _saveLevel);
+				HighScoreSaveManager.OverwriteLevel("HighScores", _saveLevel);
 			}
 
 			return;
@@ -67,37 +67,37 @@ public class SaveOnGoalScored : MonoBehaviour
 		{
 			if (_savePlaylist.IsSavePlaylistBetterThanSave("HighScores") == true)
 			{
-				SaveManager.OverwritePlaylist("HighScores", _savePlaylist);
+				HighScoreSaveManager.OverwritePlaylist("HighScores", _savePlaylist);
 			}
 
-			SaveManager.DeleteSave("CurrentPlaylist");
+			HighScoreSaveManager.DeleteSave("CurrentPlaylist");
 
 			return;
 		}
 
-		SaveManager.OverwritePlaylist("CurrentPlaylist", _savePlaylist);
+		HighScoreSaveManager.OverwritePlaylist("CurrentPlaylist", _savePlaylist);
 
 		return;
 	}
 
-	private Save_Playlist PopulateSavePlaylist(Save_Level saveLevel)
+	private SaveObject_Playlist PopulateSavePlaylist(SaveObject_Level saveLevel)
 	{
-		SaveObject saveObject;
+		SaveObject_HighScore saveObject;
 
-		if (SaveManager.Load("CurrentPlaylist", out saveObject) == false)
+		if (HighScoreSaveManager.Load("CurrentPlaylist", out saveObject) == false)
 		{
-			return new Save_Playlist(
+			return new SaveObject_Playlist(
 				name: PlaylistLoader.Instance.PlaylistReference.Name,
-				levels: new List<Save_Level>() { saveLevel });
+				levels: new List<SaveObject_Level>() { saveLevel });
 		}
 
-		Save_Playlist savePlaylist;
+		SaveObject_Playlist savePlaylist;
 
 		if (saveObject.GetPlaylistData(PlaylistLoader.Instance.PlaylistReference.Name, out savePlaylist) == false)
 		{
-			return new Save_Playlist(
+			return new SaveObject_Playlist(
 				name: PlaylistLoader.Instance.PlaylistReference.Name,
-				levels: new List<Save_Level>() { saveLevel });
+				levels: new List<SaveObject_Level>() { saveLevel });
 		}
 
 		savePlaylist.Levels.Add(saveLevel);
@@ -105,9 +105,9 @@ public class SaveOnGoalScored : MonoBehaviour
 		return savePlaylist;
 	}
 
-	private Save_Level PopulateSaveLevel()
+	private SaveObject_Level PopulateSaveLevel()
 	{
-		return new Save_Level(
+		return new SaveObject_Level(
 			name: SceneManager.GetActiveScene().name,
 			score: FindFirstObjectByType<TurnCounter>().TurnCount,
 			realTimeTaken: RoundTimer.Instance.RealTime,
