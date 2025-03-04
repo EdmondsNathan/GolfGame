@@ -5,14 +5,9 @@ using UnityEngine;
 public static class SaveManager
 {
 	#region Public methods
-	public static string Output(SaveObject saveData)
-	{
-		return JsonConvert.SerializeObject(saveData, Formatting.Indented);
-	}
-
 	public static void Save(string saveName, SaveObject saveData)
 	{
-		File.WriteAllText(SavePath(saveName), Output(saveData));
+		File.WriteAllText(SavePath(saveName), JsonOutput(saveData));
 	}
 
 	public static void OverwriteLevel(string saveName, Save_Level saveLevel)
@@ -76,6 +71,11 @@ public static class SaveManager
 	#endregion
 
 	#region Private methods
+	private static string JsonOutput(SaveObject saveData)
+	{
+		return JsonConvert.SerializeObject(saveData, Formatting.Indented);
+	}
+
 	private static string SavePath(string saveName)
 	{
 		return Path.Combine(Application.persistentDataPath, saveName) + ".json";
