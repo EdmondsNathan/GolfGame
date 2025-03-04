@@ -32,12 +32,12 @@ public abstract class SaveManager_Base<T> where T : new()
 	#endregion
 
 	#region Protected methods
-	protected static string JsonOutput(T saveObject)
+	private static string JsonOutput(T saveObject)
 	{
 		return JsonConvert.SerializeObject(saveObject, Formatting.Indented);
 	}
 
-	protected static string SavePath(string saveName)
+	private static string SavePath(string saveName)
 	{
 		return Path.Combine(Application.persistentDataPath, saveName) + ".json";
 	}

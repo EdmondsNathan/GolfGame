@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SaveManager_HighScores : SaveManager_Base<SaveObject_HighScores>
 {
+	#region Fields
+	public static string SaveName = "HighScores";
+
+	public static string CurrentSaveName = "CurrentPlaylist";
+	#endregion
+
 	#region Public methods
 	public static void OverwriteLevel(string saveName, SaveObject_Level saveLevel)
 	{
