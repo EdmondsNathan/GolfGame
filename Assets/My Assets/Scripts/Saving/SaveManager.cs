@@ -43,7 +43,7 @@ public static class SaveManager
 			return;
 		}
 
-		saveObject.RemoveLevelData(savePlaylist.Name);
+		saveObject.RemovePlaylistData(savePlaylist.Name);
 
 		saveObject.AddPlaylistData(savePlaylist);
 
