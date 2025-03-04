@@ -1,6 +1,6 @@
 using System.Linq;
 
-public static class SaveExtensions
+public static class SaveObjectExtensions
 {
 	#region Extension methods
 	public static bool IsSaveLevelBetterThanSave(this SaveObject_Level save_Level, string saveName)
@@ -20,10 +20,10 @@ public static class SaveExtensions
 		}
 
 		//We know at this point that a save for this level exists
-		return save_Level.IsScoreBetter(loadedSaveLevel);
+		return save_Level.IsSaveLevelScoreBetter(loadedSaveLevel);
 	}
 
-	public static bool IsScoreBetter(this SaveObject_Level save_Level, SaveObject_Level compareToLevel)
+	public static bool IsSaveLevelScoreBetter(this SaveObject_Level save_Level, SaveObject_Level compareToLevel)
 	{
 		if (save_Level.Score < compareToLevel.Score)
 		{
@@ -65,10 +65,10 @@ public static class SaveExtensions
 		}
 
 		//We know at this point that a save for this playlist exists
-		return save_Playlist.IsScoreBetter(loadedSavePlaylist);
+		return save_Playlist.IsSavePlaylistScoreBetter(loadedSavePlaylist);
 	}
 
-	public static bool IsScoreBetter(this SaveObject_Playlist save_Playlist, SaveObject_Playlist compareToPlaylist)
+	public static bool IsSavePlaylistScoreBetter(this SaveObject_Playlist save_Playlist, SaveObject_Playlist compareToPlaylist)
 	{
 		if (save_Playlist.ScoreSum() < compareToPlaylist.ScoreSum())
 		{
