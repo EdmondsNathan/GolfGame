@@ -38,6 +38,11 @@ public class SceneLoader : SingletonMonoBehaviour<SceneLoader>
 	{
 		get
 		{
+			if (_defaultScene == null)
+			{
+				_defaultScene = Resources.Load<SO_SceneReference>("DefaultScene");
+			}
+
 			return _defaultScene;
 		}
 	}
@@ -62,7 +67,7 @@ public class SceneLoader : SingletonMonoBehaviour<SceneLoader>
 	{
 		if (NextScene == null)
 		{
-			SetNextScene(_defaultScene);
+			SetNextScene(DefaultScene);
 		}
 
 		_currentScene = NextScene;
