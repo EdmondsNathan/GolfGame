@@ -10,9 +10,11 @@ public abstract class Ability_DurationFixedUpdate : Ability_Duration
 			return;
 		}
 
-		_currentDuration += Time.fixedDeltaTime;
+		_currentDuration -= Time.fixedDeltaTime;
 
 		UseAbility_FixedUpdate();
+
+		Messages_AbilityUsage.OnDurationAbilityUsed?.Invoke(_currentDuration);
 	}
 	#endregion
 

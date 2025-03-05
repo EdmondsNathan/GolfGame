@@ -10,9 +10,11 @@ public abstract class Ability_DurationUpdate : Ability_Duration
 			return;
 		}
 
-		_currentDuration += Time.deltaTime;
+		_currentDuration -= Time.deltaTime;
 
 		UseAbility_Update();
+
+		Messages_AbilityUsage.OnDurationAbilityUsed?.Invoke(_currentDuration);
 	}
 	#endregion
 

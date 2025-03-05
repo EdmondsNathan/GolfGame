@@ -13,12 +13,14 @@ public class Ability_Thrust : Ability_DurationFixedUpdate
 	protected override void OnEnable()
 	{
 		base.OnEnable();
+
 		Messages_AimAbility.OnAimAbility += OnAimAbility;
 	}
 
 	protected override void OnDisable()
 	{
 		base.OnDisable();
+
 		Messages_AimAbility.OnAimAbility += OnAimAbility;
 	}
 	#endregion

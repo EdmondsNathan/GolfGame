@@ -4,11 +4,18 @@ using UnityEngine;
 public abstract class Ability_Duration : Ability_Base
 {
 	#region Fields
-	[SerializeField] protected float _duration = 2;
+	[SerializeField] protected float _maxDuration = 2;
 
 	protected float _currentDuration;
 
 	protected bool _isUsing = false;
+	#endregion
+
+	#region Unity methods
+	protected void Start()
+	{
+		Messages_AbilityUsage.OnSetMaxAbilityDuration?.Invoke(_maxDuration);
+	}
 	#endregion
 
 	#region Overriden methods
@@ -18,7 +25,7 @@ public abstract class Ability_Duration : Ability_Base
 
 		if (_isActiveState == true)
 		{
-			_currentDuration = 0;
+			_currentDuration = _maxDuration;
 		}
 	}
 	#endregion
@@ -31,7 +38,7 @@ public abstract class Ability_Duration : Ability_Base
 			return false;
 		}
 
-		if (_currentDuration >= _duration)
+		if (_currentDuration <= 0)
 		{
 			return false;
 		}

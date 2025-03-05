@@ -64,6 +64,8 @@ public abstract class Ability_SingleUse : Ability_Base
 
 		UseAbility();
 
+		Messages_AbilityUsage.OnSingleUseAbilityUsed?.Invoke();
+
 		_isAvailable = _currentCooldown <= 0;
 	}
 	#endregion
