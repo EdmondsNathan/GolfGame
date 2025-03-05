@@ -1,22 +1,15 @@
 # <span style = "color:red">Game Plan</span>
 
 ## <span style = "color:orange">To-do</span>
-
-- Ability interfaces
-	- Ability name/icon
-	- Availability
-		- Gray out when unavailable
-		- Fuel gauge for abilities like thrust
-
-<br><br><br>
-
-## <span style = "color:yellow">Backlog</span>
-
-### Menu
 - Rework code so that menus are not a pain to work with
 	- Menus are automatically added to the opposite side when selected so that menu order doesn't matter
 	- Less events to trigger for each button to transition menus to make changes easier
 	- Choose ball before ability
+
+<br><br>
+## <span style = "color:yellow">Backlog</span>
+
+### Menu
 - Options menu
 - Better UI for tour/level/challenge select menu
 
@@ -34,7 +27,7 @@ or move as far as possible)
 ### Abilities
 - ~~Grapple~~
 - ~~Gravity shift (Shift gravity in input direction, or maybe movement direction)~~
-- Random ability (at the start of each turn, you are told what ability you have for the following shot)
+- ~~Random ability (at the start of each turn, you are told what ability you have for the following shot)~~
 - Rocket launcher (shoot a rocket that can push the ball or interact with environment)
 
 ### Golf balls
@@ -43,7 +36,6 @@ or move as far as possible)
 - Bouncy
 
 ### Hazards/Stage elements
-- Mines
 - Moving platforms
 	- Sliding doors
 	- Windmill
