@@ -37,6 +37,13 @@ public class PlaylistLoader : SingletonMonoBehaviour<PlaylistLoader>
 	#endregion
 
 	#region Unity methods
+	protected override void Awake()
+	{
+		base.Awake();
+
+		DontDestroyOnLoad(this);
+	}
+
 	protected void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;

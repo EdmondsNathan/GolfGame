@@ -1,13 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BallAndAbilityHolder : MonoBehaviour
+public class BallAndAbilityHolder : SingletonMonoBehaviour<BallAndAbilityHolder>
 {
 	#region Fields
 	private GameObject _abilityPrefab, _golfBallPrefab;
 	#endregion
 
 	#region Unity methods
+	protected override void Awake()
+	{
+		base.Awake();
+
+		DontDestroyOnLoad(this);
+	}
+
 	protected void OnEnable()
 	{
 		Messages_SelectGolfBall.OnGolfBallSelected += OnGolfBallSelected;

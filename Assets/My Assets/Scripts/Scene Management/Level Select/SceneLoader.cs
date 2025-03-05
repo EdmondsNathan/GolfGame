@@ -43,6 +43,15 @@ public class SceneLoader : SingletonMonoBehaviour<SceneLoader>
 	}
 	#endregion
 
+	#region Unity methods
+	protected override void Awake()
+	{
+		base.Awake();
+
+		DontDestroyOnLoad(this);
+	}
+	#endregion
+
 	#region Public methods
 	public void LoadScene(SO_SceneReference sceneReference)
 	{
