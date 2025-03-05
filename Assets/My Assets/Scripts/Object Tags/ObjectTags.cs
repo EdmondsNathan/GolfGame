@@ -4,7 +4,8 @@ using UnityEngine;
 public enum Tag
 {
 	IgnoreTeleporters,
-	Goal
+	Goal,
+	Ability
 }
 
 public class ObjectTags : MonoBehaviour

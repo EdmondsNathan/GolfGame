@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4964706492287437061}
   - component: {fileID: -8459040392430208420}
   - component: {fileID: -1551305203899847925}
+  - component: {fileID: 6312914205958322053}
   m_Layer: 0
   m_Name: Ability_Boost
   m_TagString: Untagged
@@ -73,3 +74,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752765996f747094a86e53b6c75eca46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6312914205958322053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298659938843051388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317516c22f81ab040a9a5d0408eca343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tags: 02000000
