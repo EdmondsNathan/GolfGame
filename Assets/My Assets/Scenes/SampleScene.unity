@@ -404,11 +404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6021669972245496643, guid: b363314416a3dfe48ab60c57a74c1b04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6021669972245496643, guid: b363314416a3dfe48ab60c57a74c1b04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8950840722730534604, guid: b363314416a3dfe48ab60c57a74c1b04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3407,6 +3407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5618432669925482214, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5773886407532418421, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
       propertyPath: m_Type
       value: 2
@@ -3426,6 +3430,10 @@ PrefabInstance:
     - target: {fileID: 6183058341355999829, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188431393333506585, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6396299057999717521, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
       propertyPath: m_Pivot.x
@@ -3458,6 +3466,10 @@ PrefabInstance:
     - target: {fileID: 6396299057999717521, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396299057999717521, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6396299057999717521, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3495,6 +3507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChargeMeter
       objectReference: {fileID: 0}
+    - target: {fileID: 8209018153402834746, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8234387504326173620, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
       propertyPath: m_SizeDelta.x
       value: 125
@@ -3509,6 +3525,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8594044216771829495, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680779952568898063, guid: 1f754b68493b1cd46b96fbbb8e6756c9, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -12,6 +12,7 @@
 ### Menu
 - Options menu
 - Better UI for tour/level/challenge select menu
+- Pause menu
 
 ### Game
 - Unlocking balls (hidden in different levels)
