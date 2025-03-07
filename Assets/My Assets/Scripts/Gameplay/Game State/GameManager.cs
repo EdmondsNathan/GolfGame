@@ -11,7 +11,8 @@ public enum GameState
 	BallLanded,
 	EndTurn,
 	GoalScored,
-	CameraFlyBack
+	CameraFlyBack,
+	Paused
 }
 
 public static class GameManager

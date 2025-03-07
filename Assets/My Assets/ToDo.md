@@ -5,17 +5,19 @@
 	- Menus are automatically added to the opposite side when selected so that menu order doesn't matter
 	- Less events to trigger for each button to transition menus to make changes easier
 	- Choose ball before ability
+- Pause menu
+	- Hide UI elements
+- Hide charge bar after shooting
 
 <br><br>
+ 
 ## <span style = "color:yellow">Backlog</span>
 
 ### Menu
 - Options menu
 - Better UI for tour/level/challenge select menu
-- Pause menu
 
 ### Game
-- Unlocking balls (hidden in different levels)
 - Unlocking abilities (different achievements)
 
 ### Game Modes
