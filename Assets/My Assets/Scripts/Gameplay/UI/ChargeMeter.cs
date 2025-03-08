@@ -46,7 +46,7 @@ public class ChargeMeter : MonoBehaviour
 	#region Event listener methods
 	private void OnStateEnter(GameState oldState, GameState newState)
 	{
-		if (newState == GameState.AimShot)
+		if (newState != GameState.ChargeShot)
 		{
 			SetSize(0);
 		}
