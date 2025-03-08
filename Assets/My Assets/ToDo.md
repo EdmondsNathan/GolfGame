@@ -1,42 +1,41 @@
-# <span style = "color:red">Game Plan</span>
+# <span style = "color:red"><p align = "center">Game Plan</span>
 
-## <span style = "color:orange">To-do</span>
+## <span style = "color:orange"><p align = "center">To-do</span>
 - Rework code so that menus are not a pain to work with
 	- Menus are automatically added to the opposite side when selected so that menu order doesn't matter
 	- Less events to trigger for each button to transition menus to make changes easier
 	- Choose ball before ability
-- Pause menu
 
 <br><br>
- 
-## <span style = "color:yellow">Backlog</span>
 
-### Menu
+## <span style = "color:yellow"><p align = "center">Backlog</span>
+
+### <p align = "center">Menu
 - Options menu
 - Better UI for tour/level/challenge select menu
 
-### Game
+### <p align = "center">Game
 - Unlocking abilities (different achievements)
 
-### Game Modes
+### <p align = "center">Game Modes
 - Survival(Lots of hazards, maybe things like rising lava, survive as many turns as possible
 or move as far as possible)
 
-### Saving
+### <p align = "center">Saving
 - Preferences
 
-### Abilities
+### <p align = "center">Abilities
 - ~~Grapple~~
 - ~~Gravity shift (Shift gravity in input direction, or maybe movement direction)~~
 - ~~Random ability (at the start of each turn, you are told what ability you have for the following shot)~~
 - Rocket launcher (shoot a rocket that can push the ball or interact with environment)
 
-### Golf balls
+### <p align = "center">Golf balls
 - Zero Gravity
 - Sticky
 - Bouncy
 
-### Hazards/Stage elements
+### <p align = "center">Hazards/Stage elements
 - Moving platforms
 	- Sliding doors
 	- Windmill
