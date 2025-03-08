@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Input_OnCancel : MonoBehaviour
+public class Input_Cancel : MonoBehaviour
 {
 	#region Fields
 	[SerializeField] private RotateMenu _rotateMenu;
 
-	[SerializeField] private SetSelected _setSelected;
+	[SerializeField] private SetSelectedButton _setSelected;
 
 	[SerializeField] private FadeMenu _fadeMenu;
 
