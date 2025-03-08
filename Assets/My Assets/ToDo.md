@@ -6,8 +6,6 @@
 	- Less events to trigger for each button to transition menus to make changes easier
 	- Choose ball before ability
 - Pause menu
-	- Hide UI elements
-- Hide charge bar after shooting
 
 <br><br>
  
