@@ -1,6 +1,6 @@
-# <span style = "color:red"><p align = "center">Game Plan</span>
+# <span style = "color:red"><p align = "center">Game Plan</p></span>
 
-## <span style = "color:orange"><p align = "center">To-do</span>
+## <span style = "color:orange"><p align = "center">To-do</p></span>
 - Rework code so that menus are not a pain to work with
 	- Menus are automatically added to the opposite side when selected so that menu order doesn't matter
 	- Less events to trigger for each button to transition menus to make changes easier
@@ -8,34 +8,34 @@
 
 <br><br>
 
-## <span style = "color:yellow"><p align = "center">Backlog</span>
+## <span style = "color:yellow"><p align = "center">Backlog</p></span>
 
-### <p align = "center">Menu
+### <p align = "center">Menu</p>
 - Options menu
 - Better UI for tour/level/challenge select menu
 
-### <p align = "center">Game
+### <p align = "center">Game</p>
 - Unlocking abilities (different achievements)
 
-### <p align = "center">Game Modes
+### <p align = "center">Game Modes</p>
 - Survival(Lots of hazards, maybe things like rising lava, survive as many turns as possible
 or move as far as possible)
 
-### <p align = "center">Saving
+### <p align = "center">Saving</p>
 - Preferences
 
-### <p align = "center">Abilities
+### <p align = "center">Abilities</p>
 - ~~Grapple~~
 - ~~Gravity shift (Shift gravity in input direction, or maybe movement direction)~~
 - ~~Random ability (at the start of each turn, you are told what ability you have for the following shot)~~
 - Rocket launcher (shoot a rocket that can push the ball or interact with environment)
 
-### <p align = "center">Golf balls
+### <p align = "center">Golf balls</p>
 - Zero Gravity
 - Sticky
 - Bouncy
 
-### <p align = "center">Hazards/Stage elements
+### <p align = "center">Hazards/Stage elements</p>
 - Moving platforms
 	- Sliding doors
 	- Windmill
@@ -43,7 +43,7 @@ or move as far as possible)
 - Turrets(shoots projectiles that push the ball, basic projectiles, explosive)
 - Breakable terrain(break after being hit)
 
-### Courses
+### <p align = "center">Courses</p>
 - Tours
 	- Earth(standard gravity)
 	- Spaceship(closed off levels, buttons to toggle artificial gravity)
@@ -52,7 +52,7 @@ or move as far as possible)
 	- Jupiter(high gravity, lots of pitfalls cause gas planet)
 - Solar system(goal is the sun, orbiting planets have gravity effects)
 
-### Unlocks
+### <p align = "center">Unlocks</p>
 - balls: hidden spots in courses
 	- Zero gravity ball: ~~finish a zero- g course under par~~
 	- Square ball: 
