@@ -38,7 +38,7 @@ public class ChargeShot_PingPong : ChargeShot_Base
 	#endregion
 
 	#region Event listener methods
-	public override void OnStateEnter(GameState oldState, GameState newState)
+	protected override void OnStateEnter(GameState oldState, GameState newState)
 	{
 		base.OnStateEnter(oldState, newState);
 
@@ -48,8 +48,6 @@ public class ChargeShot_PingPong : ChargeShot_Base
 		}
 
 		_pingPongValue = 0;
-
-		//_startingTime = Time.unscaledTime;
 	}
 	#endregion
 }

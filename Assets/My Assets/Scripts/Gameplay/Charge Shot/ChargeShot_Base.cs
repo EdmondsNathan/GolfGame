@@ -28,11 +28,15 @@ public abstract class ChargeShot_Base : MonoBehaviour
 	protected virtual void OnEnable()
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
+
+		Messages_ChargeShot.OnRequestMinAndMaxCharge += OnRequestMinAndMaxCharge;
 	}
 
 	protected virtual void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
+
+		Messages_ChargeShot.OnRequestMinAndMaxCharge -= OnRequestMinAndMaxCharge;
 	}
 
 	protected void Start()
@@ -58,12 +62,17 @@ public abstract class ChargeShot_Base : MonoBehaviour
 	#endregion
 
 	#region Event listener methods
-	public virtual void OnStateEnter(GameState oldState, GameState newState)
+	protected virtual void OnStateEnter(GameState oldState, GameState newState)
 	{
 		if (newState == GameState.ChargeShot)
 		{
 			CurrentCharge = 0;
 		}
+	}
+
+	private void OnRequestMinAndMaxCharge()
+	{
+		Messages_ChargeShot.OnMinAndMaxChargeSet?.Invoke(_minCharge, _maxCharge);
 	}
 	#endregion
 }

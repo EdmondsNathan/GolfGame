@@ -41,6 +41,11 @@ public class ChargeMeter : MonoBehaviour
 
 		Messages_ChargeShot.OnChargeChanged -= OnChargeChanged;
 	}
+
+	protected void Start()
+	{
+		Messages_ChargeShot.OnRequestMinAndMaxCharge?.Invoke();
+	}
 	#endregion
 
 	#region Event listener methods
