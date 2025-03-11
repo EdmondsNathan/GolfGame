@@ -11,6 +11,7 @@ public class TransitionMenu : MonoBehaviour
 	[SerializeField] private MenuRotator _menuRotator;
 	[SerializeField] private List<Transform> _frontAndBackCanvases = new();
 	[SerializeField] private MenuItem _startingMenuItem;
+	[SerializeField] private bool _spinToFirstMenu = false;
 
 	private Stack<MenuItem> _previousMenuItems = new();
 	private int _sideIndex = 0;
@@ -29,7 +30,14 @@ public class TransitionMenu : MonoBehaviour
 
 	protected void Start()
 	{
-		OnGoToMenu(_startingMenuItem);
+		if (_spinToFirstMenu == true)
+		{
+			OnGoToMenu(_startingMenuItem);
+		}
+		else
+		{
+			_previousMenuItems.Push(_startingMenuItem);
+		}
 	}
 	#endregion
 
