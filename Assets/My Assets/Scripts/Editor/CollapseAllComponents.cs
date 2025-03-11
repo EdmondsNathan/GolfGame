@@ -12,7 +12,7 @@ using Object = UnityEngine.Object;
 public static class MyEditorHotkeys
 {
 	// Hot key: ALT + W
-	[MenuItem("Tools/Inspector/Collapse All &w")]
+	[UnityEditor.MenuItem("Tools/Inspector/Collapse All &w")]
 	public static void InspectorCollapseAll()
 	{
 		if (Selection.objects == null)
@@ -43,7 +43,7 @@ public static class MyEditorHotkeys
 	}
 
 	// Hot key: ALT + Q
-	[MenuItem("Tools/Inspector/Expand All &q")]
+	[UnityEditor.MenuItem("Tools/Inspector/Expand All &q")]
 	public static void InspectorExpandAll()
 	{
 		if (Selection.objects == null)

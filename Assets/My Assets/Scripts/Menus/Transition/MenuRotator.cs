@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class RotateMenu : MonoBehaviour
+public class MenuRotator : MonoBehaviour
 {
 	#region Fields
-	[SerializeField] private Transform _planet;
+	[SerializeField] private Transform CameraSpinner;
 
 	[SerializeField] private float _speed;
 
@@ -19,7 +19,7 @@ public class RotateMenu : MonoBehaviour
 	{
 		_currentRotation.y = Mathf.Lerp(_currentRotation.y, _targetRotation, _speed * Time.deltaTime);
 
-		_planet.localEulerAngles = _currentRotation;
+		CameraSpinner.localEulerAngles = _currentRotation;
 	}
 	#endregion
 

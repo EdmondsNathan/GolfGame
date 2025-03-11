@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FadeMenu : MonoBehaviour
+public class MenuFader : MonoBehaviour
 {
 	#region Fields
 	[SerializeField] private CanvasGroup _startingCanvasGroup;
@@ -11,25 +11,10 @@ public class FadeMenu : MonoBehaviour
 	private CanvasGroup _previousCanvasGroup, _currentCanvasGroup;
 	#endregion
 
-	#region Properties
-	public CanvasGroup PreviousCanvasGroup
-	{
-		get
-		{
-			return _previousCanvasGroup;
-		}
-	}
-	#endregion
-
 	#region Unity methods
 	public void Awake()
 	{
 		_currentCanvasGroup = _startingCanvasGroup;
-	}
-
-	public void Start()
-	{
-		Messages_MenuChange.OnCanvasGroupChanged?.Invoke(_currentCanvasGroup);
 	}
 
 	protected void Update()
@@ -59,13 +44,6 @@ public class FadeMenu : MonoBehaviour
 		_previousCanvasGroup.blocksRaycasts = false;
 
 		_currentCanvasGroup.blocksRaycasts = true;
-
-		Messages_MenuChange.OnCanvasGroupChanged?.Invoke(canvasGroup);
-	}
-
-	public void PreviousFade()
-	{
-		FadeTransition(_previousCanvasGroup);
 	}
 	#endregion
 }

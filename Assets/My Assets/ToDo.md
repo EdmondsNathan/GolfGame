@@ -1,10 +1,6 @@
 # <span style = "color:red"><p align = "center">Game Plan</p></span>
 
 ## <span style = "color:orange"><p align = "center">To-do</p></span>
-- Rework code so that menus are not a pain to work with
-	- Menus are automatically added to the opposite side when selected so that menu order doesn't matter
-	- Less events to trigger for each button to transition menus to make changes easier
-	- Choose ball before ability
 
 <br><br>
 
