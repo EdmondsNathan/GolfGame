@@ -11,7 +11,8 @@ public enum Unlockables
 	Ability_Brake,
 	Ability_Boost,
 	Ability_Reset,
-	Ability_Thrust
+	Ability_Thrust,
+	Ability_Rocket
 }
 
 public class SaveObject_Unlockables
@@ -34,7 +35,8 @@ public class SaveObject_Unlockables
 			{ Unlockables.Ability_Brake, true},
 			{ Unlockables.Ability_Boost, false},
 			{ Unlockables.Ability_Reset, false},
-			{ Unlockables.Ability_Thrust, false}
+			{ Unlockables.Ability_Thrust, false},
+			{ Unlockables.Ability_Rocket, false}
 		};
 	}
 	#endregion
