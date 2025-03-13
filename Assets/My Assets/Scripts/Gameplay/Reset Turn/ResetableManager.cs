@@ -72,6 +72,11 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 	{
 		_resetables.Remove(resetable);
 	}
+
+	public bool ContainsResetable(ResetableObject resetable)
+	{
+		return _resetables.Contains(resetable);
+	}
 	#endregion
 
 	#region Private methods

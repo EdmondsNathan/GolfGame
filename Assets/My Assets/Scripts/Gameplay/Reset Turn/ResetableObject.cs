@@ -3,7 +3,19 @@ using UnityEngine;
 
 public class ResetableObject : MonoBehaviour
 {
+	#region Private enums
+	private enum ResetBehaviours
+	{
+		Disable,
+		Destroy,
+		Nothing
+	}
+	#endregion
+
 	#region Fields
+	[Tooltip("What to do if the object isn't in the resetable manager's List")]
+	[SerializeField] private ResetBehaviours _resetBehaviourIfCreatedThisTurn = ResetBehaviours.Nothing;
+
 	private Vector3 _lastPosition = new();
 
 	private Quaternion _lastRotation = new();
@@ -111,9 +123,22 @@ public class ResetableObject : MonoBehaviour
 		_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
+	protected void OnEnable()
+	{
+		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
+
+		Messages_Reset.OnTurnReset += OnTurnReset;
+	}
+	protected void OnDisable()
+	{
+		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
+
+		Messages_Reset.OnTurnReset -= OnTurnReset;
+	}
+
 	protected void Start()
 	{
-		ResetableManager.Instance.AddResetable(this);
+		//ResetableManager.Instance.AddResetable(this);
 	}
 
 	protected void OnDestroy()
@@ -125,6 +150,45 @@ public class ResetableObject : MonoBehaviour
 		}
 
 		ResetableManager.Instance.RemoveResetable(this);
+	}
+	#endregion
+
+	#region Event listener methods
+	private void OnStateEnter(GameState oldState, GameState newState)
+	{
+		if (newState != GameState.StartTurn)
+		{
+			return;
+		}
+
+		if (ResetableManager.Instance.ContainsResetable(this) == true)
+		{
+			return;
+		}
+
+		ResetableManager.Instance.AddResetable(this);
+	}
+
+	private void OnTurnReset(bool countTurn)
+	{
+		if (ResetableManager.Instance.ContainsResetable(this) == true)
+		{
+			return;
+		}
+
+		switch (_resetBehaviourIfCreatedThisTurn)
+		{
+			case ResetBehaviours.Disable:
+				gameObject.SetActive(_lastEnabled);
+				break;
+			case ResetBehaviours.Destroy:
+				Destroy(gameObject);
+				break;
+			case ResetBehaviours.Nothing:
+				break;
+			default:
+				throw new ArgumentOutOfRangeException();
+		}
 	}
 	#endregion
 }
