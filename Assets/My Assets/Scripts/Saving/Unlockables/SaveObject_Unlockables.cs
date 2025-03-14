@@ -5,7 +5,7 @@ public enum Unlockables
 	Ball_Standard,
 	Ball_ZeroG,
 	Ball_Sticky,
-	Ball_Bouncy,
+	Ball_Explosive,
 	Ball_Square,
 
 	Ability_Brake,
@@ -29,7 +29,7 @@ public class SaveObject_Unlockables
 			{ Unlockables.Ball_Standard, true},
 			{ Unlockables.Ball_ZeroG, false},
 			{ Unlockables.Ball_Sticky, false},
-			{ Unlockables.Ball_Bouncy, false},
+			{ Unlockables.Ball_Explosive, false},
 			{ Unlockables.Ball_Square, false},
 
 			{ Unlockables.Ability_Brake, true},
