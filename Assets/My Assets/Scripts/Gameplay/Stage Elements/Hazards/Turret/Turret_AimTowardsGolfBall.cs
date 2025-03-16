@@ -45,7 +45,7 @@ public class Turret_AimTowardsGolfBall : MonoBehaviour
 
 		// Smoothly rotate towards the clamped angle
 		_currentAngle = _turretRotator.eulerAngles.z;
-		_newAngle = Mathf.MoveTowardsAngle(_currentAngle, _clampedTargetAngle, Time.unscaledDeltaTime * _rotationSpeed);
+		_newAngle = Mathf.MoveTowardsAngle(_currentAngle, _clampedTargetAngle, Time.deltaTime * _rotationSpeed);
 
 		// Apply the rotation
 		_turretRotator.rotation = Quaternion.Euler(0, 0, _newAngle);
