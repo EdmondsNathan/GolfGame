@@ -53,6 +53,8 @@ public class SceneLoader : SingletonMonoBehaviour<SceneLoader>
 	{
 		base.Awake();
 
+		transform.parent = null;    //DontDestroyOnLoad only works on for root GameObjects
+
 		DontDestroyOnLoad(this);
 	}
 	#endregion
