@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6085150330864691810
 Transform:
   m_ObjectHideFlags: 0
@@ -32,6 +32,7 @@ Transform:
   - {fileID: 2120756881855413786}
   - {fileID: 3279181103331637848}
   - {fileID: 7068612173192845363}
+  - {fileID: 1851331303313974640}
   - {fileID: 4475276280346669500}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,6 +109,76 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1449883348149215994, guid: 15f84e36a9544b344b291ca1252ba67a, type: 3}
   m_PrefabInstance: {fileID: 680452686507990240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1028504731965747026
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6085150330864691810}
+    m_Modifications:
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794339651521344498, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_Name
+      value: Ability_Rocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794339651521344498, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054467076065888427, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+      propertyPath: _rocketPrefab
+      value: 
+      objectReference: {fileID: 5131899150952839624, guid: ea8821112700c8a49a3549613bef6108, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+--- !u!4 &1851331303313974640 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1726210819927525922, guid: ce29bbb1544fcfc49bb4a056fe6b70ea, type: 3}
+  m_PrefabInstance: {fileID: 1028504731965747026}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1146071176828674667
 PrefabInstance:
@@ -205,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275403809652400073, guid: 14721d82d9b272d49afcb12caf3696c2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8235152947896763619, guid: 14721d82d9b272d49afcb12caf3696c2, type: 3}
       propertyPath: m_LocalPosition.x
