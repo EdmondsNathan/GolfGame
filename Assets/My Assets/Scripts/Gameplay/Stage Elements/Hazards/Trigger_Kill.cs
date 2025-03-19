@@ -9,6 +9,11 @@ public class Trigger_Kill : MonoBehaviour
 	#region Unity methods
 	protected void OnTriggerEnter2D(Collider2D collider)
 	{
+		if (collider.TryGetComponent<ObjectTags>(out var objectTags) && objectTags.ContainsTag(Tag.IgnoreKillboxes) == true)
+		{
+			return;
+		}
+
 		if (collider.gameObject == GetGolfBall.GameObject_GolfBall)
 		{
 			if (GameManager.CurrentState != GameState.BallMoving)
