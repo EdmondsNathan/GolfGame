@@ -12,14 +12,14 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 	{
 		Messages_GameStateChanged.OnStateEnter += OnStateEnter;
 
-		Messages_Reset.OnTurnReset += OnResetTurn;
+		Messages_Reset.OnTurnReset += OnTurnReset;
 	}
 
 	protected void OnDisable()
 	{
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 
-		Messages_Reset.OnTurnReset -= OnResetTurn;
+		Messages_Reset.OnTurnReset -= OnTurnReset;
 	}
 
 	protected void Start()
@@ -48,7 +48,7 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 		}
 	}
 
-	private void OnResetTurn(bool countTurn)
+	private void OnTurnReset(bool countTurn)
 	{
 		Messages_BreakGrapple.BreakGrapple?.Invoke();
 
