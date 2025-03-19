@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -1855637329604209629}
   - component: {fileID: -2512307637754397185}
   m_Layer: 0
-  m_Name: Rocket
+  m_Name: GolfBall Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _thrust: 1500
+  _initialForce: 20
 --- !u!114 &-6365315199397731868
 MonoBehaviour:
   m_ObjectHideFlags: 0

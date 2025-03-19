@@ -5,7 +5,8 @@ public enum Tag
 {
 	IgnoreTeleporters,
 	Goal,
-	Ability
+	Ability,
+	DestroyProjectiles
 }
 
 public class ObjectTags : MonoBehaviour

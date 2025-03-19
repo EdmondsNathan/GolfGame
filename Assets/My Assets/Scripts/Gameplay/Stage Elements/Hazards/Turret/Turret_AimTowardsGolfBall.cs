@@ -10,9 +10,29 @@ public class Turret_AimTowardsGolfBall : MonoBehaviour
 
 	[SerializeField] private Transform _turretRotator;
 
-	private float _targetAngle, _currentAngle, _parentAngle, _relativeAngle, _clampedTargetAngle, _newAngle;
+	private float _targetAngle = Mathf.Infinity; // So that the turret shoot script doesn't get confused on the first frame
+
+	private float _currentAngle, _parentAngle, _relativeAngle, _clampedTargetAngle, _newAngle;
 
 	private Vector2 _direction = new();
+	#endregion
+
+	#region Properties
+	public float TargetAngle
+	{
+		get
+		{
+			return _targetAngle;
+		}
+	}
+
+	public float CurrentAngle
+	{
+		get
+		{
+			return _currentAngle;
+		}
+	}
 	#endregion
 
 	#region Unity methods
