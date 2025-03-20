@@ -30,29 +30,26 @@ public class Trigger_Teleporter : MonoBehaviour
 		Messages_GameStateChanged.OnStateEnter -= OnStateEnter;
 	}
 
-	protected void OnTriggerEnter2D(Collider2D collision)
+	protected void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (_isExitOnly == true)
 		{
 			return;
 		}
 
-		if (_rigidbodyDictionary.ContainsKey(collision.attachedRigidbody) == true)
+		if (_rigidbodyDictionary.ContainsKey(collider.attachedRigidbody) == true)
 		{
 			return;
 		}
 
-		if (collision.gameObject.TryGetComponent(out _enteringBody) == false)
+		if (collider.gameObject.TryGetComponent(out _enteringBody) == false)
 		{
 			return;
 		}
 
-		if (collision.gameObject.TryGetComponent(out ObjectTags tags) == true)
+		if (collider.ContainsTag(Tag.IgnoreTeleporters))
 		{
-			if (tags.ContainsTag(Tag.IgnoreTeleporters) == true)
-			{
-				return;
-			}
+			return;
 		}
 
 		Messages_BreakGrapple.BreakGrapple?.Invoke();

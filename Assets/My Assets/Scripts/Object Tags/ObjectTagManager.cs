@@ -65,5 +65,24 @@ public static class ObjectTagManager
 
 		return objects;
 	}
+
+	public static bool ContainsTag(this Component component, Tag tag)
+	{
+		ObjectTags objectTags = component.GetComponent<ObjectTags>();
+
+		if (objectTags == null)
+		{
+			return false;
+		}
+
+		return objectTags.ContainsTag(tag);
+	}
+	#endregion
+
+	#region Private methods
+	private static bool ContainsTag(this ObjectTags objectTags, Tag tag)
+	{
+		return objectTags.Tags.Contains(tag);
+	}
 	#endregion
 }

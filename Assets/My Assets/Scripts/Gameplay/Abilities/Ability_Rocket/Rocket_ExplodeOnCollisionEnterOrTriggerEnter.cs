@@ -16,14 +16,7 @@ public class Rocket_ExplodeOnCollisionEnterOrTriggerEnter : MonoBehaviour
 	{
 		if (collider.GetComponent<Collider2D>().isTrigger == true)
 		{
-			var objectTags = collider.GetComponent<ObjectTags>();
-
-			if (objectTags == null)
-			{
-				return;
-			}
-
-			if (objectTags.ContainsTag(Tag.DestroyProjectiles))
+			if (collider.ContainsTag(Tag.DestroyProjectiles))
 			{
 				Explode();
 			}

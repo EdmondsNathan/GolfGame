@@ -37,11 +37,4 @@ public class ObjectTags : MonoBehaviour
 		ObjectTagManager.RemoveObject(this);
 	}
 	#endregion
-
-	#region Public methods
-	public bool ContainsTag(Tag tag)
-	{
-		return _tags.Contains(tag);
-	}
-	#endregion
 }

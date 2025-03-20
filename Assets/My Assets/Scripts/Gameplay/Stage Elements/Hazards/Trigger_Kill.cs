@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//TODO: Create an enum to switch between different actions when the golf ball enters the trigger. Reset, Respawn and continue, etc.
 public class Trigger_Kill : MonoBehaviour
 {
 	#region Fields
@@ -9,7 +10,7 @@ public class Trigger_Kill : MonoBehaviour
 	#region Unity methods
 	protected void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (collider.TryGetComponent<ObjectTags>(out var objectTags) && objectTags.ContainsTag(Tag.IgnoreKillboxes) == true)
+		if (collider.ContainsTag(Tag.IgnoreKillboxes))
 		{
 			return;
 		}
