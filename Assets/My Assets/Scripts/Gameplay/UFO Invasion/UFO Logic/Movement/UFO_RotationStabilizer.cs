@@ -34,9 +34,7 @@ public class UFO_RotationStabilizer : MonoBehaviour
 
 		float rotationSpeed = Mathf.Lerp(_minRotationSpeed, _maxRotationSpeed, Mathf.Abs(rotation) / 180);
 
-		Debug.Log(rotationSpeed);
-
-		_rigidbody.AddTorque(Mathf.Sign(rotation) * rotationSpeed);
+		_rigidbody.AddTorque(Mathf.Sign(rotation) * rotationSpeed, ForceMode2D.Force);
 	}
 	#endregion
 }
