@@ -1,6 +1,7 @@
 using System.Drawing;
 using UnityEngine;
 
+//TODO: Make this work for swapping abilities during a round
 public class AbilityMeter : MonoBehaviour
 {
 	#region	Fields

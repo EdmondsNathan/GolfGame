@@ -18,6 +18,7 @@ public static class ObjectTagManager
 		_taggedObjects.Remove(objectTags);
 	}
 
+	//TODO: Refactor to TryFindFirstObjectWithTag(Tag tag, out T component) where T : Component
 	public static bool TryFindFirstObjectWithTag(Tag tag, out GameObject go)
 	{
 		foreach (ObjectTags objectTags in _taggedObjects)
