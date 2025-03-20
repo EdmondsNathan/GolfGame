@@ -18,28 +18,26 @@ public static class ObjectTagManager
 		_taggedObjects.Remove(objectTags);
 	}
 
-	public static bool TryFindFirstObjectWithTag(Tag tag, out GameObject gameObject)
+	public static bool TryFindFirstObjectWithTag(Tag tag, out GameObject go)
 	{
 		foreach (ObjectTags objectTags in _taggedObjects)
 		{
 			if (objectTags.ContainsTag(tag))
 			{
-				gameObject = objectTags.gameObject;
+				go = objectTags.gameObject;
 
 				return true;
 			}
 		}
 
-		gameObject = null;
+		go = null;
 
 		return false;
 	}
 
 	public static bool TryFindFirstObjectWithTag(Tag tag, out Transform t)
 	{
-		GameObject go;
-
-		if (TryFindFirstObjectWithTag(tag, out go))
+		if (TryFindFirstObjectWithTag(tag, out GameObject go))
 		{
 			t = go.transform;
 
