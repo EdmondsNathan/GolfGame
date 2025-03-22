@@ -18,7 +18,7 @@ public static class ObjectTagManager
 		_taggedObjects.Remove(objectTags);
 	}
 
-	//TODO: Refactor to TryFindFirstObjectWithTag(Tag tag, out T component) where T : Component
+	//TODO: Refactor to TryFindFirstObjectWithTag<T>(Tag tag, out T component) where T : Component
 	public static bool TryFindFirstObjectWithTag(Tag tag, out GameObject go)
 	{
 		foreach (ObjectTags objectTags in _taggedObjects)
@@ -63,6 +63,11 @@ public static class ObjectTagManager
 		}
 
 		return objects;
+	}
+
+	public static bool ContainsTag(this GameObject go, Tag tag)
+	{
+		return go.transform.ContainsTag(tag);
 	}
 
 	public static bool ContainsTag(this Component component, Tag tag)
