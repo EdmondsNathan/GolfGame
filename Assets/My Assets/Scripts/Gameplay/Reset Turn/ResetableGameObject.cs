@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ResetableObject : MonoBehaviour
+public class ResetableGameObject : MonoBehaviour
 {
 	#region Private enums
 	private enum ResetBehaviours
@@ -138,18 +138,18 @@ public class ResetableObject : MonoBehaviour
 
 	protected void Start()
 	{
-		//ResetableManager.Instance.AddResetable(this);
+		//ResetableGameObjectManager.Instance.AddResetable(this);
 	}
 
 	protected void OnDestroy()
 	{
 		//Makes sure a new singleton isn't instantiated when unloading the scene
-		if (ResetableManager.IsInstanceNull() == true)
+		if (ResetableGameObjectManager.IsInstanceNull() == true)
 		{
 			return;
 		}
 
-		ResetableManager.Instance.RemoveResetable(this);
+		ResetableGameObjectManager.Instance.RemoveResetable(this);
 	}
 	#endregion
 
@@ -161,17 +161,17 @@ public class ResetableObject : MonoBehaviour
 			return;
 		}
 
-		if (ResetableManager.Instance.ContainsResetable(this) == true)
+		if (ResetableGameObjectManager.Instance.ContainsResetable(this) == true)
 		{
 			return;
 		}
 
-		ResetableManager.Instance.AddResetable(this);
+		ResetableGameObjectManager.Instance.AddResetable(this);
 	}
 
 	private void OnTurnReset(bool countTurn)
 	{
-		if (ResetableManager.Instance.ContainsResetable(this) == true)
+		if (ResetableGameObjectManager.Instance.ContainsResetable(this) == true)
 		{
 			return;
 		}

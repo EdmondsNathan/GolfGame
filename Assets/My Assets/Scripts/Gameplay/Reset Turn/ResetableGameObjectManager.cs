@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
+public class ResetableGameObjectManager : SingletonMonoBehaviour<ResetableGameObjectManager>
 {
 	#region Fields
-	private List<ResetableObject> _resetables = new();
+	private List<ResetableGameObject> _resetables = new();
 	#endregion
 
 	#region Unity methods
@@ -24,7 +24,7 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 
 	protected void Start()
 	{
-		foreach (var resetable in FindObjectsByType<ResetableObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+		foreach (var resetable in FindObjectsByType<ResetableGameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
 		{
 			if (resetable.gameObject.activeSelf == false)
 			{
@@ -60,7 +60,7 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 	#endregion
 
 	#region Public methods
-	public void AddResetable(ResetableObject resetable)
+	public void AddResetable(ResetableGameObject resetable)
 	{
 		if (_resetables.Contains(resetable) == false)
 		{
@@ -68,19 +68,19 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 		}
 	}
 
-	public void RemoveResetable(ResetableObject resetable)
+	public void RemoveResetable(ResetableGameObject resetable)
 	{
 		_resetables.Remove(resetable);
 	}
 
-	public bool ContainsResetable(ResetableObject resetable)
+	public bool ContainsResetable(ResetableGameObject resetable)
 	{
 		return _resetables.Contains(resetable);
 	}
 	#endregion
 
 	#region Private methods
-	private void SaveResetableObject(ResetableObject resetable)
+	private void SaveResetableObject(ResetableGameObject resetable)
 	{
 		resetable.LastPosition = resetable.transform.localPosition;
 
@@ -98,7 +98,7 @@ public class ResetableManager : SingletonMonoBehaviour<ResetableManager>
 		}
 	}
 
-	private void ResetObject(ResetableObject resetable)
+	private void ResetObject(ResetableGameObject resetable)
 	{
 		resetable.transform.localPosition = resetable.LastPosition;
 
