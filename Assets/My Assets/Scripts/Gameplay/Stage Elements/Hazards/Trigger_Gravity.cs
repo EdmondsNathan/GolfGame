@@ -15,6 +15,8 @@ public class Trigger_Gravity : MonoBehaviour
 
 	[SerializeField] private float _forceAmount = 5;
 
+	[SerializeField] private bool _ignoreMass = false;
+
 	[SerializeField] private FalloffFormula _fallOffFormula = FalloffFormula.InverseSquare;
 
 	[SerializeField] private float _falloffStrength = 1;
@@ -52,6 +54,8 @@ public class Trigger_Gravity : MonoBehaviour
 
 				_ => 1
 			};
+
+			_forceDirection *= _ignoreMass ? rb.mass : 1;
 
 			rb.AddForce(_forceAmount * _forceDirection, ForceMode2D.Force);
 		}
