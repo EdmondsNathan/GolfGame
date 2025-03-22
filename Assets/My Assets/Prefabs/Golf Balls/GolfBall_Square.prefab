@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2828827820460978553}
   - component: {fileID: -7401401980787241120}
   - component: {fileID: -559037179922243143}
+  - component: {fileID: -8583377307260240050}
   m_Layer: 3
   m_Name: GolfBall_Square
   m_TagString: Untagged
@@ -189,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72567bdb18f903345882bf3459107973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resetBehaviourIfCreatedThisTurn: 2
 --- !u!114 &-559037179922243143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +204,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Square
+--- !u!114 &-8583377307260240050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4079805884643131490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317516c22f81ab040a9a5d0408eca343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tags: 0500000006000000
