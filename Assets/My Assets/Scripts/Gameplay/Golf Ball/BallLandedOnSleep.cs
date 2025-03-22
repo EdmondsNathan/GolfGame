@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HasBallLanded : MonoBehaviour
+public class BallLandedOnSleep : MonoBehaviour
 {
 	#region Unity methods
 	protected void Update()
