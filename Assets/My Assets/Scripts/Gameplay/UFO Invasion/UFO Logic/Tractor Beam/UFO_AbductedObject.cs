@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-//TODO: Make _abductedObject a rigidbody2D
+//Shelved: Make _abductedObject a rigidbody2D
 public class UFO_AbductedObject : MonoBehaviour
 {
 	#region Fields

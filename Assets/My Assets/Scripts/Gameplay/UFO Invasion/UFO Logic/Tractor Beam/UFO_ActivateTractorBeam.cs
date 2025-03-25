@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: Add event for when the tractor beam is (de)activated
+//Shelved: Add event for when the tractor beam is (de)activated
 public class UFO_ActivateTractorBeam : MonoBehaviour
 {
 	#region Fields

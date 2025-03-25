@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//TODO: Create an enum to switch between different actions when the golf ball enters the trigger. Reset, Respawn and continue, etc.
+//Shelved: Create an enum to switch between different actions when the golf ball enters the trigger. Reset, Respawn and continue, etc.
 public class Trigger_Kill : MonoBehaviour
 {
 	#region Fields
