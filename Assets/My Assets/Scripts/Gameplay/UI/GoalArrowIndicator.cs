@@ -36,7 +36,7 @@ public class GoalArrowIndicator : MonoBehaviour
 				return;
 			}
 
-			Debug.LogError("Goal not found");
+			Debug.LogWarning("Goal not found");
 
 			this.enabled = false;
 		}
