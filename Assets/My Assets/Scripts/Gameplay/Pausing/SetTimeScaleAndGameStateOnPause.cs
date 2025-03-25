@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PauseGame : MonoBehaviour
+public class SetTimeScaleAndGameStateOnPause : MonoBehaviour
 {
 	#region Fields
 	private GameState _lastState;
