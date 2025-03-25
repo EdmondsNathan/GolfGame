@@ -7,7 +7,9 @@ public enum Tag
 	Goal,
 	Ability,
 	DestroyProjectiles,
-	IgnoreKillboxes
+	IgnoreKillboxes,
+	Abductable,
+	GolfBall
 }
 
 public class ObjectTags : MonoBehaviour
