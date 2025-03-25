@@ -42,22 +42,29 @@ public class Trigger_Gravity : MonoBehaviour
 
 	protected void FixedUpdate()
 	{
-		foreach (Rigidbody2D rb in _rigidbodies)
+		for (int i = _rigidbodies.Count - 1; i >= 0; i--)
 		{
-			_forceDirection = ((Vector2)_target.position - rb.position).normalized;
+			if (_rigidbodies[i] == null || _rigidbodies[i].gameObject.activeSelf == false)
+			{
+				_rigidbodies.RemoveAt(i);
+
+				continue;
+			}
+
+			_forceDirection = ((Vector2)_target.position - _rigidbodies[i].position).normalized;
 
 			_forceDirection *= _fallOffFormula switch
 			{
-				FalloffFormula.Linear => _falloffStrength / (1 + Vector2.Distance(rb.position, _target.position)),
+				FalloffFormula.Linear => _falloffStrength / (1 + Vector2.Distance(_rigidbodies[i].position, _target.position)),
 
-				FalloffFormula.InverseSquare => _falloffStrength / (1 + Mathf.Pow(Vector2.Distance(rb.position, _target.position), 2)),
+				FalloffFormula.InverseSquare => _falloffStrength / (1 + Mathf.Pow(Vector2.Distance(_rigidbodies[i].position, _target.position), 2)),
 
 				_ => 1
 			};
 
-			_forceDirection *= _ignoreMass ? rb.mass : 1;
+			_forceDirection *= _ignoreMass ? _rigidbodies[i].mass : 1;
 
-			rb.AddForce(_forceAmount * _forceDirection, ForceMode2D.Force);
+			_rigidbodies[i].AddForce(_forceAmount * _forceDirection, ForceMode2D.Force);
 		}
 	}
 	#endregion

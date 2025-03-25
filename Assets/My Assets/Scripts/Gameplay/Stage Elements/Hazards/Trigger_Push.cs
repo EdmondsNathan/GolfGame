@@ -32,9 +32,16 @@ public class Trigger_Push : MonoBehaviour
 
 	protected void FixedUpdate()
 	{
-		foreach (Rigidbody2D rb in _rigidbodies)
+		//foreach (Rigidbody2D rb in _rigidbodies)
+		for (int i = _rigidbodies.Count - 1; i >= 0; i--)
 		{
-			rb.AddForce(_forceAmount * transform.TransformDirection(_forceDirection), ForceMode2D.Force);
+			if (_rigidbodies[i] == null || _rigidbodies[i].gameObject.activeSelf == false)
+			{
+				_rigidbodies.RemoveAt(i);
+				continue;
+			}
+
+			_rigidbodies[i].AddForce(_forceAmount * transform.TransformDirection(_forceDirection), ForceMode2D.Force);
 		}
 	}
 	#endregion
