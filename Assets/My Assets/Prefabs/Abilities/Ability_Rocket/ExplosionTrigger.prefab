@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3767955640911264549}
   - component: {fileID: 5255316730215184926}
   - component: {fileID: -5402943668819118041}
+  - component: {fileID: 5809450224974648255}
   m_Layer: 0
   m_Name: ExplosionTrigger
   m_TagString: Untagged
@@ -151,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 4499131398381942748}
   _forceAmount: -1000
+  _ignoreMass: 0
   _fallOffFormula: 0
   _falloffStrength: 1
 --- !u!114 &5255316730215184926
@@ -180,3 +182,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resetBehaviourIfCreatedThisTurn: 2
+--- !u!114 &5809450224974648255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127172549825261248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72567bdb18f903345882bf3459107973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resetBehaviourIfCreatedThisTurn: 1
