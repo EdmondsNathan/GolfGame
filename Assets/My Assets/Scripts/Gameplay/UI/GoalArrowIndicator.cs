@@ -31,7 +31,7 @@ public class GoalArrowIndicator : MonoBehaviour
 
 		if (_goal == null)
 		{
-			if (ObjectTagManager.TryFindFirstObjectWithTag(Tag.Goal, out _goal))
+			if (ObjectTagManager.TryFindFirstComponentWithTag(Tag.Goal, out _goal))
 			{
 				return;
 			}
