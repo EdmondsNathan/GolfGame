@@ -60,6 +60,10 @@ public class IncreaseMassAndDragOnTooLongTimer : MonoBehaviour
 
 	private void OnTooLongTimerElapsed()
 	{
+		_startingMass = GetGolfBall.Rigidbody_GolfBall.mass;
+
+		_startingDrag = GetGolfBall.Rigidbody_GolfBall.linearDamping;
+
 		_isElapsed = true;
 	}
 	#endregion
