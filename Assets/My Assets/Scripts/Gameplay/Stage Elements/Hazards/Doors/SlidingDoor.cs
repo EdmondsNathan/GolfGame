@@ -32,12 +32,11 @@ public class SlidingDoor : MonoBehaviour
 
 		_resetableHasFinishedMoving = new ResetableValue<bool>(true);
 		_resetableHasFinishedMoving.Subscribe();
-
-		_target = _resetableIsOpen.Value ? _openPosition : _closedPosition;
 	}
 
 	protected void FixedUpdate()
 	{
+		_target = _resetableIsOpen.Value ? _openPosition : _closedPosition;
 		transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.fixedDeltaTime);
 
 		if (_resetableHasFinishedMoving.Value == true)
