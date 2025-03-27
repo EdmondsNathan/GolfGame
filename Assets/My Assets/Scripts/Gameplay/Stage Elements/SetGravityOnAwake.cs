@@ -1,15 +1,29 @@
 using UnityEngine;
 
-public class SetGravityOnAwake : MonoBehaviour
+public class SetGravityOnAwake : SingletonMonoBehaviour<SetGravityOnAwake>
 {
 	#region Fields
 	[SerializeField] private Vector2 _gravity;
 	#endregion
 
 	#region Unity methods
-	protected void Awake()
+	protected override void Awake()
 	{
-		Physics2D.gravity = _gravity;
+		base.Awake();
+
+		SetGravity(_gravity);
+	}
+	#endregion
+
+	#region Public methods
+	public void SetGravity(Vector2 gravity)
+	{
+		Physics2D.gravity = gravity;
+	}
+
+	public void SetGravity(float gravity)
+	{
+		SetGravity(Vector2.up * gravity);
 	}
 	#endregion
 }
